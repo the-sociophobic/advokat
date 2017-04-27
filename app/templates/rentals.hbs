@@ -1,0 +1,8 @@
+<div class="container">  
+  {{rentals-search}}
+  <ul class="results">
+    {{#each model as |rentalUnit|}}
+      <li>{{rental-listing rental=rentalUnit}}</li>
+    {{/each}}
+  </ul>
+</div>

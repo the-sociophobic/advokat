@@ -1,0 +1,32 @@
+<div class="index-search">  
+  <div id="slider">
+    <figure>
+      <div class="index-search-1"></div>
+      <div class="index-search-2"></div>
+      <div class="index-search-3"></div>
+      <div class="index-search-4"></div>
+      <div class="index-search-1"></div>
+    </figure>
+  </div>
+  <div class="container">
+    <div class="container-search-tab">
+      <input type="radio" id="1" name="selector" checked="checked" {{action 'setVisible' preventDefault=false}}>
+      <label for="1">Купить</label>
+      <input type="radio" id="2" name="selector" {{action 'setVisible' preventDefault=false}}>
+      <label for="2">Продать</label>
+      <input type="radio" id="3" name="selector" {{action 'setInvisible' preventDefault=false}}>
+      <label for="3">Арендовать</label>
+      <input type="radio" id="4" name="selector" {{action 'setInvisible' preventDefault=false}}>
+      <label for="4">Сдать</label>
+    </div>
+    <div class="search">
+      <p style="margin-bottom: -5px">Недвижимость</p>
+      <a href="/rentals">Жилая</a>
+      {{#unless isHidden}}
+        <a href="/rentals">Строящаяся</a>
+      {{/unless}}
+      <a href="/rentals">Коммерческая</a>
+      <a href="/rentals">Загородная</a>
+    </div>
+  </div>
+</div>

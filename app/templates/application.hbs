@@ -1,5 +1,99 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<link rel="icon" href="/public/favicon.ico">
+<div class="page">
+
+  <div class="slogan">
+    <div class="container">
+      <table style="margin-left: 150px">
+        <tr>
+          <td style="width: 270px; text-align: center;">
+            <font face="Century" size="5">АДВОКАТ</font><br>
+            <font face="Century" size="2" color="#555555">АГЕНТСТВО НЕДВИЖИМОСТИ<br>ОСНОВАНО В 1995</font>
+          </td>
+          <td style="width: 434px; text-align: center;">
+            <font face="Century" size="4" color="#555555">ДЛЯ ТЕХ, КТО ЦЕНИТ НАДЕЖНОСТЬ</font>
+          </td>
+          <td style="width: 170px; text-align: right;">
+            <font size="4"><b>+7 (812) 309-28-91</b></font>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="container">
+      {{#link-to 'index'}}
+        <div class="logo-gradient"><div class="logo-letter"></div></div>
+      {{/link-to}}
+      <ul>
+        <li>
+          {{#link-to 'about'}}
+            О КОМПАНИИ
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'services'}}
+            УСЛУГИ
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'rentals'}}
+            КАТАЛОГ
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'jobs'}}
+            ВАКАНСИИ
+          {{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'contact'}}
+            КОНТАКТЫ
+          {{/link-to}}
+        </li>
+      </ul>
+      <button>
+        Заказать звонок
+      </button>
+    </div>      
+  </div>
 
 {{outlet}}
+
+
+
+<div class="invisible footer"></div>
+<div class="absolute footer">
+  <div class="container">
+    <table>
+      <tr>
+        <td>
+          <div class="links">
+            {{#link-to 'services'}}
+              Перечень услуг
+            {{/link-to}}
+          </div>
+        </td>
+        <td>
+          <div class="links">
+            {{#link-to 'rentals'}}
+              Каталог
+            {{/link-to}}
+          </div>
+        </td>
+        <td>
+          <div class="links">
+            {{#link-to 'contact'}}
+              Контакты
+            {{/link-to}}
+          </div>
+        </td>
+        <td>
+          {{location-map location='Санкт-Петербург'}}
+        </td>
+      </tr>
+    </table>
+  </div>  
+</div>
+
+</div>

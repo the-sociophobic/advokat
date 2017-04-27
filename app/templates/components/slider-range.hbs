@@ -1,0 +1,12 @@
+<div class="slider-range" style="width: {{width}}">
+  <div class="slider-button {{if minValueActive "full-area"}}" style="left: calc({{minPos}} * 100% - 11px)"
+       {{action 'minValueMouseDown' on='mouseDown'}} {{action 'minValueMouseUp' on='mouseUp'}} {{action 'minValueMouseMove' on='mouseMove'}}>
+  </div>
+  
+  <div class="slider-range-range" style="left: calc({{minPos}} * 100%); width: calc(({{maxPos}} - {{minPos}}) * 100%)"></div>
+  
+  <div class="slider-button {{if maxValueActive "full-area"}}" style="left: calc({{maxPos}} * 100% - 33px)"
+       {{action 'maxValueMouseDown' on='mouseDown'}} {{action 'maxValueMouseUp' on='mouseUp'}} {{action 'maxValueMouseMove' on='mouseMove'}}>
+  </div>
+</div>
+

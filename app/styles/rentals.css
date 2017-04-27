@@ -1,0 +1,338 @@
+/*rentals-search */
+.rentals-search {
+    height: 185px;
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-top: 0px;
+    border-radius: 0px 0px 5px 5px;
+    overflow: none;
+}
+
+.container-wide {
+    width: 1160px;
+    overflow:auto; 
+}
+.rentals-radio-panel {
+    height: 28px;
+    margin: 20px 0px 10px 35px;
+    border-radius: 5px;
+    float: left;
+    box-shadow: 0px 1px 7px rgba(194, 194, 194, .5);
+}
+
+.rentals-radio-panel:hover {
+    box-shadow: 0px 2px 10px rgba(194, 194, 194, .85);
+}
+
+/* radio */
+.rentals-radio-panel input[type="radio"] {
+    display: none;
+}
+
+.rentals-radio-panel input[type="radio"]:checked + label {
+  color: white;
+  background-color: #39b98f;
+}
+
+.rentals-radio-panel label {
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-left: 0px;
+    width: 140px;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    height: 28px;
+    position: relative;
+    float: left;
+}
+
+.w1 label {
+    width: 119px;
+}
+
+.w2 label {
+    width: 170px;
+}
+
+.w3 label {
+    width: 227px;
+}
+
+.rentals-search .left {
+    border-radius: 5px 0px 0px 5px;
+    border-left: 1px solid #c2c2c2; 
+}
+
+.rentals-search .right {
+    border-radius: 0px 5px 5px 0px; 
+}
+
+/* Slider */
+.slider-range {
+    float: left;
+    height: 22px;
+    opacity: .9999;
+    position: relative;
+}
+
+.slider-range::before {
+    width: 100%;
+    height: 6px;
+    margin-top: 8px;
+    border: 1px solid #c2c2c2;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    box-shadow: inset 0 2px 4px rgba(194, 194, 194, .25);
+}
+
+.slider-range-range {
+    height: 8px;
+    margin: 8px;
+    background: linear-gradient(to bottom, #01ba7e, #39b98f);
+    border: 1px solid #c2c2c2;
+    position: absolute;
+    transition: 0ms;
+}
+
+.slider-button {
+    width: 22px;
+    height: 22px;
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-radius: 32px;
+    position: relative;
+    float: left;
+    box-shadow: 0px 1px 4px rgba(194, 194, 194, .5);
+    z-index: 10;
+    cursor: pointer;
+    transition: 0ms;
+}
+
+.full-area {}
+.full-area::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: 5;
+    cursor: auto;
+}
+
+.slider-button:hover {
+    box-shadow: 0px 1px 8px rgba(194, 194, 194, 7);
+}
+
+/**
+ * Individual Listings
+ */
+.listing-column {
+  display: table-cell;
+  padding: 10px;
+  float: left;
+}
+
+.preview {
+    margin-top: 15px;
+    background-color: #f6f6f6;
+    border-radius: 2px;
+    border: 1px linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+    padding: 15px 50px;
+    min-height: 145px;
+    position: relative;
+    width: 25%;
+}
+
+.listing {
+    margin-top: 0px;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid #c2c2c2;
+    min-height: 150px;
+    position: relative;
+}
+
+.listing:hover {
+    box-shadow: 0px 2px 10px rgba(194, 194, 194, .5);
+}
+
+.listing img {
+    height: 149px;
+    width: 149px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.listing a.image.wide {
+    max-width: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+.listing .wide img {
+    height: initial;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.listing .wide small {
+    display: none;
+}
+
+.listing a.image {
+    max-width: 150px;
+    display: block;
+    cursor: pointer;
+}
+
+.listing small {
+    float: left;
+    display: block;
+    text-align: center;
+    width: 136px;
+}
+
+.listing h3 {
+    padding: 0 15px 0 0;
+}
+
+.listing h3 a {
+    display: inline;
+}
+
+.listing .map {
+    position: absolute;
+    bottom: 13px;
+    right: 50px;
+    height: 120px;
+    width: 120px;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.listing .detail {
+    width: 36%;
+    display: inline-block;
+    padding: 10px 15px 0 0;
+    margin: 0;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.listing .detail span {
+    font-weight: 400;
+    font-style: normal;
+}
+
+.show-listing .title {
+    margin-bottom: 15px;
+}
+
+.show-listing .detail-section {
+    width: 50%;
+    padding-left: 30px;
+}
+
+.show-listing .owner {
+    margin-top: 10px;
+}
+
+.show-listing .rental-pic {
+    width: 50%;
+    height: initial;
+    position: static;
+}
+
+
+/* multiple dropdown */
+.multiple-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.multiple-dropdown-field {
+    height: 28px;
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-radius: 5px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.multiple-dropdown-field::after {
+    width: 9px;
+    height: 6px;
+    background: url(https://image.ibb.co/dawE6Q/arrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .6;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    content: "";
+    float: right;
+    z-index: 100;
+}
+
+.rot-arrow::after {
+  transform: rotate(180deg);
+}
+
+.multiple-dropdown-options {
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-top: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+  /*
+    display: flex;
+    flex-direction: column;
+  */
+    z-index: 100;
+}
+
+.multiple-dropdown-options label {
+    width: 155px;
+    margin: 10px;
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    height: 28px;
+    position: relative;
+    z-index: 100;
+    float: left;
+}
+
+.multiple-dropdown-checked {
+    position: relative;
+    padding: 0px 20px 0px 10px;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.multiple-dropdown input[type="checkbox"] {
+    cursor: pointer;
+    z-index: 100;
+}
+
+.space35 {
+    float: left;
+    margin: 0px 0px 10px 35px;
+    max-height: 50px;
+}
