@@ -63,7 +63,7 @@ export default Ember.Route.extend({
       description: 'тут будет описание',
       image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
 
-      price: 35000000,
+      price: 14600000,
 
       area: 44,
       living_space: 32,
@@ -77,6 +77,27 @@ export default Ember.Route.extend({
       metro: 'Пионерская',
       time_on_transport: '5 минут',
       time_on_foot: '10 минут'
+  }, {
+      type: 'продажа',
+      property_type: 'жилая',
+      category:  'квартира', /* владелец */
+      description: 'тут будет описание',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
+
+      price: 5300000,
+
+      area: 13,
+      living_space: 10,
+      kitchen_space: 3,
+      rooms: 1,
+      floor: 20,
+
+      address: 'Междуреченская 67',
+      latitude: '59.997256',
+      longitude: '30.297199',
+      metro: 'Площадь Александра Невского 2',
+      time_on_transport: '5 минут',
+      time_on_foot: '25 минут'
     }];
   }
 });

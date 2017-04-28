@@ -134,9 +134,11 @@
  * Individual Listings
  */
 .listing-column {
-  display: table-cell;
+  width: calc((100% - 22px) / 6);
   padding: 10px;
   float: left;
+}
+.listing-row {
 }
 
 .preview {
@@ -165,7 +167,7 @@
 
 .listing img {
     height: 149px;
-    width: 149px;
+    width: 100%;
     float: left;
     margin-right: 10px;
     border-radius: 4px 0px 0px 4px;
@@ -188,7 +190,7 @@
 }
 
 .listing a.image {
-    max-width: 150px;
+    max-width: 100%;
     display: block;
     cursor: pointer;
 }
@@ -305,7 +307,7 @@
 }
 
 .multiple-dropdown-options label {
-    width: 155px;
+    width: 215px;
     margin: 10px;
     display: block;
     cursor: pointer;

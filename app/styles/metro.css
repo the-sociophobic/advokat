@@ -44,6 +44,7 @@ https://ibb.co/dSmXd5
 .metro-red, .metro-blue, .metro-green, .metro-orange, .metro-violet {
     margin-left: 3px;
     float: left;
+    margin-left: -17px;
 }
 
 .metro-red::before, .metro-blue::before, .metro-green::before, .metro-orange::before, .metro-violet::before {

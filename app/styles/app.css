@@ -431,9 +431,24 @@ div#slider figure {
 .text-right {
   text-align: right;
 }
+.text-12 {
+  font-size: 12px;
+}
+
+.text-14 {
+  font-size: 14px;
+}
+
+.text-24 {
+  font-size: 24px;
+}
 
 .text-28 {
   font-size: 28px;
+}
+
+.no-padding {
+  padding: 0px;
 }
 
 .hidden {

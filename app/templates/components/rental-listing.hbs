@@ -1,25 +1,28 @@
 <article class="listing">
-  <a {{action 'toggleImageSize'}} class="image {{if isWide "wide"}}">
-    <img src="{{rental.image}}" alt="">
-  </a>
-  <div class="listing-column">
-    <span class="{{metro-logo rental.metro}}">{{rental.metro}}</span>
-    <small>{{rental.time_on_foot}} пешком</small>
-    <span>{{rental.address}}</span>
-  </div>
-  <div class="listing-column text-center">
-    <span>{{rental.rooms}} комнатная</span><br>
-    <span>{{rental.category}}</span>
-  </div>
-  <div class="listing-column">
-  </div>
-  <div class="listing-column text-right">
-    <span class="text-28">{{rental.area}} м²</span><br>
-    <span>Кухня: {{rental.kitchen_space}} м²</span><br>
-    <span> Жилая: {{rental.living_space}} м²</span>
-  </div>
-  <div class="listing-column text-right">
-    <span>Кухня: {{rental.kitchen_space}} м²</span><br>
-    <span> Жилая: {{rental.living_space}} м²</span>
+  <div class="listing-row">
+    <div class="listing-column no-padding">
+      <img src="{{rental.image}}" alt="">
+    </div>
+    <div class="listing-column" style="margin-left: 22px; width: 210px;">
+      <span class="{{metro-logo rental.metro}}">{{rental.metro}}</span><br>
+      <span class="text-12">{{rental.time_on_foot}} пешком</span>
+      <span class="text-14">{{rental.address}}</span>
+    </div>
+    <div class="listing-column">
+      <span>{{rental.rooms}} комнатная</span><br>
+      <span>{{rental.category}}</span>
+    </div>
+    <div class="listing-column">
+      <span>{{price-short rental.price}} руб.</span><br>
+    </div>
+    <div class="listing-column text-right" style="padding-right: 20px">
+      <span class="text-24">{{rental.area}} м²</span><br>
+      <span>кухня {{rental.kitchen_space}} м²</span><br>
+      <span>жилая {{rental.living_space}} м²</span>
+    </div>
+    <div class="listing-column">
+      <span>Агент</span><br>
+      <span>телефон</span>
+    </div>
   </div>
 </article>
