@@ -17,10 +17,12 @@ export default Ember.Component.extend({
       var hehe = this.get('checkedLabels').copy();
       var index = hehe.indexOf(label);
       
-      if (index > -1)
+      if (index > -1) {
         hehe.splice(index, 1);
-      else
+      }
+      else {
         hehe.push(label);
+      }
       this.set('checkedLabels', hehe);
     }
   }

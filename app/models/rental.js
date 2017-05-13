@@ -15,9 +15,7 @@ export default DS.Model.extend({
   category:  DS.attr(), /* владелец */
   description: DS.attr(),
   image: DS.hasMany(),
-  
   price: DS.attr(),
-  category: DS.attr(),
   
   area: DS.attr(),
   living_space: DS.attr(),

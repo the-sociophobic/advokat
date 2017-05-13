@@ -6,13 +6,6 @@ export default Ember.Component.extend({
   minPos: undefined,
   maxPos: undefined,
 
-  decimalPlaces(num) {
-    var match = ('' + num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
-    
-    if (!match) { return 0; }
-      return Math.max(0, (match[1] ? match[1].length : 0) - (match[2] ? +match[2] : 0));
-  },
-
   init() {
     this._super(...arguments);
     this.set('minPos', (this.get('minValue') - this.get('min')) / (this.get('max') - this.get('min')));
@@ -41,10 +34,10 @@ export default Ember.Component.extend({
       if (this.get('minValueActive') && mousePercent >= 0 && mousePercent <= this.get('maxPos') - 0.06)
         {
           this.set('minPos', mousePercent);
-        if (this.get('step') - Math.floor(this.get('step')) > 0)
-          this.set('minValue', (Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );
-        else
-          this.set('minValue',  Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );
+        if (this.get('step') - Math.floor(this.get('step')) > 0) {
+          this.set('minValue', (Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+        else {
+          this.set('minValue',  Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
         }
     },
     
@@ -56,10 +49,10 @@ export default Ember.Component.extend({
       if (this.get('maxValueActive') && mousePercent <= 1 && mousePercent >= this.get('minPos') + 0.06)
       {
         this.set('maxPos', mousePercent);
-        if (this.get('step') - Math.floor(this.get('step')) > 0)
-          this.set('maxValue', (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );
-        else
-          this.set('maxValue',  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );
+        if (this.get('step') - Math.floor(this.get('step')) > 0) {
+          this.set('maxValue', (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+        else {
+          this.set('maxValue',  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
       }
     }
   }

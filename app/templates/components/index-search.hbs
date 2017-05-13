@@ -11,22 +11,22 @@
   <div class="container">
     <div class="container-search-tab">
       <input type="radio" id="1" name="selector" checked="checked" {{action 'setVisible' preventDefault=false}}>
-      <label for="1">Купить</label>
+      <label for="1"><b>КУПИТЬ</b></label>
       <input type="radio" id="2" name="selector" {{action 'setVisible' preventDefault=false}}>
-      <label for="2">Продать</label>
+      <label for="2"><b>ПРОДАТЬ</b></label>
       <input type="radio" id="3" name="selector" {{action 'setInvisible' preventDefault=false}}>
-      <label for="3">Арендовать</label>
+      <label for="3"><b>АРЕНДОВАТЬ</b></label>
       <input type="radio" id="4" name="selector" {{action 'setInvisible' preventDefault=false}}>
-      <label for="4">Сдать</label>
+      <label for="4"><b>СДАТЬ</b></label>
     </div>
     <div class="search">
       <p style="margin-bottom: -5px">Недвижимость</p>
-      <a href="/rentals">Жилая</a>
+      {{#link-to 'rentals'}}<b>ЖИЛАЯ</b>{{/link-to}}
       {{#unless isHidden}}
-        <a href="/rentals">Строящаяся</a>
+        {{#link-to 'rentals'}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
       {{/unless}}
-      <a href="/rentals">Коммерческая</a>
-      <a href="/rentals">Загородная</a>
+      {{#link-to 'rentals'}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+      {{#link-to 'rentals'}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
     </div>
   </div>
 </div>

@@ -1,0 +1,8 @@
+<div class="slider-control" style="width: {{width}}">  
+  <div class="slider-range-range" style="width: calc({{pos}} * 100%)"></div>
+  
+  <div class="slider-button {{if valueActive "full-area"}}" style="left: calc({{pos}} * 100% - 11px)"
+       {{action 'mouseDown' on='mouseDown'}} {{action 'mouseUp' on='mouseUp'}} {{action 'mouseMove' on='mouseMove'}}>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+<div class="index-calc">
+  <div class="container">
+    <a {{action 'toggleRate'}}>Оценить объект</a>
+    <a {{action 'toggleMortgage'}}>Рассчитать ипотеку</a>
+    <button class="right w-300">Заказать сопровождение</button>
+  </div>
+</div>
+
+<div class="index-rate {{if rateHidden "h-0"}}">
+  <div class="container">
+    вбейте каких-нибудь данных...
+  </div>
+</div>
+
+<div class="index-mortgage {{if mortgageHidden "h-0"}}">
+  <div class="container">
+    <div style="width: 50%; float: left; padding: 30px 15px">
+      Первый взнос {{payment}}%   {{slider-control width="450px" min=0 max=100 value=payment step=1}} <br><br>
+      Срок кредита {{term}} лет   {{slider-control width="450px" min=0 max=30 value=term step=1}} <br><br>
+      Процентная ставка {{rate}}% {{slider-control width="450px" min=0 max=100 value=rate step=1}}
+    </div>
+    <div style="width: 50%; float: left; padding: 30px 15px">
+      Размер ипотеки {{input type="nmber" name="ttl" value=total}} рублей <br><br>
+      Ежемесячный платеж {{monthly}} рублей <br><br>
+      Размер кредита {{credit}} рублей <br><br>
+      первый взнос {{first}} рублей
+    </div>
+  </div>
+</div>

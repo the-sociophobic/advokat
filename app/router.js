@@ -14,8 +14,6 @@ Router.map(function() {
   this.route('services');
   this.route('jobs');
   this.route('feedback');
-
-  this.route('index', function() {});
 });
 
 export default Router;
