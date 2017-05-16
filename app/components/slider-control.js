@@ -18,17 +18,20 @@ export default Ember.Component.extend({
     },
     
     mouseMove() {
+      if (!this.get('valueActive'))
+        return;
+      
       var mouseX = event.clientX;
       var offset = event.target.parentElement.getBoundingClientRect().left;
       var mousePercent = (mouseX - offset) / parseInt(this.get('width'), 10); 
 
-      if (this.get('valueActive') && mousePercent >= 0 && mousePercent <= 1)
+      if (mousePercent >= 0 && mousePercent <= 1)
         {
           this.set('pos', mousePercent);
-        if (this.get('step') - Math.floor(this.get('step')) > 0) {
-          this.set('value', (Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
-        else {
-          this.set('value',  Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
+          if (this.get('step') - Math.floor(this.get('step')) > 0) {
+            this.set('value', (Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+          else {
+            this.set('value',  Math.floor((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
         }
     }
   }

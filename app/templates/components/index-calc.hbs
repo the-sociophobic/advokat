@@ -16,14 +16,14 @@
   <div class="container">
     <div style="width: 50%; float: left; padding: 30px 15px">
       Первый взнос {{payment}}%   {{slider-control width="450px" min=0 max=100 value=payment step=1}} <br><br>
-      Срок кредита {{term}} {{numerals-counter term 'год' 'года' 'лет'}}   {{slider-control width="450px" min=0 max=30 value=term step=1}} <br><br>
+      Срок кредита {{term}} {{numerals-counter term 'год' 'года' 'лет'}}   {{slider-control width="450px" min=0 max=15 value=term step=1}} <br><br>
       Процентная ставка {{rate}}% {{slider-control width="450px" min=0 max=100 value=rate step=1}}
     </div>
     <div style="width: 50%; float: left; padding: 30px 15px">
-      Размер ипотеки {{input type="number" name="ttl" value=total min='0'}} {{numerals-counter total 'рубль' 'рубля' 'рублей'}} <br><br>
-      Ежемесячный платеж {{number-spaces monthly}} {{numerals-counter monthly 'рубль' 'рубля' 'рублей'}}<br><br>
-      Размер кредита {{number-spaces credit}} {{numerals-counter credit 'рубль' 'рубля' 'рублей'}}<br><br>
-      первый взнос {{number-spaces first}} {{numerals-counter first 'рубль' 'рубля' 'рублей'}}
+      Размер ипотеки: {{input type="number" name="ttl" value=total min='0'}} {{numerals-counter total 'рубль' 'рубля' 'рублей'}} <br><br>
+      Ежемесячный платеж: {{number-spaces monthly}} {{numerals-counter monthly 'рубль' 'рубля' 'рублей'}}<br><br>
+      Размер кредита: {{number-spaces credit}} {{numerals-counter credit 'рубль' 'рубля' 'рублей'}}<br><br>
+      Первый взнос: {{number-spaces first}} {{numerals-counter first 'рубль' 'рубля' 'рублей'}}
     </div>
   </div>
 </div>

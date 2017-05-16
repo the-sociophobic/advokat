@@ -363,7 +363,9 @@ div#slider figure {
     color: white;
     text-decoration: underline;
     cursor: pointer;
-    margin: 0 70px 0 15px;
+    margin: 0px 70px 0 15px;
+    top: 6px;
+    position: relative;
 }
 
 .index-mortgage {

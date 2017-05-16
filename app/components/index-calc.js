@@ -1,35 +1,33 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  mortgageHidden: false,
+  mortgageHidden: true,
   rateHidden: true,
   payment: undefined,
   term: undefined,
   rate: undefined,
-  monthly: undefined,
-  credit: undefined,
-  first: undefined,
   total: undefined,
+
+  first: Ember.computed('total', 'payment', function() {
+    return (this.get('total') * this.get('payment') / 100).toFixed(); }),
   
-  init() {
-    this._super(...arguments);
-    this.set('payment', 45);
-    this.set('term', 6);
-    this.set('rate', 12);
-    this.set('total', 5350000);
-  },
+  credit: Ember.computed('total', 'first', function() {
+    return (this.get('total') - this.get('first')).toFixed(); }),
   
-  didReceiveAttrs() {
-    this._super(...arguments);
-    this.set('first', this.get('total') * this.get('payment') / 100);
-    this.set('credit', this.get('total') - this.get('first'));
-    
+  monthly: Ember.computed('rate', 'credit', 'term', 'monthly', function() {
     let q = this.get('rate') / 1200 + 1;
     let pow = Math.pow(q, this.get('term') * 12);
     let res = this.get('credit') * pow / (1 + ((pow / q - 1) / (q - 1))) ;
-    this.set('monthly', res.toFixed());
+    return res.toFixed(); }),
+  
+  init() {
+    this._super(...arguments);
+    this.set('payment', 35);
+    this.set('term', 5);
+    this.set('rate', 20);
+    this.set('total', 5000000);
   },
-
+  
   actions: {
     toggleMortgage() {
       this.toggleProperty('mortgageHidden');
