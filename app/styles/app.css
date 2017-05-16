@@ -372,6 +372,18 @@ div#slider figure {
     overflow: hidden;
 }
 
+.index-mortgage input[type=number], 
+.index-mortgage input[type=number] {
+    font-size: 16px;
+    width: 105px;
+}
+
+.index-mortgage input[type=number]::-webkit-inner-spin-button, 
+.index-mortgage input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
 .index-rate {
     height: 200px;
     background: white;
