@@ -1,0 +1,8 @@
+<div class="index-feedback right">
+  Отзывы:
+  <ul class="feedback-results">
+    {{#each model as |feedbackUnit|}}
+      <li>{{feedback-listing feedback=feedbackUnit}}</li>
+    {{/each}}
+  </ul>
+</div>

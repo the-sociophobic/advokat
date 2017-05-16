@@ -1,4 +1,5 @@
-<div class="slider-control" style="width: {{width}}">  
+<div class="slider-control" style="width: {{width}}; cursor: pointer"
+     {{action 'mouseDown' on='mouseDown'}} {{action 'mouseMove' on='mouseDown'}} {{action 'mouseUp' on='mouseUp'}}>  
   <div class="slider-range-range" style="width: calc({{pos}} * 100%)"></div>
   
   <div class="slider-button {{if valueActive "full-area"}}" style="left: calc({{pos}} * 100% - 11px)"
