@@ -1,5 +1,7 @@
 <article class="listing">
-  <img src="{{rental.image}}">
+  {{#each rental.image as |imageUnit|}}
+    <div class="image" style="background: url('{{imageUnit}}')"></div>    
+  {{/each}}
 
   <div class="listing-row" style="height: 100%">
     <div class="listing-row">

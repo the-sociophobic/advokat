@@ -1,0 +1,83 @@
+.multiple-dropdown {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.multiple-dropdown-field {
+    height: 28px;
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-radius: 5px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0px 1px 3px rgba(194, 194, 194, .5);
+}
+
+.multiple-dropdown-field:hover
+{
+    box-shadow: 0px 2px 5px rgba(194, 194, 194, .5);
+}
+
+.multiple-dropdown-field::after {
+    width: 9px;
+    height: 6px;
+    background: url(/assets/images/arrow.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .6;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    content: "";
+    float: right;
+    z-index: 100;
+}
+
+.rot-arrow::after {
+  transform: rotate(180deg);
+}
+
+.multiple-dropdown-options {
+    background-color: white;
+    border: 1px solid #c2c2c2;
+    border-top: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 10;
+  /*
+    display: flex;
+    flex-direction: column;
+  */
+    z-index: 100;
+}
+
+.multiple-dropdown-options label {
+    width: 215px;
+    margin: 10px;
+    display: block;
+    cursor: pointer;
+    text-align: left;
+    height: 28px;
+    position: relative;
+    z-index: 100;
+    float: left;
+}
+
+.multiple-dropdown-checked {
+    position: relative;
+    padding: 0px 20px 0px 10px;
+    float: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.multiple-dropdown input[type="checkbox"] {
+    cursor: pointer;
+    z-index: 100;
+}

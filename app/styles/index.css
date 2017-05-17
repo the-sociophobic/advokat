@@ -1,0 +1,242 @@
+/* SEARCH */
+.index-search {
+    width: 100vw;
+    min-width: 1024px;
+    height: 400px;
+    position: relative;
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.index-search-1, .index-search-2, .index-search-3, .index-search-4 {
+    width: 100vw;
+    min-width: 1024px;
+    height: 400px;
+    opacity: .5;
+    position: relative;
+    float: left; 
+}
+
+.index-search-1 {
+    background: url(/assets/images/index-search-1.jpg);
+    background-size: 100vw 67vw;
+    background-position: 30% 65%;
+}
+.index-search-2 {
+    background: url(/assets/images/index-search-2.jpg);
+    background-size: 100vw 66vw;
+    background-position: 30% 30%;
+}
+.index-search-3 {
+    background: url(/assets/images/index-search-3.jpg);
+    background-size: 100vw 65vw;
+    background-position: 30% 55%;
+}
+.index-search-4 {
+    background: url(/assets/images/index-search-4.jpg);
+    background-size: 100vw 56vw;
+    background-position: 30% 40%; 
+}
+
+/* radio */
+.index-search input[type="radio"] {
+  display: none;
+}
+
+.index-search label {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    width: 253px;
+    height: 32px;
+    margin-right: -37px;
+    background: transparent;
+    border: 0px;
+    position: relative;
+    float: left;
+}
+
+.index-search label::before {
+    border-bottom: 32px solid rgba(57, 185, 143, .7);
+    border-left: 32px solid transparent;
+    border-right: 32px solid transparent;
+    border-top: 0px solid transparent;
+    width: 185px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    z-index: -3;
+}
+
+.index-search label:hover::before {
+    border-bottom: 32px solid rgba(57, 185, 143, .85);
+}
+
+.index-search input[type="radio"]:checked + label::before {
+    border-bottom: 32px solid rgba(255, 255, 255, .9);
+    z-index: -2;
+}
+
+.search {
+    width: 936px;
+    text-align: center;
+    position: relative;
+    top: 228px;
+    left: 44px;
+    z-index: 1; 
+}
+
+.search::before {
+    background-color: rgba(255, 255, 255, .9);
+    height: 80px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    z-index: -2;
+}
+
+.search a {
+    color: black;
+    text-align: center;
+    background-color: white;
+    width: 179px;
+    line-height: 30px;
+    display: block;
+    border-radius: 5px;
+    border: solid 1px #c2c2c2;
+    box-shadow: -7px 4px 5px rgba(194, 194, 194, .7);
+    margin-left: 44px;
+    margin-top: 10px;
+    float: left;
+}
+
+.search a:hover {
+    box-shadow: -1px 1px 5px rgba(194, 194, 194, .8);  
+}
+
+@keyframes slidy {
+0%    { left: 0%; }
+17%   { left: 0%; }
+28%   { left: -100%; }
+42%   { left: -100%; }
+53%   { left: -200%; }
+67%   { left: -200%; }
+78%   { left: -300%; }
+92%   { left: -300%; }
+100%  { left: -400%; }
+}
+
+div#slider {
+    overflow: hidden;
+    height: 400px;
+    margin-bottom: -400px; 
+}
+
+div#slider figure img {
+    width: 20%;
+    height: 400px;
+    float: left;
+}
+
+div#slider figure { 
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    text-align: left;
+    font-size: 0;
+    animation: 40s slidy infinite; 
+}
+
+/* CALC */
+.index-calc {
+    background: rgba(0,0,0,.66);
+    height: 38px;
+    margin-top: -38px;
+    position: relative;
+}
+
+.index-calc a {
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0px 70px 0 15px;
+    top: 6px;
+    position: relative;
+}
+
+.index-mortgage {
+    height: 260px;
+    background: white;
+    overflow: hidden;
+}
+
+.index-mortgage input[type=number], 
+.index-mortgage input[type=number] {
+    font-size: 16px;
+    width: 105px;
+}
+
+.index-mortgage input[type=number]::-webkit-inner-spin-button, 
+.index-mortgage input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.index-rate {
+    height: 200px;
+    background: white;
+    overflow: hidden;
+}
+
+/* ABOUT */
+.index-about {
+    height: 300px;
+    opacity: .9999;
+    position: relative;
+}
+
+.index-about::before {
+    position: absolute;
+    background: url(/assets/images/broken_img.jpg);
+    opacity: .2;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    z-index: -1;
+}
+
+/* FEEDBACK */
+.index-feedback {
+    width: 303px;
+    height: 280px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #c2c2c2;
+    box-shadow: 0px 1px 5px rgba(194, 194, 194, .5);
+    position: relative;
+    text-align: center;
+    right: -3px;
+    top: 7px;
+}
+
+.index-feedback:hover {
+    box-shadow: 0px 2px 10px rgba(194, 194, 194, .5);
+}
+
+ /* LISTING */
+.index-listing {
+    height: 800px;
+}
+/* NEWS */
+.index-news {
+    height: 400px;
+}

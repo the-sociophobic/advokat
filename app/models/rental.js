@@ -10,25 +10,27 @@ export default DS.Model.extend({
   bedrooms: DS.attr(),
   description: DS.attr()
   /* Site */
-  type: DS.attr(),
-  property_type: DS.attr(),
-  category:  DS.attr(), /* владелец */
-  description: DS.attr(),
-  image: DS.hasMany(),
-  price: DS.attr(),
-  
-  area: DS.attr(),
-  living_space: DS.attr(),
-  kitchen_space: DS.attr(),
-  rooms: DS.attr(),
-  floor: DS.attr(),
-  
-  address: DS.attr(),
-  latitude: DS.attr(),
-  longitude: DS.attr(),
-  metro: DS.attr(),
-  time_on_transport: DS.attr(),
-  time_on_foot: DS.attr()
+  type: DS.attr('string'),
+  property_type: DS.attr('string'),
+  category:  DS.attr('string'), /* владелец */
+  description: DS.attr('string'),
+  image: DS.hasMany('string'),
+
+  price: DS.attr('number'),
+
+  area: DS.attr('number'),
+  living_space: DS.attr('number'),
+  kitchen_space: DS.attr('number'),
+  rooms: DS.attr('number'),
+  floor: DS.attr('number'),
+
+  address: DS.attr('string'),
+  district: DS.attr('string'),
+  latitude: DS.attr('string'),
+  longitude: DS.attr('string'),
+  metro: DS.attr('string'),
+  time_on_transport: DS.attr('number'),,
+  time_on_foot: DS.attr('number'),
   
   /* Yandex
   type: DS.attr(),

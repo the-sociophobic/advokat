@@ -1,41 +1,4 @@
-import Ember from 'ember';
-
-export default Ember.Route.extend({
-  /*
-  model() {
-    return [{
-      id: 'grand-old-mansion',
-      title: 'Grand Old Mansion',
-      owner: 'Veruca Salt',
-      city: 'San Francisco',
-      type: 'Estate',
-      bedrooms: 15,
-      image: 'https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg',
-      description: "This grand old mansion sits on over 100 acres of rolling hills and dense redwood forests.",
-      metro: 'Приморская'
-    }, {
-      id: 'urban-living',
-      title: 'Urban Living',
-      owner: 'Mike TV',
-      city: 'Seattle',
-      type: 'Condo',
-      bedrooms: 1,
-      image: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg',
-      description: "A commuters dream. This rental is within walking distance of 2 bus stops and the Metro."
-    }, {
-      id: 'downtown-charm',
-      title: 'Downtown Charm',
-      owner: 'Violet Beauregarde',
-      city: 'Portland',
-      type: 'Apartment',
-      bedrooms: 3,
-      image: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg',
-      description: "Convenience is at your doorstep with this charming downtown rental. Great restaurants and active night life are within a few feet."
-    }];
-  }
-  */
-  model() {
-    return [{
+{
       type: 'продажа',
       property_type: 'жилая',
       category:  'студия', /* владелец */
@@ -57,7 +20,8 @@ export default Ember.Route.extend({
       metro: 'Ломоносовская',
       time_on_transport: 3,
       time_on_foot: 9
-}, {
+}
+{
       type: 'продажа',
       property_type: 'жилая',
       category:  'квартира', /* владелец */
@@ -79,7 +43,8 @@ export default Ember.Route.extend({
       metro: 'Технологический Институт 2',
       time_on_transport: 5,
       time_on_foot: 7
-}, {
+}
+{
       type: 'продажа',
       property_type: 'жилая',
       category:  'квартира', /* владелец */
@@ -101,7 +66,8 @@ export default Ember.Route.extend({
       metro: 'Площадь Александра Невского 2',
       time_on_transport: 5,
       time_on_foot: 25
-}, {
+}
+{
       type: 'аренда',
       property_type: 'жилая',
       category:  'квартира', /* владелец */
@@ -123,7 +89,7 @@ export default Ember.Route.extend({
       metro: 'Проспект Ветеранов',
       time_on_transport: 12,
       time_on_foot: 30
-},{
+}{
       type: 'аренда',
       property_type: 'жилая',
       category:  'дом', /* владелец */
@@ -145,7 +111,7 @@ export default Ember.Route.extend({
       metro: 'Обводной Канал',
       time_on_transport: 11,
       time_on_foot: 14
-},{
+}{
       type: 'аренда',
       property_type: 'жилая',
       category:  'комната', /* владелец */
@@ -167,6 +133,4 @@ export default Ember.Route.extend({
       metro: 'Черная Речка',
       time_on_transport: 9,
       time_on_foot: 13
-}];
-  }
-});
+}

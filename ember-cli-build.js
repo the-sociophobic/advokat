@@ -20,7 +20,13 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
   app.import('vendor/gmaps.js');
+
+  app.import('app/styles/index.css');
   app.import('app/styles/rentals.css');
+  app.import('app/styles/utilities.css');
+  app.import('app/styles/special.css');
+  app.import('app/styles/slider.css');
+  app.import('app/styles/multiple-dropdown.css');
   app.import('app/styles/metro.css');
   
   return app.toTree();
