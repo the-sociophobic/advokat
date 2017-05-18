@@ -1,18 +1,19 @@
 <article class="listing">
-  {{#each rental.image as |imageUnit|}}
-    <div class="image" style="background: url('{{imageUnit}}')"></div>    
-  {{/each}}
+  <div class="image-container">
+    {{#each rental.image as |imageUnit|}}
+      <img src="{{imageUnit}}"/>
+    {{/each}}
+  </div>
 
   <div class="listing-row" style="height: 100%">
     <div class="listing-row">
       <div class="listing-column" style="margin-left: 25px; width: 190px">
         <span class="{{metro-logo rental.metro}}">{{rental.metro}}</span><br>
-        <small>{{rental.time_on_foot}} мин пешком</small><br>
+        <small><i>{{rental.time_on_foot}} мин пешком</i></small><br>
         <span class="text-14">{{rental.address}}</span>
       </div>
       <div class="listing-column" style="width: 140px">
-        <span>{{rental.rooms}} комнатная</span><br>
-        <span>{{rental.category}}</span>
+        <span>{{rental-category-rooms rental.category rental.rooms}}</span>
       </div>
       <div class="listing-column" style="width: 150px">
         <span class="text-20">{{price-short rental.price}} руб.</span><br>

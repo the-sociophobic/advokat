@@ -19,5 +19,15 @@ export default Ember.Component.extend({
     unHide() {
       this.set('isHidden', false);
     }
-  }
+  },
+  didInsertElement() {
+    this._super(...arguments);
+    var images = document.querySelectorAll('.image-container img');
+    
+    for(var i = 0, len = images.length; i < len; i++) {
+      images[i].addEventListener('load', function() {
+        this.className += (this.width > this.height) ? ' landscape' : ' portrait';
+      });
+    }
+  }    
 });

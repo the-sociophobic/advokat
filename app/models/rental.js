@@ -29,7 +29,7 @@ export default DS.Model.extend({
   latitude: DS.attr('string'),
   longitude: DS.attr('string'),
   metro: DS.attr('string'),
-  time_on_transport: DS.attr('number'),,
+  time_on_transport: DS.attr('number'),
   time_on_foot: DS.attr('number'),
   
   /* Yandex
