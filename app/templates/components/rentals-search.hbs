@@ -6,7 +6,7 @@
       <input type="radio" id="2" name="type" {{action 'Hide' preventDefault=false}}>
       <label class="right" for="2">Арендовать</label>
     </div>
-    <div class="rentals-radio-panel w2 {{if isHidden "w3"}}">
+    <div class="rentals-radio-panel w2 {{if isHidden "w4"}}">
       <input type="radio" id="3" name="property-type" checked="checked">
       <label class="left" for="3">Жилая</label>
       {{#unless isHidden}}
@@ -15,12 +15,14 @@
       {{/unless}}
       <input type="radio" id="5" name="property-type">
       <label for="5">Коммерческая</label>
-      <input type="radio" id="6" name="property-type">
-      <label class="right" for="6">Загородная</label>
+      {{#unless isHidden}}
+        <input type="radio" id="6" name="property-type">
+        <label class="right" for="6">Загородная</label>
+      {{/unless}}
     </div>
   </div>
   <div class="space35">
-    <span>Тип: </span>{{multiple-dropdown option=flatType width="200px"}}
+    <span>Тип: </span>{{multiple-dropdown option=livingType width="200px"}}
   </div>
   <div class="space35">
     <span>Район: </span>{{multiple-dropdown option=District width="719px"}}

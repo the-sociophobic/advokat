@@ -25,6 +25,7 @@ export default DS.Model.extend({
   floor: DS.attr('number'),
 
   address: DS.attr('string'),
+  apartment: DS.attr('string'),
   district: DS.attr('string'),
   latitude: DS.attr('string'),
   longitude: DS.attr('string'),
@@ -32,12 +33,19 @@ export default DS.Model.extend({
   time_on_transport: DS.attr('number'),
   time_on_foot: DS.attr('number'),
   
+  name: DS.attr('string'),
+  phone: DS.attr('string'),
+
+  creation_date: DS.attr('date'),
+  last_update_date: DS.attr('date'),
+  expire_date: DS.attr('date')
+
   /* Yandex
   type: DS.attr(),
   property_type: DS.attr(),
   category: DS.attr(),
   commerical_type: DS.attr(),
-  commerical_building_tupe: DS.attr(),
+  commerical_building_type: DS.attr(),
   purpose: DS.attr(),
   purpose_warehouse: DS.attr(),
   lot_number: DS.attr(),

@@ -1,5 +1,5 @@
-<div class="multiple-dropdown" style="width:{{width}}">
-  <div class="multiple-dropdown-field {{if isExpanded "full-area rot-arrow"}}" style="width:{{width}}" {{action 'toggleExpand' preventDefault=false}}>
+<div class="multiple-dropdown" style="width:{{width}}" {{action 'Expand' on="mouseEnter" preventDefault=false}} {{action 'Collapse' on="mouseLeave" preventDefault=false}}>
+  <div class="multiple-dropdown-field {{if isExpanded "rot-arrow"}}" style="width:{{width}}">
     <div class="multiple-dropdown-checked" style="width:calc({{width}} - 5px)">
       {{checkedLabels}}
     </div>

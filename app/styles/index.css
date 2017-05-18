@@ -11,30 +11,68 @@
     width: 100vw;
     min-width: 1024px;
     height: 400px;
-    opacity: .5;
     position: relative;
-    float: left; 
+    float: left;
+    margin-bottom: -400px;
 }
 
 .index-search-1 {
     background: url(/assets/images/index-search-1.jpg);
     background-size: 100vw 67vw;
     background-position: 30% 65%;
+    animation:  40s slide-1 infinite
 }
 .index-search-2 {
     background: url(/assets/images/index-search-2.jpg);
     background-size: 100vw 66vw;
     background-position: 30% 30%;
+    animation:  40s slide-2 infinite
 }
 .index-search-3 {
     background: url(/assets/images/index-search-3.jpg);
     background-size: 100vw 65vw;
     background-position: 30% 55%;
+    animation:  40s slide-3 infinite
 }
 .index-search-4 {
     background: url(/assets/images/index-search-4.jpg);
     background-size: 100vw 56vw;
     background-position: 30% 40%; 
+    animation:  40s slide-4 infinite
+}
+
+@keyframes slide-1 {
+0%    { opacity: .6; }
+17%   { opacity: .6; }
+28%   { opacity: 0; }
+92%   { opacity: 0; }
+100%  { opacity: .6; }
+}
+
+@keyframes slide-2 {
+0%    { opacity: 0; }
+17%   { opacity: 0; }
+28%   { opacity: .6; }
+42%   { opacity: .6; }
+53%   { opacity: 0; }
+100%  { opacity: 0; }
+}
+
+@keyframes slide-3 {
+0%    { opacity: 0; }
+42%   { opacity: 0; }
+53%   { opacity: .6; }
+67%   { opacity: .6; }
+78%   { opacity: 0; }
+100%  { opacity: 0; }
+}
+
+@keyframes slide-4 {
+0%    { opacity: 0; }
+67%   { opacity: 0; }
+78%   { opacity: .6; }
+92%   { opacity: .6; }
+100%  { opacity: 0; }
 }
 
 /* radio */
@@ -53,10 +91,11 @@
     border: 0px;
     position: relative;
     float: left;
+    top: 30px;
 }
 
 .index-search label::before {
-    border-bottom: 32px solid rgba(57, 185, 143, .7);
+    border-bottom: 32px solid rgba(16, 181, 125, .8);
     border-left: 32px solid transparent;
     border-right: 32px solid transparent;
     border-top: 0px solid transparent;
@@ -71,7 +110,7 @@
 }
 
 .index-search label:hover::before {
-    border-bottom: 32px solid rgba(57, 185, 143, .85);
+    border-bottom: 32px solid rgba(16, 181, 125, .85);
 }
 
 .index-search input[type="radio"]:checked + label::before {
@@ -83,14 +122,14 @@
     width: 936px;
     text-align: center;
     position: relative;
-    top: 228px;
+    top: 258px;
     left: 44px;
     z-index: 1; 
 }
 
 .search::before {
     background-color: rgba(255, 255, 255, .9);
-    height: 80px;
+    height: 67px;
     border-radius: 4px;
     position: absolute;
     top: 0;
@@ -116,10 +155,15 @@
     float: left;
 }
 
+.test a {
+    margin-left: 100px;
+}
+
 .search a:hover {
     box-shadow: -1px 1px 5px rgba(194, 194, 194, .8);  
 }
 
+/*
 @keyframes slidy {
 0%    { left: 0%; }
 17%   { left: 0%; }
@@ -153,6 +197,7 @@ div#slider figure {
     font-size: 0;
     animation: 40s slidy infinite; 
 }
+*/
 
 /* CALC */
 .index-calc {
@@ -205,7 +250,7 @@ div#slider figure {
 .index-about::before {
     position: absolute;
     background: url(/assets/images/broken_img.jpg);
-    opacity: .2;
+    opacity: .12;
     top: 0;
     left: 0;
     bottom: 0;

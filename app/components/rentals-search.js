@@ -8,10 +8,22 @@ export default Ember.Component.extend({
   priceMin: 10000000,
   priceMax: 50000000,
   
-  flatType: ['Квартира', 'Комната', 'Студия'],
-  District: ['Адмиралтейский','Василеостровский','Выборгский','Калининский','Кировский','Колпинский','Красногвардейский','Красносельский','Кронштадтский','Курортный','Московский','Невский','Петроградский','Петродворцовый','Приморский','Пушкинский','Фрунзенский','Центральный'],
+  livingType: [' Квартира', ' Комната', ' Студия'],
+  buildingType: [' Квартира'],
+  commericalType: [' Офис', ' Торговые', ' Различного назначения', ' Здания', ' Склады, Гаражи'],
+  countryType: [' Дом', ' Таунхаус', ' Участок'],
+  District: [' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
   
   isHidden: false,
+  fullWidth: false,
+  
+  Wide() {
+    if ($(window).scrollTop() > 128) {
+      this.set('isWide', true);}
+    else {
+      this.set('isWide', false);}
+  },
+  
   actions: {
     Hide() {
       this.set('isHidden', true);
@@ -26,7 +38,7 @@ export default Ember.Component.extend({
     
     for(var i = 0, len = images.length; i < len; i++) {
       images[i].addEventListener('load', function() {
-        this.className += (this.width > this.height) ? ' landscape' : ' portrait';
+        this.className += (this.width / this.height > 240 / 188) ? ' landscape' : ' portrait';
       });
     }
   }    

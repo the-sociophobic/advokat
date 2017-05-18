@@ -23,7 +23,10 @@ export default Ember.Route.extend({
       longitude: '30.297199',
       metro: 'Ломоносовская',
       time_on_transport: 3,
-      time_on_foot: 9
+      time_on_foot: 9,
+  
+      name: 'Татьяна',
+      phone: '+79114560921'
 }, {
       type: 'продажа',
       property_type: 'жилая',
@@ -45,7 +48,11 @@ export default Ember.Route.extend({
       longitude: '30.297199',
       metro: 'Технологический Институт 2',
       time_on_transport: 5,
-      time_on_foot: 7
+      time_on_foot: 7,
+  
+      name: 'Андрей',
+      phone: '+79114560921'
+
 }, {
       type: 'продажа',
       property_type: 'жилая',
@@ -67,7 +74,11 @@ export default Ember.Route.extend({
       longitude: '30.297199',
       metro: 'Площадь Александра Невского 2',
       time_on_transport: 5,
-      time_on_foot: 25
+      time_on_foot: 25,
+  
+      name: 'Оксана',
+      phone: '+79114560921'
+
 }, {
       type: 'аренда',
       property_type: 'жилая',
@@ -89,7 +100,11 @@ export default Ember.Route.extend({
       longitude: '30.297199',
       metro: 'Проспект Ветеранов',
       time_on_transport: 12,
-      time_on_foot: 30
+      time_on_foot: 30,
+  
+      name: 'Ирина',
+      phone: '+79114560921'
+
 },{
       type: 'аренда',
       property_type: 'жилая',
@@ -109,9 +124,13 @@ export default Ember.Route.extend({
       district: 'Невский',
       latitude: '59.997256',
       longitude: '30.297199',
-      metro: 'Обводной Канал',
+      metro: 'Обводный Канал',
       time_on_transport: 11,
-      time_on_foot: 14
+      time_on_foot: 14,
+  
+      name: 'Сергей',
+      phone: '+79114560921'
+
 },{
       type: 'аренда',
       property_type: 'жилая',
@@ -133,7 +152,10 @@ export default Ember.Route.extend({
       longitude: '30.297199',
       metro: 'Черная Речка',
       time_on_transport: 9,
-      time_on_foot: 13
+      time_on_foot: 13,
+  
+      name: 'Багир',
+      phone: '+79114560921'
 }];
   }
 });

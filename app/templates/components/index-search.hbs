@@ -1,13 +1,9 @@
 <div class="index-search">  
-  <div id="slider">
-    <figure>
-      <div class="index-search-1"></div>
-      <div class="index-search-2"></div>
-      <div class="index-search-3"></div>
-      <div class="index-search-4"></div>
-      <div class="index-search-1"></div>
-    </figure>
-  </div>
+  <div class="index-search-1"></div>
+  <div class="index-search-2"></div>
+  <div class="index-search-3"></div>
+  <div class="index-search-4"></div>
+  <div class="index-search-1"></div>
   <div class="container">
     <div class="container-search-tab">
       <input type="radio" id="1" name="selector" checked="checked" {{action 'setVisible' preventDefault=false}}>
@@ -19,14 +15,16 @@
       <input type="radio" id="4" name="selector" {{action 'setInvisible' preventDefault=false}}>
       <label for="4"><b>СДАТЬ</b></label>
     </div>
-    <div class="search">
-      <p style="margin-bottom: -5px">Недвижимость</p>
-      {{#link-to 'rentals'}}<b>ЖИЛАЯ</b>{{/link-to}}
-      {{#unless isHidden}}
-        {{#link-to 'rentals'}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
-      {{/unless}}
-      {{#link-to 'rentals'}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-      {{#link-to 'rentals'}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+    <div class="search {{if isHidden "test"}}">
+      <div class="container-wide" style="padding-bottom: 10px">
+      <p style="margin-bottom: -7px; margin-left: -420px">недвижимость</p>
+        {{#link-to 'rentals'}}<b>ЖИЛАЯ</b>{{/link-to}}
+        {{#unless isHidden}}
+          {{#link-to 'rentals'}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
+        {{/unless}}
+        {{#link-to 'rentals'}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+        {{#link-to 'rentals'}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+      </div>
     </div>
   </div>
 </div>

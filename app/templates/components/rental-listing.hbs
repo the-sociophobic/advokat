@@ -3,6 +3,8 @@
     {{#each rental.image as |imageUnit|}}
       <img src="{{imageUnit}}"/>
     {{/each}}
+    <div class="left-arrow"  {{action 'prevImage'}}></div>
+    <div class="right-arrow" {{action 'nextImage'}}></div>
   </div>
 
   <div class="listing-row" style="height: 100%">
@@ -13,7 +15,7 @@
         <span class="text-14">{{rental.address}}</span>
       </div>
       <div class="listing-column" style="width: 140px">
-        <span>{{rental-category-rooms rental.category rental.rooms}}</span>
+        <span>{{{rental-category-rooms rental.category rental.rooms}}}</span>
       </div>
       <div class="listing-column" style="width: 150px">
         <span class="text-20">{{price-short rental.price}} руб.</span><br>
@@ -21,8 +23,7 @@
       </div>
       <div class="listing-column text-right" style="width: 110px">
         <span class="text-24">{{rental.area}} м²</span><br>
-        <span class="text-14">кухня {{rental.kitchen_space}} м²</span><br>
-        <span class="text-14">жилая {{rental.living_space}} м²</span>
+        <span class="text-14">{{{rental-category-area rental.category rental.living_space rental.kitchen_space}}}</span>
       </div>
     </div>
     <div class="listing-description fade">
@@ -32,9 +33,9 @@
   
   <div class="vertical-line"></div>
 
-  <div class="listing-agent">
-    <span>Агент</span><br>
-    <span>телефон</span>
+  <div class="listing-agent" style="text-align:right">
+    <span>{{rental.phone}}</span><br>
+    <span>{{rental.name}}</span>
     <br><br><br><br>
     <span>Подробнее</span>
   </div>
