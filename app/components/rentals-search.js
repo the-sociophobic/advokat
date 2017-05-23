@@ -1,12 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  roomsMin: 2,
-  roomsMax: 15,
-  areaMin: 50,
-  areaMax: 400,
-  priceMin: 10000000,
-  priceMax: 50000000,
+  roomsMin: undefined,
+  roomsMax: undefined,
+  roomsMinValue: undefined,
+  roomsMaxValue: undefined,
+
+  areaMin: undefined,
+  areaMax: undefined,
+  areaMinValue: undefined,
+  areaMaxValue: undefined,
+
+  priceMin: undefined,
+  priceMax: undefined,
+  priceMinValue: undefined,
+  priceMaxValue: undefined,
   
   livingType: [' Квартира', ' Комната', ' Студия'],
   buildingType: [' Квартира'],
@@ -15,14 +23,23 @@ export default Ember.Component.extend({
   District: [' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
   
   isHidden: false,
-  fullWidth: false,
   
-  Wide() {
-    if ($(window).scrollTop() > 128) {
-      this.set('isWide', true);}
-    else {
-      this.set('isWide', false);}
-  },
+  init() {
+    this._super(...arguments);
+    this.set('roomsMin', Math.min.apply(Math, this.get('rentals').map(function(rental){return rental.rooms;})) );
+    this.set('roomsMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.rooms;})) );
+    this.set('areaMin', Math.min.apply(Math, this.get('rentals').map(function(rental){return rental.area;})) );
+    this.set('areaMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.area;})) );
+    this.set('priceMin', Math.min.apply(Math, this.get('rentals').map(function(rental){return rental.price;})) );
+    this.set('priceMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.price;})) );
+
+    this.set('roomsMinValue', this.get('roomsMin'));
+    this.set('roomsMaxValue', this.get('roomsMax'));
+    this.set('areaMinValue', this.get('areaMin'));
+    this.set('areaMaxValue', this.get('areaMax'));
+    this.set('priceMinValue', this.get('priceMin'));
+    this.set('priceMaxValue', this.get('priceMax'));
+},
   
   actions: {
     Hide() {

@@ -8,6 +8,7 @@ export default Ember.Component.extend({
 
   init() {
     this._super(...arguments);
+
     this.set('minPos', (this.get('minValue') - this.get('min')) / (this.get('max') - this.get('min')));
     this.set('maxPos', (this.get('maxValue') - this.get('min')) / (this.get('max') - this.get('min')));
   },
