@@ -15,7 +15,6 @@ export default Ember.Component.extend({
       
       if (this.get('firstTime')) {
         this.set('firstTime', false);
-        var images = event.target.parentElement.getElementsByTagName("img");
         this.set('length',     images.length);
         this.set('slideIndex', images.length - 1);
 

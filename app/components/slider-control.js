@@ -18,8 +18,8 @@ export default Ember.Component.extend({
     },
     
     mouseMove() {
-      if (!this.get('valueActive'))
-        return;
+      if (!this.get('valueActive')) {
+        return;}
       
       var mouseX = event.clientX;
       var offset = event.target.parentElement.getBoundingClientRect().left;

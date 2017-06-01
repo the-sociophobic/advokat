@@ -4,16 +4,7 @@
     height: 185px;
     margin: auto;
     margin-bottom: 10px;
-    background-color: white;
-    border: 1px solid #c2c2c2;
-    border-top: 0px;
-    border-radius: 0px 0px 5px 5px;
     overflow: none;
-    box-shadow: 0px 1px 5px rgba(194, 194, 194, .5);
-}
-
-.rentals-search:hover {
-    box-shadow: 0px 2px 10px rgba(194, 194, 194, .5);
 }
 
 .search-wide {
@@ -46,7 +37,7 @@
 
 .rentals-radio-panel input[type="radio"]:checked + label {
   color: white;
-  background-color: #39b98f;
+  background-color: #01ba7e;
 }
 
 .rentals-radio-panel label {
@@ -131,15 +122,7 @@
 .listing {
     height: 190px; 
     margin-top: 0px;
-    background-color: white;
-    border-radius: 5px;
-    border: 1px solid #c2c2c2;
     position: relative;
-    box-shadow: 0px 1px 5px rgba(194, 194, 194, .5);
-}
-
-.listing:hover {
-    box-shadow: 0px 2px 10px rgba(194, 194, 194, .5);
 }
 
 .image-container {

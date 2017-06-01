@@ -108,7 +108,12 @@ body {
 
 .menu {
     height: 38px;
+    background-color: white;
     background-color: #e2e2e2;
+  /*
+    border-bottom: 1px solid #c2c2c2;
+    border-top: 1px solid #c2c2c2;
+  */
 }
 
 .menu ul {

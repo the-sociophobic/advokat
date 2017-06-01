@@ -14,17 +14,22 @@
 
 <div class="index-mortgage {{if mortgageHidden "h-0"}}">
   <div class="container">
-    <div style="height: 235px; margin: 15px; border: 1px solid black;">
-      <div style="width: 50%; float: left; padding: 30px 15px">
+    <div class="block" style="height: 235px; margin: 15px;">
+      <div style="width: 55%; float: left; padding: 15px 40px">
         Первый взнос {{payment}}%   {{slider-control width="450px" min=0 max=100 value=payment step=1}} <br><br>
         Срок кредита {{term}} {{numerals-counter term 'год' 'года' 'лет'}}   {{slider-control width="450px" min=0 max=15 value=term step=1}} <br><br>
         Процентная ставка {{rate}}% {{slider-control width="450px" min=0 max=100 value=rate step=1}}
       </div>
-      <div style="width: 50%; float: left; padding: 30px 15px">
-        Цена недвижимости: {{input type="number" name="ttl" value=total min='0'}} {{numerals-counter total 'рубль' 'рубля' 'рублей'}} <br><br>
-        Ежемесячный платеж: {{number-spaces monthly}} {{numerals-counter monthly 'рубль' 'рубля' 'рублей'}}<br><br>
-        Размер кредита:<br> {{number-spaces credit}} {{numerals-counter credit 'рубль' 'рубля' 'рублей'}}<br>
-        Первый взнос:<br> {{number-spaces first}} {{numerals-counter first 'рубль' 'рубля' 'рублей'}}
+      <div style="width: 45%; float: left; padding: 15px; text-align: center">
+        <br>
+        Цена недвижимости: {{input type="number" name="ttl" value=total min='0'}} ₽<br> <br>
+        Ежемесячный платеж: {{number-spaces monthly}} ₽<br><br>
+        <div style="width: 50%; float: left; padding: 15px">
+          Размер кредита:<br> {{number-spaces credit}} ₽<br>
+        </div>
+        <div style="width: 50%; float: left; padding: 15px">
+          Первый взнос:<br> {{number-spaces first}} ₽
+        </div>
       </div>
     </div>
   </div>

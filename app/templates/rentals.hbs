@@ -1,6 +1,6 @@
 {{rentals-search rentals=model}}
 <div class="container">  
-  <div class="text-center">Найдено {{rentals-counter model.length}}</div>
+  <div class="text-center">Найдено {{model.length}} {{numerals-counter model.length 'предложение' 'предложения' 'предложений'}}</div>
   <ul class="results">
     {{#each model as |rentalUnit|}}
       <li>{{rental-listing rental=rentalUnit}}</li>

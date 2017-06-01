@@ -26,19 +26,19 @@ export default Ember.Component.extend({
   
   init() {
     this._super(...arguments);
-    this.set('roomsMin', Math.min.apply(Math, this.get('rentals').map(function(rental){return rental.rooms;})) );
-    this.set('roomsMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.rooms;})) );
-    this.set('areaMin', Math.min.apply(Math, this.get('rentals').map(function(rental){return rental.area;})) );
-    this.set('areaMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.area;})) );
-    this.set('priceMin', Math.min.apply(Math, this.get('rentals').map(function(rental){return rental.price;})) );
-    this.set('priceMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.price;})) );
+    this.set('roomsMin', 1);
+    this.set('roomsMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.rooms;})) + 1);
+    this.set('areaMin', 0);
+    this.set('areaMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.area;})) + 10);
+    this.set('priceMin', 1);
+    this.set('priceMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.price;})) + 100000);
 
     this.set('roomsMinValue', this.get('roomsMin'));
-    this.set('roomsMaxValue', this.get('roomsMax'));
+    this.set('roomsMaxValue', this.get('roomsMax') - 1);
     this.set('areaMinValue', this.get('areaMin'));
-    this.set('areaMaxValue', this.get('areaMax'));
+    this.set('areaMaxValue', this.get('areaMax') - 10);
     this.set('priceMinValue', this.get('priceMin'));
-    this.set('priceMaxValue', this.get('priceMax'));
+    this.set('priceMaxValue', this.get('priceMax') - 100000);
 },
   
   actions: {
