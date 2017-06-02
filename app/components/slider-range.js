@@ -32,13 +32,13 @@ export default Ember.Component.extend({
       var offset = event.target.parentElement.getBoundingClientRect().left;
       var mousePercent = (mouseX - offset) / parseInt(this.get('width'), 10); 
 
-      if (this.get('minValueActive') && mousePercent >= 0 && mousePercent <= this.get('maxPos') - 0.07)
+      if (this.get('minValueActive') && mousePercent >= 0 && mousePercent <= this.get('maxPos') - 0.08)
         {
           this.set('minPos', mousePercent);
         if (this.get('step') - Math.floor(this.get('step')) > 0) {
-          this.set('minValue', (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+          this.set('minValue', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
         else {
-          this.set('minValue', Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
+          this.set('minValue', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
         }
     },
     
@@ -51,9 +51,9 @@ export default Ember.Component.extend({
       {
         this.set('maxPos', mousePercent);
         if (this.get('step') - Math.floor(this.get('step')) > 0) {
-          this.set('maxValue', (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+          this.set('maxValue', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
         else {
-          this.set('maxValue',  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
+          this.set('maxValue', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
       }
     }
   }
