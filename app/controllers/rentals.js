@@ -1,18 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  session: Ember.inject.service('session'),
-  errorMessage: 'loool ne rabptait',
-
   queryParams: ['category'],
   category: null,
-  
-  activate: function() {
-    this.get('session').authenticate('authenticator:oauth2', 'admin', 'dermo321').catch((reason) => {
-        this.set('errorMessage', reason.error || reason);
-    });
-  },
-  
+    
   actions:  {
     filterByCity(param) {
       if (param !== '') {
@@ -21,5 +12,15 @@ export default Ember.Controller.extend({
         return this.get('store').findAll('rental');
       }
     }
+  },
+/*
+  session: Ember.inject.service('session'),
+  errorMessage: 'loool ne rabptait',
+
+  activate: function() {
+    this.get('session').authenticate('authenticator:oauth2', 'admin', 'dermo321').catch((reason) => {
+        this.set('errorMessage', reason.error || reason);
+    });
   }
+*/  
 });

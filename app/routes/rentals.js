@@ -4,6 +4,6 @@ export default Ember.Route.extend({
   title: 'Агентство Адвокат',
   
   model() {    
-    return this.get('store').findAll('rental');
+    return $.get('http://agentstvo-adv.ru:8080/test/rentals').findAll('rental');
   }
 });
