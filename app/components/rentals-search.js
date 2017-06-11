@@ -27,11 +27,11 @@ export default Ember.Component.extend({
   init() {
     this._super(...arguments);
     this.set('roomsMin', 1);
-    this.set('roomsMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.rooms;})) + 1);
+    this.set('roomsMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.rooms; })) + 1*/ 10);
     this.set('areaMin', 0);
-    this.set('areaMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.area;})) + 10);
+    this.set('areaMax',  /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.area;  })) + 10*/ 100);
     this.set('priceMin', 1);
-    this.set('priceMax', Math.max.apply(Math, this.get('rentals').map(function(rental){return rental.price;})) + 100000);
+    this.set('priceMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 30000000);
 
     this.set('roomsMinValue', this.get('roomsMin'));
     this.set('roomsMaxValue', this.get('roomsMax') - 1);
@@ -55,8 +55,7 @@ export default Ember.Component.extend({
     
     for(var i = 0, len = images.length; i < len; i++) {
       images[i].addEventListener('load', function() {
-        this.className += (this.width / this.height > 240 / 188) ? ' landscape' : ' portrait';
-      });
+        this.className += (this.width / this.height > 240 / 188) ? ' landscape' : ' portrait'; });
     }
   }    
 });

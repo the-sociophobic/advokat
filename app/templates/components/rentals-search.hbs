@@ -38,3 +38,12 @@
     {{slider-range width="294px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=100000}}
   </div>
 </div>
+
+<div class="container">  
+  <div class="text-center">Найдено {{rentals.length}} {{numerals-counter rentals.length 'предложение' 'предложения' 'предложений'}}</div>
+  <ul class="results">
+    {{#each rentals as |rental|}}
+      <li>{{rental-listing rental=rental}}</li>
+    {{/each}}
+  </ul>
+</div>

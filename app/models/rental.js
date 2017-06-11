@@ -10,35 +10,35 @@ export default DS.Model.extend({
   bedrooms: DS.attr(),
   description: DS.attr()
   /* Site */
-  type: DS.attr('string'),
-  property_type: DS.attr('string'),
-  category:  DS.attr('string'), /* владелец */
-  description: DS.attr('string'),
-  image: DS.hasMany('string'),
+  type: DS.attr(),
+  property_type: DS.attr(),
+  category:  DS.attr(),
+  description: DS.attr(),
+  images: DS.hasMany('image', { async: true }),
 
-  price: DS.attr('number'),
+  price: DS.attr(),
 
-  area: DS.attr('number'),
-  living_space: DS.attr('number'),
-  kitchen_space: DS.attr('number'),
-  rooms: DS.attr('number'),
-  floor: DS.attr('number'),
+  area: DS.attr(),
+  living_space: DS.attr(),
+  kitchen_space: DS.attr(),
+  rooms: DS.attr(),
+  floor: DS.attr(),
 
-  address: DS.attr('string'),
-  apartment: DS.attr('string'),
-  district: DS.attr('string'),
-  latitude: DS.attr('string'),
-  longitude: DS.attr('string'),
-  metro: DS.attr('string'),
-  time_on_transport: DS.attr('number'),
-  time_on_foot: DS.attr('number'),
+  address: DS.attr(),
+  apartment: DS.attr(),
+  district: DS.attr(),
+  latitude: DS.attr(),
+  longitude: DS.attr(),
+  metro: DS.attr(),
+  time_on_transport: DS.attr(),
+  time_on_foot: DS.attr(),
   
-  name: DS.attr('string'),
-  phone: DS.attr('string'),
+  name: DS.attr(),
+  phone: DS.attr(),
 
-  creation_date: DS.attr('date'),
-  last_update_date: DS.attr('date'),
-  expire_date: DS.attr('date')
+  creation_date: DS.attr(),
+  last_update_date: DS.attr(),
+  expire_date: DS.attr()
 
   /* Yandex
   type: DS.attr(),
