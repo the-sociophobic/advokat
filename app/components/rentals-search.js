@@ -15,14 +15,20 @@ export default Ember.Component.extend({
   priceMax: undefined,
   priceMinValue: undefined,
   priceMaxValue: undefined,
-  
+    
+  District: [' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
+
   livingType: [' Квартира', ' Комната', ' Студия'],
-  buildingType: [' Квартира'],
+  newType: [' Квартира'],
   commericalType: [' Офис', ' Торговые', ' Различного назначения', ' Здания', ' Склады, Гаражи'],
   countryType: [' Дом', ' Таунхаус', ' Участок'],
-  District: [' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
   
-  isHidden: false,
+  buyCheck:        true,
+  rentCheck:       false,
+  livingCheck:     true,
+  newCheck:        false,
+  commericalCheck: false,
+  countryCheck:    false,
   
   init() {
     this._super(...arguments);
@@ -39,16 +45,43 @@ export default Ember.Component.extend({
     this.set('areaMaxValue', this.get('areaMax') - 10);
     this.set('priceMinValue', this.get('priceMin'));
     this.set('priceMaxValue', this.get('priceMax') - 100000);
-},
+  },
   
   actions: {
-    Hide() {
-      this.set('isHidden', true);
+    buy() {
+      this.set('buyCheck',  true);
+      this.set('rentCheck', false);
     },
-    unHide() {
-      this.set('isHidden', false);
-    }
+    rent() {
+      this.set('buyCheck',  false);
+      this.set('rentCheck', true);
+    },
+    living() {
+      this.set('livingCheck',     true);
+      this.set('newCheck',        false);
+      this.set('commericalCheck', false);
+      this.set('countryCheck',    false);
+    },
+    new() {
+      this.set('livingCheck',     false);
+      this.set('newCheck',        true);
+      this.set('commericalCheck', false);
+      this.set('countryCheck',    false);
+    },
+    commerical() {
+      this.set('livingCheck',     false);
+      this.set('newCheck',        false);
+      this.set('commericalCheck', true);
+      this.set('countryCheck',    false);
+    },
+    country() {
+      this.set('livingCheck',     false);
+      this.set('newCheck',        false);
+      this.set('commericalCheck', false);
+      this.set('countryCheck',    true);
+    }    
   },
+  
   didInsertElement() {
     this._super(...arguments);
     var images = document.querySelectorAll('.image-container img');

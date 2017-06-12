@@ -1,8 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['category'],
-  category: null,
+  queryParams: ['type', 'property-type'],
+  type: 'buy',
+  propertyType: 'living',
+
   actions: {
     filterByCity(param) {
       if (param !== '') {
