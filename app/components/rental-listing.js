@@ -6,6 +6,16 @@ export default Ember.Component.extend({
   firstTime: true,
   length: undefined,
   
+  didInsertElement() {
+    this._super(...arguments);
+    var images = document.querySelectorAll('.image-container img');
+    
+    for(var i = 0, len = images.length; i < len; i++) {
+      images[i].addEventListener('load', function() {
+        this.className += (this.width / this.height > 240 / 188) ? ' landscape' : ' portrait'; });
+    }
+  },
+  
   actions: {
     toggleImageSize() {
       this.toggleProperty('isWide');

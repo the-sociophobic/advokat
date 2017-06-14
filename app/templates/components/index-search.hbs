@@ -6,24 +6,36 @@
   <div class="index-search-1"></div>
   <div class="container">
     <div class="container-search-tab">
-      <input type="radio" id="1" name="selector" checked="checked" {{action 'setVisible' preventDefault=false}}>
-      <label for="1"><b>КУПИТЬ</b></label>
-      <input type="radio" id="2" name="selector" {{action 'setVisible' preventDefault=false}}>
-      <label for="2"><b>ПРОДАТЬ</b></label>
-      <input type="radio" id="3" name="selector" {{action 'setInvisible' preventDefault=false}}>
-      <label for="3"><b>АРЕНДОВАТЬ</b></label>
-      <input type="radio" id="4" name="selector" {{action 'setInvisible' preventDefault=false}}>
-      <label for="4"><b>СДАТЬ</b></label>
+      {{radio-button classs='index-radio' checkedClass='index-radio-checked' checked=buyCheck    label='КУПИТЬ'     onCheck=(action 'buy')}}
+      {{radio-button classs='index-radio' checkedClass='index-radio-checked' checked=sellCheck   label='ПРОДАТЬ'    onCheck=(action 'sell')}}
+      {{radio-button classs='index-radio' checkedClass='index-radio-checked' checked=rentCheck   label='АРЕНДОВАТЬ' onCheck=(action 'rent')}}
+      {{radio-button classs='index-radio' checkedClass='index-radio-checked' checked=toRentCheck label='СДАТЬ'      onCheck=(action 'toRent')}}
     </div>
     <div class="search {{if isHidden "test"}}">
       <div class="container-wide" style="padding-bottom: 10px">
       <p style="margin-bottom: -7px; margin-left: -420px">недвижимость</p>
-        {{#link-to 'rentals'}}<b>ЖИЛАЯ</b>{{/link-to}}
-        {{#unless isHidden}}
-          {{#link-to 'rentals'}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
-        {{/unless}}
-        {{#link-to 'rentals'}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-        {{#link-to 'rentals'}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+        {{#if buyCheck}}
+          {{#link-to 'rentals' (query-params type='buy' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+        {{/if}}
+        {{#if sellCheck}}
+          {{#link-to 'rentals' (query-params type='buy' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+        {{/if}}
+        {{#if rentCheck}}
+          {{#link-to 'rentals' (query-params type='rent' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='rent' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='rent' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+        {{/if}}
+        {{#if toRentCheck}}
+          {{#link-to 'rentals' (query-params type='buy' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='buy' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+        {{/if}}
       </div>
     </div>
   </div>

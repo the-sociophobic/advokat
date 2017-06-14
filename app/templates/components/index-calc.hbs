@@ -6,11 +6,15 @@
   </div>
 </div>
 
-<div class="index-rate {{if rateHidden "h-0"}}">
-  <div class="container">
-    вбейте каких-нибудь данных...
+
+{{#unless rateHidden}}
+  <div class='popup-background' {{action 'toggleRate'}}></div>
+  <div class='popup'>
+    Ф.И.О. {{input type="text" value=Name}}<br><br>
+    телефон {{input type="text" value=phone}}<br><br>
+    email {{input type="text" value=email}}<br><br> 
   </div>
-</div>
+{{/unless}}
 
 <div class="index-mortgage {{if mortgageHidden "h-0"}}">
   <div class="container">

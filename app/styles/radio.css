@@ -1,0 +1,110 @@
+.container-wide {
+    width: 1360px;
+    overflow:auto; 
+}
+/* index-search */
+.index-radio {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    width: 253px;
+    height: 32px;
+    margin-right: -37px;
+    background: transparent;
+    border: 0px;
+    position: relative;
+    float: left;
+    top: 30px;
+}
+
+.index-radio::before {
+    border-bottom: 32px solid rgba(16, 181, 125, .8);
+    border-left: 32px solid transparent;
+    border-right: 32px solid transparent;
+    border-top: 0px solid transparent;
+    width: 185px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    content: "";
+    z-index: -3;
+}
+
+.index-radio-checked::before {
+    border-bottom: 32px solid rgba(255, 255, 255, .9);
+    z-index: -2;
+}
+
+/* rentals-search */
+.rentals-radio-panel {
+    height: 28px;
+    margin: 20px 0px 10px 35px;
+    border-radius: 5px; 
+    float: left;
+    overflow: hidden;
+    box-shadow: 0px 1px 5px rgba(194, 194, 194, .5);
+}
+
+.rentals-radio-panel:hover {
+    box-shadow: 0px 2px 10px rgba(194, 194, 194, .5);
+}
+
+.rentals-radio {
+    background-color: white;
+    width: 140px;
+    border: 1px solid #c2c2c2;
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    height: 28px;
+    position: relative;
+    float: left;
+}
+
+.rentals-radio-checked {
+  color: white;
+  background-color: #01ba7e;
+}
+
+.w1 {
+    width: 238px;
+}
+
+.w2 {
+    width: 680px;
+}
+
+.w3 {
+    width: 681px;
+}
+
+.w1 .rentals-radio {
+    width: 119px;
+}
+
+.w2 .rentals-radio {
+    width: 170px;
+}
+
+.w3 .rentals-radio {
+    width: 227px;
+}
+
+.w4 .rentals-radio {
+    width: 340px;
+}
+
+.radio-left {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.radio-right {
+    border-radius: 0px 5px 5px 0px; 
+    border-left: 0px; 
+}
+
+.radio-center {
+    border-left: 0px; 
+}

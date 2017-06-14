@@ -30,12 +30,12 @@ export default function() {
       type: 'rentals',
       id: 1,
       attributes: {
-        type: 'продажа',
-        property_type: 'жилая',
+        type: 'sell',
+        property_type: 'living',
         category:  'студия',
         description: 'принцип относительности заключается в относительной полезности обсуждения полезности относительного принципа относительно абсолютного стол рыба фонарь аптека улица градусник',
 
-        price: 35000000,
+        price: 21000000,
 
         area: 44,
         living_space: 32,
@@ -69,8 +69,8 @@ export default function() {
       type: 'rentals',
       id: 2,
       attributes: {
-        type: 'продажа',
-        property_type: 'жилая',
+        type: 'sell',
+        property_type: 'living',
         category:  'квартира',
         description: 'Те, кому когда-либо приходилось делать в квартире ремонт, наверное, обращали внимание на старые газеты, наклеенные под обоями. Как правило, пока все статьи не перечитаешь, ничего другого делать не можешь. Интересно же — обрывки текста, чья-то жизнь... Так же и с рыбой. Пока заказчик не прочтет всё, он не успокоится. Бывали случаи, когда дизайн принимался именно из-за рыбного текста, который, разумеется, никакого отношения к работе не имел.',
 
@@ -106,8 +106,8 @@ export default function() {
       type: 'rentals',
       id: 3,
       attributes: {
-        type: 'продажа',
-        property_type: 'жилая',
+        type: 'sell',
+        property_type: 'commerical',
         category:  'квартира',
         description: 'Принцип восприятия непредвзято создает паллиативный интеллект, условно. Концепция ментально оспособляет закон внешнего мира. Сомнение раскладывает на элементы неоднозначный структурализм. Смысл жизни профанирует принцип восприятия, отрицая очевидное. Жизнь философски ассоциирует напряженный постмодернизм. Объект деятельности означает конфликт. Согласно предыдущему, конфликт, в рамках сегодняшних воззрений, ясен не всем.',
 
@@ -143,19 +143,18 @@ export default function() {
       type: 'rentals',
       id: 4,
       attributes: {
-        type: 'аренда',
-        property_type: 'жилая',
-        category:  'квартира',
+        type: 'rent',
+        property_type: 'country',
+        category:  'дом',
         description: 'хахахахаххахахахахаххаахаххахахаххахахаххахха',
 
         price: 700000,
 
-        area: 200,
-        living_space: 190,
-        kitchen_space: 10,
-        rooms: 5,
-        floor: 4,
-
+        area: 43,
+        living_space: 23,
+        rooms: 2,
+        lot_area: 20,
+        
         address: 'Некая ул 5',
         district: 'Московский',
         latitude: '59.997256',
@@ -181,12 +180,12 @@ export default function() {
       type: 'rentals',
       id: 5,
       attributes: {
-        type: 'аренда',
-        property_type: 'жилая',
+        type: 'rent',
+        property_type: 'commerical',
         category:  'дом',
         description: 'что-то с чем-то и кое-чем, таки, вот....',
 
-        price: 70000000,
+        price: 7000000,
 
         area: 83,
         living_space: 70,
@@ -218,8 +217,8 @@ export default function() {
       type: 'rentals',
       id: 6,
       attributes: {
-        type: 'аренда',
-        property_type: 'жилая',
+        type: 'rent',
+        property_type: 'living',
         category:  'комната',
         description: 'маленькая комната с тараканами, крысами и мертвым владельцем',
 
@@ -401,7 +400,36 @@ export default function() {
 
   
   this.get('/rentals', function(db, request) {
-    return { data: rentals };
+    let filteredRentals = rentals.filter(function(i) {
+      let unit = i.attributes;
+      let query = request.queryParams;
+      /*
+      let district = false;
+      
+      if (query.district.length == 0) { return true; }
+      
+      for(let j = 0; j < query.district.length; j++)
+        if (query.district[j] == )
+        */
+      if (query.category == 'commerical') {
+        return (unit.type == query.type) &&
+               (unit.property_type == query.category) &&
+               (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
+               (unit.price >= query.priceMin && unit.price <= query.priceMax); }
+      else if (query.category  == 'country') {
+        return (unit.type == query.type) &&
+               (unit.property_type == query.category) &&
+               (unit.lot_area >= query.lotMin && unit.lot_area <= query.lotMax) &&
+               (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
+               (unit.price >= query.priceMin && unit.price <= query.priceMax); }
+      else {
+        return (unit.type == query.type) &&
+               (unit.property_type == query.category) &&
+               (unit.rooms >= query.roomsMin && unit.rooms <= query.roomsMax) &&
+               (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
+               (unit.price >= query.priceMin && unit.price <= query.priceMax); }
+    });
+    return { data: filteredRentals };
   });
 
   this.get('/rentals/:id', (schema, request) => {
@@ -409,12 +437,14 @@ export default function() {
   });
 
   
-  this.get('/images', function() {
-    return { data: images };
-  });
-  
   this.get('/images/:id', (schema, request) => {
-    return schema.images.find(request.params.id);
+    let image = images.filter(function(i) {
+      if (i.id == request.params.id)
+        return true;
+      return false;
+    });
+    let img = image[0];
+    return { data: img };
   });
   
 }

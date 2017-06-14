@@ -28,33 +28,39 @@ export default Ember.Component.extend({
     },
     
     minValueMouseMove() {
+      if (!this.get('minValueActive')) { return; }
+
       var mouseX = event.clientX;
       var offset = event.target.parentElement.getBoundingClientRect().left;
       var mousePercent = (mouseX - offset) / parseInt(this.get('width'), 10); 
 
-      if (this.get('minValueActive') && mousePercent >= 0 && mousePercent <= this.get('maxPos') - 0.08)
-        {
-          this.set('minPos', mousePercent);
-        if (this.get('step') - Math.floor(this.get('step')) > 0) {
-          this.set('minValue', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
-        else {
-          this.set('minValue', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
-        }
+      if (mousePercent < 0 || mousePercent > this.get('maxPos') - 0.08) { return; }
+
+      this.set('minPos', mousePercent);
+      if (this.get('step') - Math.floor(this.get('step')) > 0) {
+        this.set('minValue', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+      else {
+        this.set('minValue', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
+
+      this.get('commit')();
     },
     
     maxValueMouseMove() {
+      if (!this.get('maxValueActive')) { return; }
+
       var mouseX = event.clientX;
       var offset = event.target.parentElement.getBoundingClientRect().left;
       var mousePercent = (mouseX - offset) / parseInt(this.get('width'), 10); 
 
-      if (this.get('maxValueActive') && mousePercent <= 1 && mousePercent >= this.get('minPos') + 0.08)
-      {
-        this.set('maxPos', mousePercent);
-        if (this.get('step') - Math.floor(this.get('step')) > 0) {
-          this.set('maxValue', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
-        else {
-          this.set('maxValue', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
-      }
+      if (mousePercent > 1 || mousePercent < this.get('minPos') + 0.08) { return; }
+
+      this.set('maxPos', mousePercent);
+      if (this.get('step') - Math.floor(this.get('step')) > 0) {
+        this.set('maxValue', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+      else {
+        this.set('maxValue', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
+
+      this.get('commit')();
     }
   }
 });

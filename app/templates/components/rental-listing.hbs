@@ -19,11 +19,11 @@
       </div>
       <div class="listing-column" style="width: 150px">
         <span class="text-20">{{price-short rental.price}} руб.</span><br>
-        <small>{{price-per-meter rental.price rental.area}} руб./м²</small>
+        <small>{{{price-per-meter rental.price rental.area}}} руб./м²</small>
       </div>
       <div class="listing-column text-right" style="width: 110px">
         <span class="text-24">{{rental.area}} м²</span><br>
-        <span class="text-14">{{{rental-category-area rental.category rental.living_space rental.kitchen_space}}}</span>
+        <span class="text-14">{{{rental-category-area rental.category rental.living_space rental.kitchen_space rental.lot_area}}}</span>
       </div>
     </div>
     <div class="listing-description fade">

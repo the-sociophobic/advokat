@@ -1,56 +1,75 @@
 <div class="rentals-search block block-no-top">
-  <div class="container-wide">
     
-    <div class="rentals-radio-panel w1">
-      <input type='radio' id=1 checked={{buyCheck}} {{action='buy'}}>
-      <label class="left" for=1>Купить</label>
-      
-      <input type='radio' id=2 checked={{rentCheck}} {{action='rent'}}>
-      <label class="right" for=2>Арендовать</label>
-    </div>
-    
-    <div class="rentals-radio-panel w2 {{if rentCheck "w3"}}">
-      <input type="radio" id="3" checked=livingCheck {{action 'living'}}>
-      <label class="left" for="3">Жилая</label>
-      
-      {{#if buyCheck}}
-        <input type="radio" id="4" checked=newCheck {{action 'new'}}>
-        <label for="4">Новостройки</label>
-      {{/if}}
-      
-      <input type="radio" id="5" checked=commericalCheck {{action 'commerical'}}>
-      <label for="5">Коммерческая</label>
-      
-      <input type="radio" id="6" checked=countryCheck {{action 'country'}}>
-      <label class="right" for="6">Загородная</label>
-    </div>
-    
+  <div class="rentals-radio-panel w1">
+    {{radio-button classs='rentals-radio radio-left'   checkedClass='rentals-radio-checked' checked=buyCheck        label='Купить'       onCheck=(action 'buy')       }}
+    {{radio-button classs='rentals-radio radio-right'  checkedClass='rentals-radio-checked' checked=rentCheck       label='Арендовать'   onCheck=(action 'rent')      }}
   </div>
-  
+
+  <div class="rentals-radio-panel w2 {{if rentCheck "w3"}}">
+    {{radio-button classs='rentals-radio radio-left'   checkedClass='rentals-radio-checked' checked=livingCheck     label='Жилая'        onCheck=(action 'living')    }}
+    {{#if buyCheck}}
+    {{radio-button classs='rentals-radio radio-center' checkedClass='rentals-radio-checked' checked=newCheck        label='Новостройки'  onCheck=(action 'new')       }}
+    {{/if}}
+    {{radio-button classs='rentals-radio radio-center' checkedClass='rentals-radio-checked' checked=commericalCheck label='Коммерческая' onCheck=(action 'commerical')}}
+    {{radio-button classs='rentals-radio radio-right'  checkedClass='rentals-radio-checked' checked=countryCheck    label='Загородная'   onCheck=(action 'country')   }}
+  </div>
+      
   <div class="space35">
     <span>Тип: </span>{{multiple-dropdown option=livingType width="200px"}}
   </div>
   <div class="space35">
     <span>Район: </span>{{multiple-dropdown option=District width="719px"}}
   </div>
-  <div class="space35">
-    <span>Кол-во комнат: {{roomsMinValue}} - {{roomsMaxValue}}</span>
-    {{slider-range width="294px" min=roomsMin max=roomsMax minValue=roomsMinValue maxValue=roomsMaxValue step=1}}
+  
+  
+  <div class='rentals-sliders {{if commericalCheck 'h-0'}} {{if countryCheck 'h-0'}}'>
+    <div class="space35">
+      <span>Кол-во комнат: {{roomsMinValue}} - {{roomsMaxValue}}</span>
+      {{slider-range width="294px" min=roomsMin max=roomsMax minValue=roomsMinValue maxValue=roomsMaxValue step=1 commit=(action 'commit')}}
+    </div>
+    <div class="space35">
+      <span>Общая площадь: {{areaMinValue}} - {{areaMaxValue}} м²</span>
+      {{slider-range width="294px" min=areaMin max=areaMax minValue=areaMinValue maxValue=areaMaxValue step=1 commit=(action 'commit')}}
+    </div>
+    <div class="space35">
+      <span>Цена: {{price-short-calm priceMinValue}} - {{price-short-calm priceMaxValue}} млн. рублей</span>
+      {{slider-range width="294px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=100000 commit=(action 'commit')}}
+    </div>
+  </div>  
+
+  <div class='rentals-sliders {{unless commericalCheck 'h-0'}}'>
+    <div class="space35">
+      <span>Общая площадь: {{areaCommericalMinValue}} - {{areaCommericalMaxValue}} м²</span>
+      {{slider-range width="458px" min=areaCommericalMin max=areaCommericalMax minValue=areaCommericalMinValue maxValue=areaCommericalMaxValue step=1 commit=(action 'commit')}}
+    </div>
+    <div class="space35">
+      <span>Цена: {{price-short-calm priceCommericalMinValue}} - {{price-short-calm priceCommericalMaxValue}} млн. рублей</span>
+      {{slider-range width="458px" min=priceCommericalMin max=priceCommericalMax minValue=priceCommericalMinValue maxValue=priceCommericalMaxValue step=100000 commit=(action 'commit')}}
+    </div>
+  </div>  
+
+  <div class='rentals-sliders {{unless countryCheck 'h-0'}}'>
+    <div class="space35">
+      <span>Общая площадь: {{areaCountryMinValue}} - {{areaCountryMaxValue}} м²</span>
+      {{slider-range width="294px" min=areaCountryMin max=areaCountryMax minValue=areaCountryMinValue maxValue=areaCountryMaxValue step=1 commit=(action 'commit')}}
+    </div>
+    <div class="space35">
+      <span>Площадь участка: {{lotMinValue}} - {{lotMaxValue}} м²</span>
+      {{slider-range width="294px" min=lotMin max=lotMax minValue=lotMinValue maxValue=lotMaxValue step=1 commit=(action 'commit')}}
+    </div>
+    <div class="space35">
+      <span>Цена: {{price-short-calm priceCountryMinValue}} - {{price-short-calm priceCountryMaxValue}} млн. рублей</span>
+      {{slider-range width="294px" min=priceCountryMin max=priceCountryMax minValue=priceCountryMinValue maxValue=priceCountryMaxValue step=100000 commit=(action 'commit')}}
+    </div>
   </div>
-  <div class="space35">
-    <span>Общая площадь: {{areaMinValue}} - {{areaMaxValue}} м²</span>
-    {{slider-range width="294px" min=areaMin max=areaMax minValue=areaMinValue maxValue=areaMaxValue step=1}}
-  </div>
-  <div class="space35">
-    <span>Цена: {{price-short-calm priceMinValue}} - {{price-short-calm priceMaxValue}} млн. рублей</span>
-    {{slider-range width="294px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=100000}}
-  </div>
+
 </div>
 
+
 <div class="container">  
-  <div class="text-center">Найдено {{rentals.length}} {{numerals-counter rentals.length 'предложение' 'предложения' 'предложений'}}</div>
+  <div class="text-center">Найдено {{results.length}} {{numerals-counter results.length 'предложение' 'предложения' 'предложений'}}</div>
   <ul class="results">
-    {{#each rentals as |rental|}}
+    {{#each results as |rental|}}
       <li>{{rental-listing rental=rental}}</li>
     {{/each}}
   </ul>

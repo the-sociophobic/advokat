@@ -13,71 +13,12 @@
     position: fixed;
     top: 0;
 }
-/* radio */
-.container-wide {
-    width: 1360px;
-    overflow:auto; 
-}
 
-.rentals-radio-panel {
-    height: 28px;
-    margin: 20px 0px 10px 35px;
-    border-radius: 5px;
-    float: left;
-    box-shadow: 0px 1px 5px rgba(194, 194, 194, .5);
+.rentals-sliders {
+  width: 100%;
+  height: 60px;
+  overflow: hidden;
 }
-
-.rentals-radio-panel:hover {
-    box-shadow: 0px 2px 10px rgba(194, 194, 194, .5);
-}
-
-.rentals-radio-panel input[type="radio"] {
-    display: none;
-}
-
-.rentals-radio-panel input[type="radio"]:checked + label {
-  color: white;
-  background-color: #01ba7e;
-}
-
-.rentals-radio-panel label {
-    background-color: white;
-    border: 1px solid #c2c2c2;
-    border-left: 0px;
-    width: 140px;
-    display: block;
-    cursor: pointer;
-    text-align: center;
-    height: 28px;
-    position: relative;
-    float: left;
-}
-
-.w1 label {
-    width: 119px;
-}
-
-.w2 label {
-    width: 170px;
-}
-
-.w3 label {
-    width: 227px;
-}
-
-.w4 label {
-    width: 340px;
-}
-
-.rentals-search .left {
-    border-radius: 5px 0px 0px 5px;
-    border-left: 1px solid #c2c2c2; 
-}
-
-.rentals-search .right {
-    border-radius: 0px 5px 5px 0px; 
-}
-
 /**
  * Individual Listings
  */
