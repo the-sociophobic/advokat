@@ -1,20 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  slideIndex: 1,
-  firstTime: true,
-  length: undefined,
-  
-  didInsertElement() {
-    this._super(...arguments);
-    var images = document.querySelectorAll('.image-container img');
-    
-    for(var i = 0, len = images.length; i < len; i++) {
-      images[i].addEventListener('load', function() {
-        this.className += (this.width / this.height > 240 / 188) ? ' landscape' : ' portrait'; });
-    }
+export default Ember.Route.extend({
+  model(params) {
+    return this.get('store').findRecord('rental', params.rental_id);
   },
-  
   actions: {
     nextImage() {
       var images = event.target.parentElement.getElementsByTagName("img");

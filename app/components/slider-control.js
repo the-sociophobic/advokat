@@ -29,9 +29,9 @@ export default Ember.Component.extend({
         {
           this.set('pos', mousePercent);
           if (this.get('step') - Math.floor(this.get('step')) > 0) {
-            this.set('value', this.get('min') + (Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
+            this.set('value', this.get('min') + (Math.round((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step')).toFixed(1) );}
           else {
-            this.set('value', this.get('min') +  Math.ceil((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
+            this.set('value', this.get('min') +  Math.round((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
         }
     }
   }

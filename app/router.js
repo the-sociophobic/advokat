@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('about');
   this.route('contact');
   this.route('rentals');
+  this.route('rental', { path: '/rental/:rental_id' });
   this.route('services');
   this.route('jobs');
   this.route('feedback');

@@ -75,18 +75,27 @@
 100%  { opacity: 0; }
 }
 
+.container-search-tab {
+    top: 248px;
+    width: 895px;
+    height: 28px;
+    margin: auto;
+    position: relative;
+    z-index: 100;
+}
+
 .search {
     width: 936px;
     text-align: center;
     position: relative;
-    top: 258px;
+    top:  278px;
     left: 44px;
     z-index: 1; 
 }
 
 .search::before {
     background-color: rgba(255, 255, 255, .9);
-    height: 67px;
+    height: 56px;
     border-radius: 4px;
     position: absolute;
     top: 0;
@@ -102,13 +111,13 @@
     text-align: center;
     background-color: white;
     width: 179px;
-    line-height: 30px;
+    line-height: 24px;
     display: block;
     border-radius: 5px;
     border: solid 1px #c2c2c2;
     box-shadow: -7px 4px 5px rgba(194, 194, 194, .7);
     margin-left: 44px;
-    margin-top: 10px;
+    margin-top: 7px;
     float: left;
 }
 
@@ -119,42 +128,6 @@
 .search a:hover {
     box-shadow: -1px 1px 5px rgba(194, 194, 194, .8);  
 }
-
-/*
-@keyframes slidy {
-0%    { left: 0%; }
-17%   { left: 0%; }
-28%   { left: -100%; }
-42%   { left: -100%; }
-53%   { left: -200%; }
-67%   { left: -200%; }
-78%   { left: -300%; }
-92%   { left: -300%; }
-100%  { left: -400%; }
-}
-
-div#slider {
-    overflow: hidden;
-    height: 400px;
-    margin-bottom: -400px; 
-}
-
-div#slider figure img {
-    width: 20%;
-    height: 400px;
-    float: left;
-}
-
-div#slider figure { 
-    position: relative;
-    width: 500%;
-    margin: 0;
-    left: 0;
-    text-align: left;
-    font-size: 0;
-    animation: 40s slidy infinite; 
-}
-*/
 
 /* CALC */
 .index-calc {
@@ -178,14 +151,14 @@ div#slider figure {
     overflow: hidden;
 }
 
-.index-mortgage input[type=number], 
-.index-mortgage input[type=number] {
+input[type=number], 
+input[type=number] {
     font-size: 16px;
     width: 105px;
 }
 
-.index-mortgage input[type=number]::-webkit-inner-spin-button, 
-.index-mortgage input[type=number]::-webkit-outer-spin-button {
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none; 
     margin: 0; 
 }

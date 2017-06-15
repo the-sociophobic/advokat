@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isExpanded: false,
-  checkedLabels: [],
+  
   actions: {
     toggleExpand() {
       this.toggleProperty('isExpanded');
@@ -14,7 +14,7 @@ export default Ember.Component.extend({
       this.set('isExpanded', false);
     },
     toggleLabel(label) {
-      var hehe = this.get('checkedLabels').copy();
+      var hehe = this.get('checked').copy();
       var index = hehe.indexOf(label);
       
       if (index > -1) {
@@ -23,7 +23,9 @@ export default Ember.Component.extend({
       else {
         hehe.push(label);
       }
-      this.set('checkedLabels', hehe);
+      this.set('checked', hehe);
+      
+      this.get('commit')();
     }
   }
 });

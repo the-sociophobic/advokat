@@ -6,32 +6,38 @@ export default Ember.Controller.extend({
   category: 'living',
   
   actions: {
-    filterByAll(type, category, roomsOrLotMin, roomsOrLotMax, areaMin, areaMax, priceMin, priceMax) {
-      if (category == 'commerical') {
+    filterByAll(type, property_type, roomsOrLotMin, roomsOrLotMax, areaMin, areaMax, priceMin, priceMax, category, district) {
+      if (property_type == 'commerical') {
         return this.get('store').query('rental', { type: type,
-                                                   category: category,
+                                                   property_type: property_type,
                                                    areaMin: areaMin,
                                                    areaMax: areaMax,
                                                    priceMin: priceMin,
-                                                   priceMax: priceMax }); }
-      else if (category == 'country') {
-        return this.get('store').query('rental', { type: type,
+                                                   priceMax: priceMax,
                                                    category: category,
+                                                   district: district }); }
+      else if (property_type == 'country') {
+        return this.get('store').query('rental', { type: type,
+                                                   property_type: property_type,
                                                    lotMin: roomsOrLotMin,
                                                    lotMax: roomsOrLotMax,
                                                    areaMin: areaMin,
                                                    areaMax: areaMax,
                                                    priceMin: priceMin,
-                                                   priceMax: priceMax }); }
+                                                   priceMax: priceMax,
+                                                   category: category,
+                                                   district: district }); }
       else {
         return this.get('store').query('rental', { type: type,
-                                                   category: category,
+                                                   property_type: property_type,
                                                    roomsMin: roomsOrLotMin,
                                                    roomsMax: roomsOrLotMax,
                                                    areaMin: areaMin,
                                                    areaMax: areaMax,
                                                    priceMin: priceMin,
-                                                   priceMax: priceMax }); }
+                                                   priceMax: priceMax,
+                                                   category: category,
+                                                   district: district }); }
     }
   }
 });

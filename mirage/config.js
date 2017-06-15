@@ -35,13 +35,14 @@ export default function() {
         category:  'студия',
         description: 'принцип относительности заключается в относительной полезности обсуждения полезности относительного принципа относительно абсолютного стол рыба фонарь аптека улица градусник',
 
-        price: 21000000,
+        price: 37000000,
 
         area: 44,
         living_space: 32,
         kitchen_space: 12,
         rooms: 2,
         floor: 6,
+        floors_total: 25,
 
         address: 'Динамомашинная 5к1',
         district: 'Адмиралтейский',
@@ -52,7 +53,8 @@ export default function() {
         time_on_foot: 9,
 
         name: 'Татьяна',
-        phone: '+79114560921'
+        phone: '+79114560921',
+        deal_status: 'встречная покупка',
       },
       relationships: {
         images: {
@@ -81,6 +83,7 @@ export default function() {
         kitchen_space: 0,
         rooms: 1,
         floor: 2,
+        floors_total: 25,
 
         address: 'Аэродромная 5к1',
         district: 'Кировский',
@@ -91,7 +94,8 @@ export default function() {
         time_on_foot: 7,
 
         name: 'Андрей',
-        phone: '+79114560921'
+        phone: '+79114560921',
+        deal_status: 'расселение',
       },
       relationships: {
         images: {
@@ -118,6 +122,7 @@ export default function() {
         kitchen_space: 3,
         rooms: 1,
         floor: 20,
+        floors_total: 25,
 
         address: 'Междуреченская 67',
         district: 'Петроградский',
@@ -128,7 +133,8 @@ export default function() {
         time_on_foot: 25,
 
         name: 'Оксана',
-        phone: '+79114560921'
+        phone: '+79114560921',
+        deal_status: 'прямая продажа',
       },
       relationships: {
         images: {
@@ -164,7 +170,8 @@ export default function() {
         time_on_foot: 30,
 
         name: 'Ирина',
-        phone: '+79114560921'
+        phone: '+79114560921',
+        deal_status: 'расселение',
       },
       relationships: {
         images: {
@@ -188,10 +195,12 @@ export default function() {
         price: 7000000,
 
         area: 83,
+        lot_area: 13,
         living_space: 70,
         kitchen_space: 13,
         rooms: 3,
         floor: 3,
+        floors_total: 25,
 
         address: 'Ударников 20/3',
         district: 'Невский',
@@ -202,7 +211,8 @@ export default function() {
         time_on_foot: 14,
 
         name: 'Сергей',
-        phone: '+79114560921'
+        phone: '+79114560921',
+        deal_status: 'встречная покупка',
       },
       relationships: {
         images: {
@@ -229,6 +239,7 @@ export default function() {
         kitchen_space: 0,
         rooms: 1,
         floor: 60,
+        floors_total: 76,
 
         address: 'Суицидная 15',
         district: 'Василеостровский',
@@ -239,7 +250,8 @@ export default function() {
         time_on_foot: 13,
 
         name: 'Багир',
-        phone: '+79114560921'
+        phone: '+79114560921',
+        deal_status: 'прямая продажа',
       },
       relationships: {
         images: { 
@@ -398,33 +410,40 @@ export default function() {
       relationships: { rental: 6 }
     }];
 
-  
+
   this.get('/rentals', function(db, request) {
     let filteredRentals = rentals.filter(function(i) {
       let unit = i.attributes;
       let query = request.queryParams;
-      /*
-      let district = false;
       
-      if (query.district.length == 0) { return true; }
+      if (typeof query.type == 'undefined')
+        return { data: rentals };
+
+      if (query.category != null) {
+        let category = query.category.map(function(value) { return value.toLowerCase(); });
+        if (category.indexOf(' ' + unit.category) == -1)
+          return false;
+      }
+      if (query.district != null) {
+        let district = query.district.map(function(value) { return value.toLowerCase(); });
+        if (district.indexOf(' ' + unit.district.toLowerCase()) == -1)
+          return false;
+      }
       
-      for(let j = 0; j < query.district.length; j++)
-        if (query.district[j] == )
-        */
-      if (query.category == 'commerical') {
+      if (query.property_type == 'commerical') {
         return (unit.type == query.type) &&
-               (unit.property_type == query.category) &&
+               (unit.property_type == query.property_type) &&
                (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
                (unit.price >= query.priceMin && unit.price <= query.priceMax); }
-      else if (query.category  == 'country') {
+      else if (query.property_type  == 'country') {
         return (unit.type == query.type) &&
-               (unit.property_type == query.category) &&
+               (unit.property_type == query.property_type) &&
                (unit.lot_area >= query.lotMin && unit.lot_area <= query.lotMax) &&
                (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
                (unit.price >= query.priceMin && unit.price <= query.priceMax); }
       else {
         return (unit.type == query.type) &&
-               (unit.property_type == query.category) &&
+               (unit.property_type == query.property_type) &&
                (unit.rooms >= query.roomsMin && unit.rooms <= query.roomsMax) &&
                (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
                (unit.price >= query.priceMin && unit.price <= query.priceMax); }
@@ -433,7 +452,13 @@ export default function() {
   });
 
   this.get('/rentals/:id', (schema, request) => {
-    return schema.rentals.find(request.params.id);
+    let rental = rentals.filter(function(i) {
+      if (i.id == request.params.id)
+        return true;
+      return false;
+    });
+    let rent =  rental[0];
+    return { data: rent };
   });
 
   

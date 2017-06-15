@@ -1,11 +1,11 @@
 <div class="multiple-dropdown" style="width:{{width}}" {{action 'Collapse' on="mouseLeave" preventDefault=false}}>
-  <div class="multiple-dropdown-field {{if isExpanded "rot-arrow"}}" style="width:{{width}}" {{action 'Expand' preventDefault=false}}>
+  <div class="multiple-dropdown-field {{if isExpanded "rot-arrow"}}" style="width:{{width}}" {{action 'toggleExpand' preventDefault=false}}>
     <div class="multiple-dropdown-checked" style="width:calc({{width}} - 5px)">
-      {{checkedLabels}}
+      {{checked}}
     </div>
   </div>
   <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{width}}">
-    {{#each option as |Unit|}}
+    {{#each options as |Unit|}}
       <label for="{{Unit}}">
         <input type="checkbox" id="{{Unit}}" {{action 'toggleLabel' Unit on='change' preventDefault=false}}/>
         {{Unit}}

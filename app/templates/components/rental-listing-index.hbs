@@ -1,0 +1,16 @@
+<div class="block rental-listing-index">
+  <div class="image-container">
+    {{#each rental.images as |image|}}
+      <img src="{{image.url}}"/>
+    {{/each}}
+    <div class="left-arrow"  {{action 'prevImage'}}></div>
+    <div class="right-arrow" {{action 'nextImage'}}></div>
+  </div>
+
+  <span>{{rental.rooms}} комн. {{rental.area}} м²</span><br>
+  <span>{{rental.address}}</span><br>
+  <span>{{rental.price}} ₽</span><br>
+    {{#link-to 'rental' rental}}
+      <span>Подробнее</span>
+    {{/link-to}}
+</div>

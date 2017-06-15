@@ -15,11 +15,15 @@
         <span class="text-14">{{rental.address}}</span>
       </div>
       <div class="listing-column" style="width: 140px">
-        <span>{{{rental-category-rooms rental.category rental.rooms}}}</span>
+        <span>{{{rental-category-rooms rental.category rental.rooms}}}</span><br>
+        {{#if rental.floor}}
+          <small>этаж &nbsp; {{rental.floor}}/{{rental.floors_total}}</small>
+        {{/if}}
       </div>
       <div class="listing-column" style="width: 150px">
         <span class="text-20">{{price-short rental.price}} руб.</span><br>
-        <small>{{{price-per-meter rental.price rental.area}}} руб./м²</small>
+        <small>{{{price-per-meter rental.price rental.area}}} руб./м²</small><br>
+        <small>{{rental.deal_status}}</small>
       </div>
       <div class="listing-column text-right" style="width: 110px">
         <span class="text-24">{{rental.area}} м²</span><br>
@@ -37,6 +41,8 @@
     <span>{{rental.phone}}</span><br>
     <span>{{rental.name}}</span>
     <br><br><br><br>
-    <span>Подробнее</span>
+    {{#link-to 'rental' rental}}
+      <span>Подробнее</span>
+    {{/link-to}}
   </div>
 </article>

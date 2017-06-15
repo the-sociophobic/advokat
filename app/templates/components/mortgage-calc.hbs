@@ -1,0 +1,26 @@
+<div class="block" style="height: 235px; margin: 15px 0">
+  <div style="width: 50%; float: left; padding: 15px 40px">
+    Первый взнос {{payment}}%   {{slider-control width="450px " min=0 max=100 value=payment step=1}} <br><br>
+    Срок кредита {{term}} {{numerals-counter term 'год' 'года' 'лет'}}   {{slider-control width="450px" min=1 max=25 value=term step=1}} <br><br>
+    Процентная ставка {{rate}}% {{slider-control width="450px" min=5 max=25 value=rate step=1}}
+  </div>
+  <div style="width: 50%; float: left; padding: 5px; text-align: center">
+    <br>
+    <span class='text-18'>Цена недвижимости: 
+      {{#if input}}
+        {{input type="number" name="ttl" value=total min='0'}} ₽
+      {{else}}
+        {{total}} ₽
+      {{/if}}
+    </span>
+    <div style="text-align: center; padding-top: 32px; padding-bottom: 18px">
+      <span class='text-20'>Ежемесячный платеж: {{number-spaces monthly}} ₽</span>
+    </div>
+    <div style="width: 50%; float: left; padding: 15px">
+      Размер кредита:<br> {{number-spaces credit}} ₽<br>
+    </div>
+    <div style="width: 50%; float: left; padding: 15px">
+      Первый взнос:<br> {{number-spaces first}} ₽
+    </div>
+  </div>
+</div>

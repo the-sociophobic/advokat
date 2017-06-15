@@ -28,5 +28,8 @@
   </div>
 </div>
 
-<div class="index-listing">
+<div class="container">
+  {{#each model as |rental|}}
+    {{rental-listing-index rental=rental}}
+  {{/each}}
 </div>

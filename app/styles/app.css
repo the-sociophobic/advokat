@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: 150ms;
+    /* transition: 150ms; */
 }
 
 body,
@@ -89,15 +89,6 @@ body {
 .container-info {
     width: 936px;
     margin: auto;
-}
-
-.container-search-tab {
-    top: 228px;
-    width: 895px;
-    height: 32px;
-    margin: auto;
-    position: relative;
-    z-index: 100;
 }
 
 .slogan {

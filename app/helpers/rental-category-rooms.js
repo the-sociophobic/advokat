@@ -2,9 +2,15 @@ import Ember from 'ember';
 
 export function rentalCategoryRooms([category, rooms]) {
   if (category === 'квартира') {
-    return rooms + ' комнатная<br>квартира';}
+    return rooms + ' комнатная';}
+  if (category === 'комната') {
+    if (rooms === 1)
+      return 'комната';
+    else
+      return rooms + ' комнатны';
+  }
   if (category === 'дом') {
-    return rooms.toString() + ' комнатный<br>дом';}
+    return 'дом';}
   return category;
 }
 

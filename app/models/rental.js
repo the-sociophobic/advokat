@@ -24,6 +24,7 @@ export default DS.Model.extend({
   kitchen_space: DS.attr(),
   rooms: DS.attr(),
   floor: DS.attr(),
+  floors_total: DS.attr(),
 
   address: DS.attr(),
   apartment: DS.attr(),
@@ -36,6 +37,7 @@ export default DS.Model.extend({
   
   name: DS.attr(),
   phone: DS.attr(),
+  deal_status: DS.attr(),
 
   creation_date: DS.attr(),
   last_update_date: DS.attr(),
