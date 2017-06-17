@@ -62,9 +62,14 @@ button:hover {
     width: 100vw;
     max-width: 1920px;
     min-width: 1024px;
-    min-height: calc(100vh - 100px);
     background: #fbfbfb;
-    overflow-x: hidden !important; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+section.content {
+  flex: 1;
 }
 
 body {

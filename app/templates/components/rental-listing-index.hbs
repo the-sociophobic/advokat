@@ -7,10 +7,14 @@
     <div class="right-arrow" {{action 'nextImage'}}></div>
   </div>
 
-  <span>{{rental.rooms}} комн. {{rental.area}} м²</span><br>
-  <span>{{rental.address}}</span><br>
-  <span>{{rental.price}} ₽</span><br>
-    {{#link-to 'rental' rental}}
-      <span>Подробнее</span>
-    {{/link-to}}
+  <div style='padding: 15px; margin-top: 200px'>
+    {{rental.rooms}} комн. {{rental.area}} м²<br>
+    {{rental.address}}<br>
+    {{rental.price}} ₽<br>
+    <div class="text-right">
+      {{#link-to 'rental' rental}}
+        Подробнее
+      {{/link-to}}
+    </div>
+  </div>
 </div>

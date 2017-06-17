@@ -119,6 +119,7 @@
     margin-left: 44px;
     margin-top: 7px;
     float: left;
+    transition: box-shadow 150ms;
 }
 
 .test a {
@@ -149,6 +150,7 @@
 .index-mortgage {
     height: 264px ;
     overflow: hidden;
+    transition: height 150ms;
 }
 
 input[type=number], 
@@ -208,7 +210,9 @@ input[type=number]::-webkit-outer-spin-button {
 
  /* LISTING */
 .index-listing {
-    height: 800px;
+    margin: 9px -9px;
+    padding-bottom: 675px;
+    position: relative;
 }
 /* NEWS */
 .index-news {

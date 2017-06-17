@@ -269,8 +269,8 @@ export default function() {
       id: 1,
       attributes: {
         url: 'https://pp.userapi.com/c621216/v621216679/2800/vrPtZgGSDBE.jpg',
-        width: 480,
-        height: 200
+        width: 1280,
+        height: 853
       },
       relationships: { rental: 1 }
     },{

@@ -1,11 +1,18 @@
 <div class="container">
-  <div class="block" style="height: 500px; margin: 15px 0; padding: 15px 40px">
+  <div class="block" style="height: 650px; margin: 15px 0; padding: 15px">
     <div style="width: 50%; float: left">
-      ff
+
+      {{image-view images=model.images length=model.images.length}}
+      
     </div>
     <div style="width: 50%; float: left">
-      fff
+      <input type=button name=print value="Print" onClick="window.print()"><br><br>
+      {{model.price}} ₽<br>
+      {{model.area}} м²<br>
+      {{model.address}}<br><br>
+      {{model.description}}
     </div>
   </div>
 {{mortgage-calc total=model.price}}
 </div>
+

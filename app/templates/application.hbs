@@ -1,7 +1,6 @@
 <div class="body">
 
 <div class="page">
-
   <div class="slogan">
     <div class="container">
       <table style="margin-left: 150px">
@@ -60,41 +59,42 @@
     </div>      
   </div>
 
-{{outlet}}
+  <section class="content">  
+    {{outlet}}
+  </section>
 
-</div>
-
-<div class="footer">
-  <div class="container">
-    <table>
-      <tr>
-        <td>
-          <div class="links">
-            {{#link-to 'services'}}
-              Перечень услуг
-            {{/link-to}}
-          </div>
-        </td>
-        <td>
-          <div class="links">
-            {{#link-to 'rentals'}}
-              Каталог
-            {{/link-to}}
-          </div>
-        </td>
-        <td>
-          <div class="links">
-            {{#link-to 'contact'}}
-              Контакты
-            {{/link-to}}
-          </div>
-        </td>
-        <td>
-          {{location-map location='Санкт-Петербург'}}
-        </td>
-      </tr>
-    </table>
-  </div>  
+  <div class="footer">
+    <div class="container">
+      <table>
+        <tr>
+          <td>
+            <div class="links">
+              {{#link-to 'services'}}
+                Перечень услуг
+              {{/link-to}}
+            </div>
+          </td>
+          <td>
+            <div class="links">
+              {{#link-to 'rentals'}}
+                Каталог
+              {{/link-to}}
+            </div>
+          </td>
+          <td>
+            <div class="links">
+              {{#link-to 'contact'}}
+                Контакты
+              {{/link-to}}
+            </div>
+          </td>
+          <td>
+            {{location-map location='Санкт-Петербург'}}
+          </td>
+        </tr>
+      </table>
+    </div>  
+  </div>
 </div>
 
 </div>
