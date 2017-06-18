@@ -205,7 +205,6 @@ export default function() {
 
         rooms: 2,
         area: 43,
-        description: 'хахахахаххахахахахаххаахаххахахаххахахаххахха',
 
         floor: 5,
         floors_total: 8,

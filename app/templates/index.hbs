@@ -1,6 +1,20 @@
 {{index-search}}
 
-{{index-calc}}
+<div class="index-calc">
+  <div class="container">
+    <a {{action 'togglePopup'}}>Оценить объект</a>
+    <a {{action 'toggleMortgage'}}>Рассчитать ипотеку</a>
+    <button class="right w-300">Сопровождение сделки</button>
+  </div>
+</div>
+
+<div class="index-mortgage {{if mortgageHidden "h-0"}}">
+  <div class="container">
+    {{mortgage-calc total=5000000 input=true}}
+  </div>
+</div>
+
+{{callback-form shown=popup}}
 
 <div class="index-about">
   <div class="container">
