@@ -6,18 +6,10 @@
   </div>
 </div>
 
-
-{{#unless rateHidden}}
-  <div class='popup-background' {{action 'toggleRate'}}></div>
-  <div class='popup'>
-    Ф.И.О. {{input type="text" value=Name}}<br><br>
-    телефон {{input type="text" value=phone}}<br><br>
-    email {{input type="text" value=email}}<br><br> 
-  </div>
-{{/unless}}
-
 <div class="index-mortgage {{if mortgageHidden "h-0"}}">
   <div class="container">
     {{mortgage-calc total=5000000 input=true}}
   </div>
 </div>
+
+{{callback-form shown=true}}

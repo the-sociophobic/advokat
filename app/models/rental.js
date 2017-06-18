@@ -10,34 +10,45 @@ export default DS.Model.extend({
   bedrooms: DS.attr(),
   description: DS.attr()
   /* Site */
+  price: DS.attr(),
+
+  name: DS.attr(),
+  phone: DS.attr(),
+  mail: DS.attr(),
+
   type: DS.attr(),
   property_type: DS.attr(),
   category:  DS.attr(),
-  description: DS.attr(),
-  images: DS.hasMany('image', { async: true }),
 
-  price: DS.attr(),
-
-  area: DS.attr(),
-  lot_area: DS.attr(),
-  living_space: DS.attr(),
-  kitchen_space: DS.attr(),
-  rooms: DS.attr(),
-  floor: DS.attr(),
-  floors_total: DS.attr(),
-
-  address: DS.attr(),
-  apartment: DS.attr(),
   district: DS.attr(),
-  latitude: DS.attr(),
-  longitude: DS.attr(),
+
   metro: DS.attr(),
   time_on_transport: DS.attr(),
   time_on_foot: DS.attr(),
   
-  name: DS.attr(),
-  phone: DS.attr(),
+  address: DS.attr(),
+  apartment: DS.attr(),
+  latitude: DS.attr(),
+  longitude: DS.attr(),
+
+  rooms: DS.attr(),
+  area: DS.attr(),
+  living_space: DS.attr(),
+  kitchen_space: DS.attr(),
+  lot_area: DS.attr(),
+
+  floor: DS.attr(),
+  floors_total: DS.attr(),
+
+  building_type: DS.attr(),
+  
   deal_status: DS.attr(),
+
+  description: DS.attr(),
+  
+  special: DS.attr(),
+
+  images: DS.hasMany('image', { async: true }),
 
   creation_date: DS.attr(),
   last_update_date: DS.attr(),

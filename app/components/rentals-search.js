@@ -41,8 +41,10 @@ export default Ember.Component.extend({
   lotMinValue: undefined,
   lotMaxValue: undefined,
     
-  district: [' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
-  districtChecked: [],
+  districtCity: ['Любой', ' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
+  districtCityChecked: [],
+  districtCountry: ['Любой', 'Бокситогорский', 'Волосовский', 'Волховский', 'Всеволожский', 'Выборгский', 'Гатчинский', 'Кингисеппский', 'Киришский', 'Кировский', 'Лодейнопольский', 'Ломоносовский', 'Лужский', 'Подпорожский', 'Приозерский', 'Сланцевский', 'Тихвинский', 'Тосненский'],
+  districtCountryChecked: [],
 
   livingOptions: [' Квартира', ' Комната', ' Студия'],
   livingChecked: [],
@@ -125,7 +127,7 @@ export default Ember.Component.extend({
                          (this.get('priceCommericalMaxValue') > this.get('priceCommericalMax') * 0.998 ? this.get('priceCommericalMax') * 10 : this.get('priceCommericalMaxValue')),
                          
                          this.get('commericalChecked'),
-                         this.get('districtChecked')).then((filterResults) => this.set('results', filterResults)); }
+                         this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
     else if (this.get('category') === 'country') {
       this.get('filter')(this.get('type'),
                          this.get('category'),
@@ -139,7 +141,7 @@ export default Ember.Component.extend({
                          (this.get('priceCountryMaxValue') > this.get('priceCountryMax') * 0.998 ? this.get('priceCountryMax') * 10 : this.get('priceCountryMaxValue')),
 
                          this.get('countryChecked'),
-                         this.get('districtChecked')).then((filterResults) => this.set('results', filterResults)); }
+                         this.get('districtCountryChecked')).then((filterResults) => this.set('results', filterResults)); }
     else {
       this.get('filter')(this.get('type'),
                          this.get('category'),
@@ -154,7 +156,7 @@ export default Ember.Component.extend({
                          (this.get('priceMaxValue') > this.get('priceMax') * 0.998 ? this.get('priceMax') * 10 : this.get('priceMaxValue')),
 
                          this.get(this.get('category') == 'living' ? 'livingChecked' : 'commericalChecked'),
-                         this.get('districtChecked')).then((filterResults) => this.set('results', filterResults)); }
+                         this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
   },
   
   actions: {
@@ -180,51 +182,50 @@ export default Ember.Component.extend({
     },
     
     commit() {
-      if (this.get('category') === 'commerical') {
-        this.get('filter')(this.get('type'),
-                           this.get('category'),
+    if (this.get('category') === 'commerical') {
+      this.get('filter')(this.get('type'),
+                         this.get('category'),
+                         
+                         this.get('roomsMinValue'),
+                         (this.get('roomsMaxValue') > this.get('roomsMax') * 0.998 ? this.get('roomsMax') * 10 : this.get('roomsMaxValue')),
 
-                           this.get('roomsMinValue'),
-                           (this.get('roomsMaxValue') > this.get('roomsMax') * 0.998 ? this.get('roomsMax') * 10 : this.get('roomsMaxValue')),
+                         this.get('areaCommericalMinValue'),
+                         (this.get('areaCommericalMaxValue') > this.get('areaCommericalMax') * 0.998 ? this.get('areaCommericalMax') * 10 : this.get('areaCommericalMaxValue')),
 
-                           this.get('areaCommericalMinValue'),
-                           (this.get('areaCommericalMaxValue') > this.get('areaCommericalMax') * 0.998 ? this.get('areaCommericalMax') * 10 : this.get('areaCommericalMaxValue')),
+                         this.get('priceCommericalMinValue'),
+                         (this.get('priceCommericalMaxValue') > this.get('priceCommericalMax') * 0.998 ? this.get('priceCommericalMax') * 10 : this.get('priceCommericalMaxValue')),
+                         
+                         this.get('commericalChecked'),
+                         this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
+    else if (this.get('category') === 'country') {
+      this.get('filter')(this.get('type'),
+                         this.get('category'),
 
-                           this.get('priceCommericalMinValue'),
-                           (this.get('priceCommericalMaxValue') > this.get('priceCommericalMax') * 0.998 ? this.get('priceCommericalMax') * 10 : this.get('priceCommericalMaxValue')),
+                         0, 99,
 
-                           this.get('commericalChecked'),
-                           this.get('districtChecked')).then((filterResults) => this.set('results', filterResults)); }
-      else if (this.get('category') === 'country') {
-        this.get('filter')(this.get('type'),
-                           this.get('category'),
+                         this.get('areaCountryMinValue'),
+                         (this.get('areaCountryMaxValue') > this.get('areaCountryMax') * 0.998 ? this.get('areaCountryMax') * 10 : this.get('areaCountryMaxValue')),
 
-                           this.get('lotMinValue'),
-                           (this.get('lotMaxValue') > this.get('lotMax') * 0.998 ? this.get('lotMax') * 10 : this.get('lotMaxValue')),
+                         this.get('priceCountryMinValue'),
+                         (this.get('priceCountryMaxValue') > this.get('priceCountryMax') * 0.998 ? this.get('priceCountryMax') * 10 : this.get('priceCountryMaxValue')),
 
-                           this.get('areaCountryMinValue'),
-                           (this.get('areaCountryMaxValue') > this.get('areaCountryMax') * 0.998 ? this.get('areaCountryMax') * 10 : this.get('areaCountryMaxValue')),
+                         this.get('countryChecked'),
+                         this.get('districtCountryChecked')).then((filterResults) => this.set('results', filterResults)); }
+    else {
+      this.get('filter')(this.get('type'),
+                         this.get('category'),
 
-                           this.get('priceCountryMinValue'),
-                           (this.get('priceCountryMaxValue') > this.get('priceCountryMax') * 0.998 ? this.get('priceCountryMax') * 10 : this.get('priceCountryMaxValue')),
+                         this.get('roomsMinValue'),
+                         (this.get('roomsMaxValue') > this.get('roomsMax') * 0.998 ? this.get('roomsMax') * 10 : this.get('roomsMaxValue')),
 
-                           this.get('countryChecked'),
-                           this.get('districtChecked')).then((filterResults) => this.set('results', filterResults)); }
-      else {
-        this.get('filter')(this.get('type'),
-                           this.get('category'),
+                         this.get('areaMinValue'),
+                         (this.get('areaMaxValue') > this.get('areaMax') * 0.998 ? this.get('areaMax') * 10 : this.get('areaMaxValue')),
 
-                           this.get('roomsMinValue'),
-                           (this.get('roomsMaxValue') > this.get('roomsMax') * 0.998 ? this.get('roomsMax') * 10 : this.get('roomsMaxValue')),
+                         this.get('priceMinValue'),
+                         (this.get('priceMaxValue') > this.get('priceMax') * 0.998 ? this.get('priceMax') * 10 : this.get('priceMaxValue')),
 
-                           this.get('areaMinValue'),
-                           (this.get('areaMaxValue') > this.get('areaMax') * 0.998 ? this.get('areaMax') * 10 : this.get('areaMaxValue')),
-
-                           this.get('priceMinValue'),
-                           (this.get('priceMaxValue') > this.get('priceMax') * 0.998 ? this.get('priceMax') * 10 : this.get('priceMaxValue')),
-
-                           this.get(this.get('category') == 'living' ? 'livingChecked' : 'commericalChecked'),
-                           this.get('districtChecked')).then((filterResults) => this.set('results', filterResults)); }
+                         this.get(this.get('category') == 'living' ? 'livingChecked' : 'commericalChecked'),
+                         this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
     },
   }
 });

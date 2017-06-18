@@ -1,11 +1,13 @@
 <div class="container">
-  <div class="block" style="height: 650px; margin: 15px 0; padding: 15px">
-    <div style="width: 50%; float: left">
+  <div class="block" style="height: 650px; margin: 15px 0">
+    <div style="width: 50%; float: left; padding: 15px 15px 0 15px">
+      <p class="text-28 text-center">{{model.address}}</p>
 
       {{image-view images=model.images length=model.images.length}}
       
     </div>
-    <div style="width: 50%; float: left">
+    <div style="width: 50%; float: left; padding: 15px">
+      <a></a>
       <input type=button name=print value="Print" onClick="window.print()"><br><br>
       {{model.price}} ₽<br>
       {{model.area}} м²<br>
@@ -13,6 +15,7 @@
       {{model.description}}
     </div>
   </div>
+{{location-map location=(spb-address model.address)}}
 {{mortgage-calc total=model.price}}
 </div>
 

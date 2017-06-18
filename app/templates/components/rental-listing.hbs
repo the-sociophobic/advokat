@@ -9,23 +9,23 @@
 
   <div class="listing-row" style="height: 100%">
     <div class="listing-row">
-      <div class="listing-column" style="margin-left: 25px; width: 190px">
-        <span class="{{metro-logo rental.metro}}">{{rental.metro}}</span><br>
-        <small><i>{{rental.time_on_foot}} мин пешком</i></small><br>
-        <span class="text-14">{{rental.address}}</span>
+      <div class="listing-column" style="margin-left: 25px; margin-right: 10px; width: 235px">
+        <div style='overflow: auto; padding-left: 20px; margin-left: -20px'><span class="{{metro-logo rental.metro}}">{{rental.metro}}</span></div>
+        <div style='overflow:auto'><small><i>{{rental.time_on_foot}} мин пешком</i></small></div>
+        <div style='overflow:auto'><p class="text-14">{{rental.address}}</p></div>
       </div>
-      <div class="listing-column" style="width: 140px">
+      <div class="listing-column" style="width: 160px">
         <span>{{{rental-category-rooms rental.category rental.rooms}}}</span><br>
         {{#if rental.floor}}
           <small>этаж &nbsp; {{rental.floor}}/{{rental.floors_total}}</small>
         {{/if}}
       </div>
-      <div class="listing-column" style="width: 150px">
+      <div class="listing-column" style="width: 180px">
         <span class="text-20">{{price-short rental.price}} руб.</span><br>
         <small>{{{price-per-meter rental.price rental.area}}} руб./м²</small><br>
         <small>{{rental.deal_status}}</small>
       </div>
-      <div class="listing-column text-right" style="width: 110px">
+      <div class="listing-column text-right" style="width: 160px">
         <span class="text-24">{{rental.area}} м²</span><br>
         <span class="text-14">{{{rental-category-area rental.category rental.living_space rental.kitchen_space rental.lot_area}}}</span>
       </div>

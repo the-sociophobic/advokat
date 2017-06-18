@@ -30,31 +30,42 @@ export default function() {
       type: 'rentals',
       id: 1,
       attributes: {
+        price: 37000000,
+
+        name: 'Татьяна',
+        phone: '+79114560921',
+        mail: 'btd.spb@mail.ru',
+
         type: 'sell',
         property_type: 'living',
         category:  'студия',
-        description: 'принцип относительности заключается в относительной полезности обсуждения полезности относительного принципа относительно абсолютного стол рыба фонарь аптека улица градусник',
 
-        price: 37000000,
-
-        area: 44,
-        living_space: 32,
-        kitchen_space: 12,
-        rooms: 2,
-        floor: 6,
-        floors_total: 25,
-
-        address: 'Динамомашинная 5к1',
         district: 'Адмиралтейский',
-        latitude: '59.997256',
-        longitude: '30.297199',
+
         metro: 'Ломоносовская',
         time_on_transport: 3,
         time_on_foot: 9,
 
-        name: 'Татьяна',
-        phone: '+79114560921',
+        address: 'улица Полярников 6',
+        apartment: 13,
+        latitude: '59.997256',
+        longitude: '30.297199',
+
+        rooms: 2,
+        area: 44,
+        living_space: '12, 20',
+        kitchen_space: 12,
+
+        floor: 6,
+        floors_total: 25,
+
+        building_type: 'кирпичный',
+        
         deal_status: 'встречная покупка',
+
+        description: 'принцип относительности заключается в относительной полезности обсуждения полезности относительного принципа относительно абсолютного стол рыба фонарь аптека улица градусник',
+
+        special: true,
       },
       relationships: {
         images: {
@@ -71,31 +82,42 @@ export default function() {
       type: 'rentals',
       id: 2,
       attributes: {
+        price: 14600000,
+
+        name: 'Андрей',
+        phone: '+79114560921',
+        mail: 'btd.spb@mail.ru',
+
         type: 'sell',
         property_type: 'living',
         category:  'квартира',
-        description: 'Те, кому когда-либо приходилось делать в квартире ремонт, наверное, обращали внимание на старые газеты, наклеенные под обоями. Как правило, пока все статьи не перечитаешь, ничего другого делать не можешь. Интересно же — обрывки текста, чья-то жизнь... Так же и с рыбой. Пока заказчик не прочтет всё, он не успокоится. Бывали случаи, когда дизайн принимался именно из-за рыбного текста, который, разумеется, никакого отношения к работе не имел.',
 
-        price: 14600000,
-
-        area: 55,
-        living_space: 55,
-        kitchen_space: 0,
-        rooms: 1,
-        floor: 2,
-        floors_total: 25,
-
-        address: 'Аэродромная 5к1',
         district: 'Кировский',
-        latitude: '59.997256',
-        longitude: '30.297199',
+
         metro: 'Технологический Институт 2',
         time_on_transport: 5,
         time_on_foot: 7,
 
-        name: 'Андрей',
-        phone: '+79114560921',
+        address: 'улица Аэродромная 5',
+        apartment: 34,
+        latitude: '59.997256',
+        longitude: '30.297199',
+
+        rooms: 3,
+        area: 55,
+        living_space: '20, 22, 13',
+        kitchen_space: 0,
+
+        floor: 4,
+        floors_total: 25,
+
+        building_type: 'кирпичный',
+        
         deal_status: 'расселение',
+        
+        description: 'Те, кому когда-либо приходилось делать в квартире ремонт, наверное, обращали внимание на старые газеты, наклеенные под обоями. Как правило, пока все статьи не перечитаешь, ничего другого делать не можешь. Интересно же — обрывки текста, чья-то жизнь... Так же и с рыбой. Пока заказчик не прочтет всё, он не успокоится. Бывали случаи, когда дизайн принимался именно из-за рыбного текста, который, разумеется, никакого отношения к работе не имел.',
+
+        special: true,
       },
       relationships: {
         images: {
@@ -110,31 +132,42 @@ export default function() {
       type: 'rentals',
       id: 3,
       attributes: {
-        type: 'sell',
-        property_type: 'commerical',
-        category:  'квартира',
-        description: 'Принцип восприятия непредвзято создает паллиативный интеллект, условно. Концепция ментально оспособляет закон внешнего мира. Сомнение раскладывает на элементы неоднозначный структурализм. Смысл жизни профанирует принцип восприятия, отрицая очевидное. Жизнь философски ассоциирует напряженный постмодернизм. Объект деятельности означает конфликт. Согласно предыдущему, конфликт, в рамках сегодняшних воззрений, ясен не всем.',
-
         price: 5300000,
 
-        area: 13,
-        living_space: 10,
-        kitchen_space: 3,
-        rooms: 1,
-        floor: 20,
-        floors_total: 25,
+        name: 'Оксана',
+        phone: '+79114560921',
+        mail: 'btd.spb@mail.ru',
 
-        address: 'Междуреченская 67',
+        type: 'sell',
+        property_type: 'living',
+        category:  'квартира',
+
         district: 'Петроградский',
-        latitude: '59.997256',
-        longitude: '30.297199',
+
         metro: 'Площадь Александра Невского 2',
         time_on_transport: 5,
         time_on_foot: 25,
 
-        name: 'Оксана',
-        phone: '+79114560921',
+        address: 'Тележная улица 28',
+        apartment: 6,
+        latitude: '59.997256',
+        longitude: '30.297199',
+        
+        rooms: 2,
+        area: 13,
+        living_space: '6, 4',
+        kitchen_space: 3,
+
+        floor: 20,
+        floors_total: 25,
+
+        building_type: 'кирпичный',
+        
         deal_status: 'прямая продажа',
+        
+        description: 'Принцип восприятия непредвзято создает паллиативный интеллект, условно. Концепция ментально оспособляет закон внешнего мира. Сомнение раскладывает на элементы неоднозначный структурализм. Смысл жизни профанирует принцип восприятия, отрицая очевидное. Жизнь философски ассоциирует напряженный постмодернизм. Объект деятельности означает конфликт. Согласно предыдущему, конфликт, в рамках сегодняшних воззрений, ясен не всем.',
+
+        special: true,
       },
       relationships: {
         images: {
@@ -149,29 +182,39 @@ export default function() {
       type: 'rentals',
       id: 4,
       attributes: {
-        type: 'rent',
-        property_type: 'country',
-        category:  'дом',
-        description: 'хахахахаххахахахахаххаахаххахахаххахахаххахха',
-
-        price: 700000,
-
-        area: 43,
-        living_space: 23,
-        rooms: 2,
-        lot_area: 20,
-        
-        address: 'Некая ул 5',
-        district: 'Московский',
-        latitude: '59.997256',
-        longitude: '30.297199',
-        metro: 'Проспект Ветеранов',
-        time_on_transport: 12,
-        time_on_foot: 30,
+        price: 70000,
 
         name: 'Ирина',
         phone: '+79114560921',
-        deal_status: 'расселение',
+        mail: 'btd.spb@mail.ru',
+        
+        type: 'rent',
+        property_type: 'commerical',
+        category: 'офис',
+        
+        district: 'Кировский',
+
+        metro: 'Проспект Ветеранов',
+        time_on_transport: 3,
+        time_on_foot: 10,
+
+        address: 'проспект Ветеранов 43',
+        apartment: 38,
+        latitude: '59.842291',
+        longitude: '30.242064',
+
+        rooms: 2,
+        area: 43,
+        description: 'хахахахаххахахахахаххаахаххахахаххахахаххахха',
+
+        floor: 5,
+        floors_total: 8,
+
+        building_type: 'монолит',
+
+        description: 'хахахахаххахахахахаххаахаххахахаххахахаххахха',
+        
+        special: false,
       },
       relationships: {
         images: {
@@ -187,32 +230,42 @@ export default function() {
       type: 'rentals',
       id: 5,
       attributes: {
-        type: 'rent',
-        property_type: 'commerical',
-        category:  'дом',
-        description: 'что-то с чем-то и кое-чем, таки, вот....',
-
         price: 7000000,
 
-        area: 83,
-        lot_area: 13,
-        living_space: 70,
-        kitchen_space: 13,
-        rooms: 3,
-        floor: 3,
-        floors_total: 25,
+        name: 'Сергей',
+        phone: '+79114560921',
+        mail: 'btd.spb@mail.ru',
 
-        address: 'Ударников 20/3',
+        type: 'sell',
+        property_type: 'commerical',
+        category:  'квартира',
+        
         district: 'Невский',
-        latitude: '59.997256',
-        longitude: '30.297199',
+
         metro: 'Обводный Канал',
         time_on_transport: 11,
         time_on_foot: 14,
 
-        name: 'Сергей',
-        phone: '+79114560921',
+        address: 'Невский проспект 20',
+        apartment: 10,
+        latitude: '59.997256',
+        longitude: '30.297199',
+
+        rooms: 3,
+        area: 83,
+        living_space: 70,
+        kitchen_space: 13,
+
+        floor: 3,
+        floors_total: 25,
+        
+        building_type: 'кирпичный',
+
         deal_status: 'встречная покупка',
+
+        description: 'что-то с чем-то и кое-чем, таки, вот....',
+
+        special: true,
       },
       relationships: {
         images: {
@@ -227,31 +280,37 @@ export default function() {
       type: 'rentals',
       id: 6,
       attributes: {
-        type: 'rent',
-        property_type: 'living',
-        category:  'комната',
-        description: 'маленькая комната с тараканами, крысами и мертвым владельцем',
-
         price: 345000,
-
-        area: 9,
-        living_space: 9,
-        kitchen_space: 0,
-        rooms: 1,
-        floor: 60,
-        floors_total: 76,
-
-        address: 'Суицидная 15',
-        district: 'Василеостровский',
-        latitude: '59.997256',
-        longitude: '30.297199',
-        metro: 'Черная Речка',
-        time_on_transport: 9,
-        time_on_foot: 13,
 
         name: 'Багир',
         phone: '+79114560921',
-        deal_status: 'прямая продажа',
+        mail: 'btd.spb@mail.ru',
+
+        type: 'rent',
+        property_type: 'living',
+        category:  'комната',
+        district: 'Василеостровский',
+
+        metro: 'Василеостровская',
+        time_on_transport: 9,
+        time_on_foot: 13,
+
+        address: 'Средний проспект 12',
+        apartment: 26,
+        latitude: '59.997256',
+        longitude: '30.297199',
+
+        rooms: 1,
+        area: 9,
+
+        floor: 10,
+        floors_total: 11,
+        
+        building_type: 'блочный',
+
+        description: 'маленькая комната с тараканами, крысами и мертвым владельцем',
+
+        special: true,
       },
       relationships: {
         images: { 
@@ -410,7 +469,13 @@ export default function() {
       relationships: { rental: 6 }
     }];
 
-
+  this.get('/index', function(db, request) {
+    let filteredRentals = rentals.filter(function(i) {
+      return i.attributes.special;
+    });
+    return { data: filteredRentals };
+  });
+  
   this.get('/rentals', function(db, request) {
     let filteredRentals = rentals.filter(function(i) {
       let unit = i.attributes;

@@ -1,7 +1,8 @@
 /*rentals-search */
 .rentals-search {
-    width: 1024px;
+    width: 1200px;
     height: 185px;
+    padding: 0 10px;
     margin: auto;
     margin-bottom: 10px;
     overflow: none;
@@ -39,11 +40,11 @@
 
 .listing-description {
     font-size: 14px;
-    width: 622px;
-    height: 3em;
+    width:   772px;
+    height: 4.5em;
     display: block;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 15px 0;
     padding: 0 35px;
     position: absolute;
     bottom: 0;
@@ -101,6 +102,7 @@
     margin: 70px 12px;
     opacity: .3;
     cursor: pointer;
+    transition: opacity 150ms;
 }
 
 .left-arrow:hover, .right-arrow:hover {
@@ -125,35 +127,34 @@
 }
 
 .rental-listing-index {
-    width: 242px;
+    width: 286px;
     height: 320px;
     margin: 9px;
     float: left;
 }
 
 .rental-listing-index .image-container {
-    width: 240px; 
-    height: 210px;
-    border-radius: 10px;
+    width: 284px; 
+    height: 240px;
 }
 
 .rental-listing-index .image-container img.landscape {
     width: auto;
-    height: 210px;
+    height: 240px;
 }
 .rental-listing-index .image-container img.portrait {
-    width: 240px;
+    width: 284px;
     height: auto;
 }
 
-.rental-listing-index .left-arrow, .right-arrow {
+.rental-listing-index .left-arrow, .rental-listing-index .right-arrow {
     margin: 95px 12px;
 }
 
 /* rental page */
 .image-view {
     background-color: white;
-    width: 475px; 
+    width: 100%; 
     height: 375px;
     position: relative;
     float: left;
@@ -171,8 +172,7 @@
     height: auto;
 }
 
-.image-view .left-arrow, .right-arrow {
-    opacity: .7;
+.image-view .left-arrow, .image-view .right-arrow {
     margin: 163px 12px;
 }
 
@@ -186,8 +186,8 @@
 }
 
 .image-preview .image-container {
-  width: 70px;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   margin-right: 7px;
   opacity: .7;
 }
@@ -201,6 +201,17 @@
     height: 100px;
 }
 .image-preview .image-container img.portrait {
-    width: 70px;
+    width: 100px;
     height: auto;
+}
+
+
+
+
+.map {
+    position: relative;
+    width: 1198px;
+    height: 400px;
+    background-size: cover;
+    border-radius: 5px;
 }

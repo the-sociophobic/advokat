@@ -89,7 +89,7 @@
     text-align: center;
     position: relative;
     top:  278px;
-    left: 44px;
+    left: 128px;
     z-index: 1; 
 }
 
@@ -153,10 +153,35 @@
     transition: height 150ms;
 }
 
+input[type=text] {
+    font-size: 14px;
+    width: 100%;
+    height: 40px;
+    padding: 0 15px; 
+    margin: 5px 0;
+    border: 1px solid #c2c2c2;
+    border-radius: 2px;
+}
+
+textarea {
+    font-family: Arial;
+    font-size: 14px;
+    width: 100%;
+    height: 100px;
+    padding: 10px 15px; 
+    margin: 5px 0;
+    border: 1px solid #c2c2c2;
+    border-radius: 2px;
+    resize: vertical;
+}
+
 input[type=number], 
 input[type=number] {
     font-size: 16px;
     width: 105px;
+    height: 30px;
+    border: 1px solid #c2c2c2;
+    border-radius: 2px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -211,8 +236,8 @@ input[type=number]::-webkit-outer-spin-button {
  /* LISTING */
 .index-listing {
     margin: 9px -9px;
-    padding-bottom: 675px;
     position: relative;
+    overflow-y: auto;
 }
 /* NEWS */
 .index-news {

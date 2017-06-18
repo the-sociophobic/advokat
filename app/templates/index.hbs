@@ -6,16 +6,14 @@
   <div class="container">
     <table>
       <tr>
-      <td style="width: 24px">
-      </td>
       <td style="width: 115px">
         <a href='/about'>
-          <div class="logo-gradient" style="width: 100px; height: 76px; margin-top: -173px;"><div class="logo-letter" style="width: 100px; height: 60px; bottom: -15px;"></div></div>
+          <div class="logo-gradient" style="width: 100px; height: 76px; margin-top: -197px; margin-left: 22px"><div class="logo-letter" style="width: 100px; height: 60px; bottom: -15px;"></div></div>
         </a>
       </td>
-      <td style="width: 650px; padding-top: 30px">
-        <p class="text-28">гентство недвижимости Адвокат</p>
-        <p>Основано в 1995 году.<br>
+      <td style="width: 100%; padding-top: 30px">
+        <p class="text-40">гентство недвижимости Адвокат</p>
+        <p class="text-20">Основано в 1995 году.<br>
         Накопленный опыт работы позволяет решать любые вопросы<br>в сфере недвижимости.<br>
         На высоком профессиональном уровне, качественно.<br>
         Будем рады помочь всем в решении жилищных вопросов.</p><br><br><br><br><br>
@@ -30,8 +28,10 @@
 
 <div class="container">
   <div class="index-listing">
-    {{#each model as |rental|}}
-      {{rental-listing-index rental=rental}}
+    {{#each model as |rental index|}}
+      {{#if (less index 4)}}
+        {{rental-listing-index rental=rental}}
+      {{/if}}
     {{/each}}
   </div>
 </div>

@@ -40,7 +40,7 @@
 /* rentals-search */
 .rentals-radio-panel {
     height: 28px;
-    margin: 20px 0px 10px 35px;
+    margin: 20px 14px 10px 35px; 
     border-radius: 5px; 
     float: left;
     overflow: hidden;
@@ -71,27 +71,27 @@
 }
 
 .w1 {
-    width: 238px;
+    width: 290px;
 }
 
 .w2 {
-    width: 680px;
+    width: 768px;
 }
 
 .w3 {
-    width: 681px;
+    width: 768px;
 }
 
 .w1 .rentals-radio {
-    width: 119px;
+    width: 145px;
 }
 
 .w2 .rentals-radio {
-    width: 170px;
+    width: 192px;
 }
 
 .w3 .rentals-radio {
-    width: 227px;
+    width: 256px;
 }
 
 .w4 .rentals-radio {
