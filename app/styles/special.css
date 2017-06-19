@@ -64,7 +64,7 @@
     position: fixed;
     top: 120px;
     left: calc((100% - 624px) / 2);
-    z-index: 101;
+    z-index: 2147483647;
 }
 
 .popup-background::before {
@@ -76,6 +76,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 2147483647;
     cursor: pointer;
 }

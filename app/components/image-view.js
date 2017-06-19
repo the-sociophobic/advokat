@@ -9,10 +9,11 @@ export default Ember.Component.extend({
     
   didInsertElement() {
     this._super(...arguments);
-    var images = document.querySelectorAll('.image-preview .image-container img');
     
-    for(var i = 0, len = images.length; i < len; i++) {
-      images[i].addEventListener('load', function() {
+    var smallImages = document.querySelectorAll('.image-preview .image-container img');
+
+    for(var j = 0; j < smallImages.length; j++) {
+      smallImages[j].addEventListener('load', function() {
         this.className += (this.width / this.height > 1) ? ' landscape' : ' portrait'; });
     }
   },

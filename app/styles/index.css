@@ -120,6 +120,7 @@
     margin-top: 7px;
     float: left;
     transition: box-shadow 150ms;
+    cursor: pointer;
 }
 
 .test a {
@@ -224,9 +225,8 @@ input[type=number]::-webkit-outer-spin-button {
     border: 1px solid #c2c2c2;
     box-shadow: 0px 1px 5px rgba(194, 194, 194, .5);
     position: relative;
+    margin-top: 10px;
     text-align: center;
-    right: -3px;
-    top: 7px;
 }
 
 .index-feedback:hover {

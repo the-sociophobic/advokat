@@ -34,6 +34,7 @@ export default DS.Model.extend({
   rooms: DS.attr(),
   area: DS.attr(),
   living_space: DS.attr(),
+  room_space:  DS.attr(),
   kitchen_space: DS.attr(),
   lot_area: DS.attr(),
 

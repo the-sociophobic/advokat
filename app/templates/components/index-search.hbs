@@ -15,16 +15,16 @@
       <div class="container-wide" style="padding-bottom: 10px">
       <p style="margin-bottom: -7px; margin-left: -420px">недвижимость</p>
         {{#if buyCheck}}
-          {{#link-to 'rentals' (query-params type='buy' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='sell' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='sell' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='sell' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='sell' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
         {{/if}}
         {{#if sellCheck}}
-          {{#link-to 'rentals' (query-params type='buy' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+          <a {{action popup}}><b>ЖИЛАЯ</b></a>
+          <a {{action popup}}><b>СТРОЯЩАЯСЯ</b></a>
+          <a {{action popup}}><b>КОММЕРЧЕСКАЯ</b></a>
+          <a {{action popup}}><b>ЗАГОРОДНАЯ</b></a>
         {{/if}}
         {{#if rentCheck}}
           {{#link-to 'rentals' (query-params type='rent' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
@@ -32,9 +32,9 @@
           {{#link-to 'rentals' (query-params type='rent' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
         {{/if}}
         {{#if toRentCheck}}
-          {{#link-to 'rentals' (query-params type='buy' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='buy' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+          <a {{action popup}}><b>ЖИЛАЯ</b></a>
+          <a {{action popup}}><b>КОММЕРЧЕСКАЯ</b></a>
+          <a {{action popup}}><b>ЗАГОРОДНАЯ</b></a>
         {{/if}}
       </div>
     </div>

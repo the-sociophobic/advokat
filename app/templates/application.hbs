@@ -1,98 +1,33 @@
 <div class="body">
 
 <div class="page">
-  <div class="slogan">
-    <div class="container">
-      <table style="margin-left: 150px">
-        <tr>
-          <td style="width: 320px; text-align: center;">
-            <font face="Century" size="5">АДВОКАТ</font><br>
-            <div style="transform:scale(1.2, 1.9); margin-top: -3px;"><font face="Century" size="2" color="#0ea564">АГЕНТСТВО НЕДВИЖИМОСТИ</font></div>
-            <font face="Century" size="2" color="#555555">ОСНОВАНО В 1995</font>
-          </td>
-          <td style="width: 514px; text-align: center;">
-            <div style="transform:scale(1.1, 1.1); margin: 14px 0 0 -7px;"><font face="Century" size="4" color="#555555">ДЛЯ ТЕХ, КТО ЦЕНИТ НАДЕЖНОСТЬ</font></div>
-          </td>
-          <td style="width: 190px;  text-align: right;">
-            <div style="transform:scale(1.2,1.2); margin-top: 14px;"><font size="4"><b>+7 (812) 309-28-91</b></font></div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
 
-  <div class="menu">
-    <div class="container">
-      {{#link-to 'index'}}
-        <div class="logo-gradient"><div class="logo-letter"></div></div>
-      {{/link-to}}
-      <ul>
-        <li>
-          {{#link-to 'about'}}
-            <b>О КОМПАНИИ</b>
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'services'}}
-            <b>УСЛУГИ</b>
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'rentals'}}
-            <b>КАТАЛОГ</b>
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'jobs'}}
-            <b>ВАКАНСИИ</b>
-          {{/link-to}}
-        </li>
-        <li>
-          {{#link-to 'contact'}}
-            <b>КОНТАКТЫ</b>
-          {{/link-to}}
-        </li>
-      </ul>
-      <button class="w-180">
-        Заказать звонок
-      </button>
-    </div>      
-  </div>
-
+  {{upper-menu}}
+  
   <section class="content">  
-    {{outlet}}
+    {{outlet popup=popup}}
   </section>
 
   <div class="footer">
     <div class="container">
-      <table>
-        <tr>
-          <td>
-            <div class="links">
-              {{#link-to 'services'}}
-                Перечень услуг
-              {{/link-to}}
-            </div>
-          </td>
-          <td>
-            <div class="links">
-              {{#link-to 'rentals'}}
-                Каталог
-              {{/link-to}}
-            </div>
-          </td>
-          <td>
-            <div class="links">
-              {{#link-to 'contact'}}
-                Контакты
-              {{/link-to}}
-            </div>
-          </td>
-          <td>
-
-          </td>
-        </tr>
-      </table>
+      <div style='width: 25%; float: left'>
+        {{#link-to 'services'}}
+          Перечень услуг
+        {{/link-to}}
+      </div>
+      <div style='width: 25%; float: left'>
+        {{#link-to 'rentals'}}
+          Каталог
+        {{/link-to}}
+      </div>
+      <div style='width: 25%; float: left'>
+        {{#link-to 'contact'}}
+          Контакты
+        {{/link-to}}
+      </div>  
+      <div style='width: 25%; float: left; height: 100px'>
+        {{location-map location='В.О. Малый проспект дом 24'}} 
+      </div>  
     </div>  
   </div>
 </div>

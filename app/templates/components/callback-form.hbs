@@ -1,21 +1,21 @@
 {{#if shown}}
-  <div class='popup-background' {{action 'toggleShown'}}></div>
+  <div class='popup-background' {{action 'toggleShown' true}}></div>
   <div class='popup'>
-    <p class='text-center text-20'><b>Заказать звонок</b></p>
-    <p class='text-center text-14'>мы обязательно перезвоним, что бы ответить на Ваши вопросы</p>
+    <p class='text-center text-20'><b>{{title}}</b></p>
+    <p class='text-center text-14'>{{description}}</p>
     
     {{input type="text" placeholder='Ваше имя' value=Name}}
     {{input type="text" placeholder='Ваш телефон' value=phone}}
     {{textarea cols="80" rows="6" placeholder='Сообщение..' value=message}}
     
     <br>
-    <label for="accept">
-      <input type="checkbox" id="accept" checked=accepted {{action 'toggleAccepted'}}/>
+    <label for="accept" style='cursor: pointer'>
+      <input type="checkbox" id="accept" checked {{action 'toggleAccepted' on='change' preventDefault=false}}/>
       Я принимаю
     </label>
     {{#link-to "privacy" target="_blank"}}политику безопасности{{/link-to}}
     <br><br>
-    <button style='width: 100%; height: 38px'><b>Отправить</b></button>
+    <button style='width: 100%; height: 38px' {{action 'toggleShown' accepted}}><b>Отправить</b></button>
   </div>
 {{/if}}
 

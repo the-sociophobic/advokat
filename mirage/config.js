@@ -53,7 +53,8 @@ export default function() {
 
         rooms: 2,
         area: 44,
-        living_space: '12, 20',
+        living_space: 32,
+        room_space: '12, 20',
         kitchen_space: 12,
 
         floor: 6,
@@ -105,7 +106,8 @@ export default function() {
 
         rooms: 3,
         area: 55,
-        living_space: '20, 22, 13',
+        living_space: 55,
+        room_space: '20, 22, 13',
         kitchen_space: 0,
 
         floor: 4,
@@ -155,7 +157,8 @@ export default function() {
         
         rooms: 2,
         area: 13,
-        living_space: '6, 4',
+        living_space: 10,
+        room_space: '6, 4',
         kitchen_space: 3,
 
         floor: 20,
@@ -204,6 +207,9 @@ export default function() {
         longitude: '30.242064',
 
         rooms: 2,
+        living_space: 40,
+        room_space: '12, 28',
+        kitchen_space: 3,
         area: 43,
 
         floor: 5,
@@ -253,6 +259,7 @@ export default function() {
         rooms: 3,
         area: 83,
         living_space: 70,
+        room_space: '20, 20, 30',
         kitchen_space: 13,
 
         floor: 3,
@@ -301,6 +308,9 @@ export default function() {
 
         rooms: 1,
         area: 9,
+        living_space: 8,
+        room_space: '8',
+        kitchen_space: 1,
 
         floor: 10,
         floors_total: 11,

@@ -7,8 +7,9 @@ export default Ember.Component.extend({
     toggleAccepted() {
       this.toggleProperty('accepted');
     },
-    toggleShown() {
-      this.toggleProperty('shown');
+    toggleShown(accepted) {
+      if (accepted)
+        this.toggleProperty('shown');
     },
   }
 });

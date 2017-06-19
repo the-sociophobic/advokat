@@ -176,6 +176,15 @@
     margin: 163px 12px;
 }
 
+.image-view .image-container img.landscape {
+    width: auto;
+    height: 375px;
+}
+.image-view .image-container img.portrait {
+    width: 570px;
+    height: auto;
+}
+
 .image-preview {
   width: 475px;
   height: 100px;
@@ -214,4 +223,13 @@
     height: 400px;
     background-size: cover;
     border-radius: 5px;
+}
+
+.footer .map {
+  width: 100%;
+  height: 150px;
+}
+
+.map-container {
+    margin: 15px 0;
 }

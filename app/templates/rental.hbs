@@ -1,21 +1,60 @@
 <div class="container">
-  <div class="block" style="height: 650px; margin: 15px 0">
-    <div style="width: 50%; float: left; padding: 15px 15px 0 15px">
-      <p class="text-28 text-center">{{model.address}}</p>
+  <div style="margin: 15px 0; overflow-y: auto">
+          <p class="text-28 text-center">{{model.address}}</p>
 
+    <div style="width: 50%; float: left; padding: 0 15px">
       {{image-view images=model.images length=model.images.length}}
-      
     </div>
-    <div style="width: 50%; float: left; padding: 15px">
-      <a></a>
-      <input type=button name=print value="Print" onClick="window.print()"><br><br>
-      {{model.price}} ₽<br>
-      {{model.area}} м²<br>
-      {{model.address}}<br><br>
-      {{model.description}}
+    <div class='block' style="width: calc(50% - 15px); float: left; margin-left:15px; padding: 35px 50px">
+      
+      {{#link-to 'rentals' (query-params type=model.type category=model.property_type)}}Назад к списку объектов{{/link-to}}
+      
+      <a style='cursor: pointer; float: right' onClick="window.print()">Распечатать</a><br><br>
+
+      <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц{{/if}}</span><br><br>
+      
+      {{model.district}} район<br>
+      <span style='margin-left: 20px'class="{{metro-logo model.metro}}">{{model.metro}}</span><br>
+      {{model.address}}
+      
+      <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
+        <div style='width: calc(60% - 10px); padding-left: 30px; float: left'>
+          Общая площадь:<br>
+          Жилая площадь:<br>
+          Площадь комнат:<br>
+          Площадь кухни:<br>
+          Этаж/Этажей:
+        </div>
+        <div style='width: calc(40% - 10px); float: left'>
+          {{model.area}} м²<br>
+          {{model.living_space}} м²<br>
+          {{model.room_space}} м²<br>
+          {{model.kitchen_space}} м²<br>
+          {{model.floor}}/{{model.floors_total}}
+        </div>
+      </div>
+      
+      <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
+        {{model.description}}
+      </div>
+      
+      <div style='width: 100%; overflow-y: auto; margin-top: 20px; padding-bottom: 20px'>
+        <button class="left" style='width: calc(50% - 10px); height: 35px; margin-right: 20px' {{action 'popup1'}}>Записаться на просмотр</button>
+        <button class="left" style='width: calc(50% - 10px); height: 35px' {{action 'popup2'}}>Задать вопрос</button>
+      </div>
+      
+      <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 100px'>
+        {{model.name}}<br>
+        {{model.phone}}<br>
+        {{model.mail}}<br>
+      </div>
     </div>
   </div>
-{{location-map location=(spb-address model.address)}}
-{{mortgage-calc total=model.price}}
+  {{location-map location=(spb-address model.address)}} 
+  {{#if (eq model.type 'sell')}}
+    {{mortgage-calc total=model.price}}
+  {{/if}}
 </div>
 
+{{callback-form shown=showPopup1 title='Записаться на просмотр' description='оставьте заявку, мы обязательно с Вами свяжемся'}}
+{{callback-form shown=showPopup2 title='Задать вопрос' description='задайте вопрос, мы обязательно Вам ответим'}}
