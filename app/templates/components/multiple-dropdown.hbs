@@ -5,11 +5,28 @@
     </div>
   </div>
   <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{width}}">
-    {{#each options as |Unit|}}
+    {{#if (eq checked.[0] 'Любой')}}
+      <label for="any">
+        <input type="checkbox" checked id="any" {{action 'toggleLabel' Unit on='change' preventDefault=false}}/>
+        Любой
+      </label>
+      {{#each options as |Unit|}}
+        <label for="{{Unit}}">
+          <input type="checkbox" checked id="{{Unit}}" {{action 'toggleLabel' Unit on='change' preventDefault=false}}/>
+          {{Unit}}
+        </label>
+      {{/each}}
+    {{else}}
       <label for="{{Unit}}">
         <input type="checkbox" id="{{Unit}}" {{action 'toggleLabel' Unit on='change' preventDefault=false}}/>
         {{Unit}}
       </label>
-    {{/each}}
+      {{#each options as |Unit|}}
+        <label for="{{Unit}}">
+          <input type="checkbox" id="{{Unit}}" {{action 'toggleLabel' Unit on='change' preventDefault=false}}/>
+          {{Unit}}
+        </label>
+      {{/each}}
+    {{/if}}
   </div>
 </div>
