@@ -18,12 +18,20 @@
       <div style='width: 25%; float: left'>
         {{#link-to 'rentals'}}
           Каталог
-        {{/link-to}}
+        {{/link-to}}<br><br>
+        {{#link-to 'rentals' (query-params type='sell' category='living')}}Жилая недвижимость{{/link-to}}<br>
+        {{#link-to 'rentals' (query-params type='sell' category='new')}}Строящаяся недвижимость{{/link-to}}<br>
+        {{#link-to 'rentals' (query-params type='sell' category='commerical')}}Коммерческая недвижимость{{/link-to}}<br>
+        {{#link-to 'rentals' (query-params type='sell' category='country')}}Загородная недвижимость{{/link-to}}
       </div>
       <div style='width: 25%; float: left'>
         {{#link-to 'contact'}}
           Контакты
-        {{/link-to}}
+        {{/link-to}}<br><br>
+        <p style='color: white'>
+        Телефон: +7 (812)309-28-91<br>
+        Санкт-Петербург, В.О., Малый пр. 24<br>
+        Email:</p>
       </div>  
       <div style='width: 25%; float: left; height: 100px'>
         {{location-map location='В.О. Малый проспект дом 24'}} 

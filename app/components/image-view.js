@@ -14,7 +14,7 @@ export default Ember.Component.extend({
 
     for(var j = 0; j < smallImages.length; j++) {
       smallImages[j].addEventListener('load', function() {
-        this.className += (this.width / this.height > 1) ? ' landscape' : ' portrait'; });
+        this.className += (this.width / this.height > 141 / 100) ? ' landscape' : ' portrait'; });
     }
   },
   

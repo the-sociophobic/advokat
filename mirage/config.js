@@ -478,11 +478,84 @@ export default function() {
       relationships: { rental: 6 }
     }];
 
+  let feedbacks = [{
+      type: 'feedback',
+      id: 1,
+      attributes: {
+        date: '',
+        title: 'ой',
+        body: 'купил квартиру в Хрущевке, а её снесли... но агентство норм'
+      }
+    },
+    {
+      type: 'feedback',
+      id: 2,
+      attributes: {
+        date: '',
+        title: 'у меня нет почки',
+        body: 'посоветовали взять ипотеку, а через 2 месяца коллекторы подожгли мою машину и забрали почку.. но агентство хорошее'
+      }
+    },
+    {
+      type: 'feedback',
+      id: 3,
+      attributes: {
+        date: '',
+        title: 'помогли с приватизацией',
+        body: 'соседка переехала в Украину, помогли переписать её комнату на меня. хорошее агентство'
+      }
+    }];
+  
+  let posts = [{
+      type: 'post',
+      id: 1,
+      attributes: {
+        date: '',
+        title: 'национализация недвижимости площадью свыше 150 метров квадратных',
+        body: 'да да, вы не ослышались!'
+      }
+    },
+    {
+      type: 'post',
+      id: 2,
+      attributes: {
+        date: '',
+        title: 'ипотека или продать детей на органы?',
+        body: 'важный вопрос, с которым сталкивается любая прогрессивная семья..'
+      }
+    },
+    {
+      type: 'post',
+      id: 3,
+      attributes: {
+        date: '',
+        title: 'можно ли прописаться в подвале?',
+        body: 'нет, нельзя'
+      }
+    },
+    {
+      type: 'post',
+      id: 4,
+      attributes: {
+        date: '',
+        title: 'рыба рыба',
+        body: 'что-то про газетные обои неподозрительный текст'
+      }
+    }];
+  
   this.get('/index', function(db, request) {
     let filteredRentals = rentals.filter(function(i) {
       return i.attributes.special;
     });
     return { data: filteredRentals };
+  });
+  
+  this.get('/feedbacks', function() {
+    return { data: feedbacks };
+  });
+  
+  this.get('/posts', function() {
+    return { data: posts };
   });
   
   this.get('/rentals', function(db, request) {

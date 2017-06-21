@@ -29,14 +29,14 @@
       Будем рады помочь всем в решении жилищных вопросов.</p>
     </div>
     <div style="width: 350px; float: left">
-      {{index-feedback}}
+      {{index-feedback feedbacks=model.feedbacks}}
     </div>
   </div>
 </div>
 
 <div class="container">
   <div class="index-listing">
-    {{#each model as |rental index|}}
+    {{#each model.rentals as |rental index|}}
       {{#if (less index 4)}}
         {{rental-listing-index rental=rental}}
       {{/if}}
@@ -44,7 +44,7 @@
   </div>
 </div>
 
-{{index-posts}}
+{{index-posts posts=model.posts}}
 
 {{callback-form shown=showPopup1 title='Оценить объект' description='оставьте заявку, мы обязательно с Вами свяжемся'}}
 {{callback-form shown=showPopup2 title='Сопровождение сделки' description='оставьте заявку, мы обязательно с Вами свяжемся'}}

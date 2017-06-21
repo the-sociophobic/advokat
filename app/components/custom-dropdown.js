@@ -14,22 +14,18 @@ export default Ember.Component.extend({
       this.set('isExpanded', false);
     },
     toggleLabel(label) {
-      var hehe = this.get('checked').copy();
-      var index = hehe.indexOf(label);
-      
-      if (index > -1) {
-        hehe.splice(index, 1);
-      }
-      else {
-        hehe.push(label);
-      }
+      var hehe = [label];
       this.set('checked', hehe);
+      this.set('isExpanded', false);
       
       this.get('commit')();
     },
     any() {
-      this.set('checked', 'Любой');
+      var hehe = [];
+      this.set('checked', hehe);
       this.set('isExpanded', false);
+
+      this.get('commit')();
     }
   }
 });

@@ -1,20 +1,23 @@
 <div class="index-news">
     <div class="container">
-    <table>
-      <tr>
-        <td style="width: 784px">
-          <h3>Новости</h3>
-        </td>
-        <td style="width: 240px">
-          <script type="text/javascript" src="//vk.com/js/api/openapi.js?144"></script>
+      <div style="width: 940px; height: 400px; float: left; margin: 15px 0">
+        <p class='text-20'>Новости</p>
+        <div style='width: 100%; height: calc(100% - 50px); overflow-y: scroll'>
+          {{#each posts as |post|}}
+            {{post-listing post=post}}
+          {{/each}}
+        </div>
+      </div>
+      <div style="width: 260px; height: 400px; float: right;">
 
-          <!-- VK Widget -->
-          <div id="vk_groups"></div>
-          <script type="text/javascript">
-          VK.Widgets.Group("vk_groups", {mode: 3, width: "240", height: "400"}, 64858245);
-          </script>
-        </td>
-      </tr>
-    </table>
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?144"></script>
+
+        <!-- VK Widget -->
+        <div id="vk_groups"></div>
+        <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", {mode: 3, width: "240", height: "400"}, 146662636);
+        </script>
+        
+      </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="index-feedback right">
-  Отзывы:
-  <ul class="feedback-results">
-    {{#each feedbacks as |feedbackUnit|}}
-      <li>{{feedback-listing feedback=feedbackUnit}}</li>
+  <b>Отзывы:</b>
+  <div style='width: 100%; height: calc(100% - 30px); overflow-y: scroll'>
+    {{#each feedbacks as |feedback|}}
+      {{feedback-listing feedback=feedback}}
     {{/each}}
-  </ul>
+  </div>
 </div>

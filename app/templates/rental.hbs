@@ -1,18 +1,22 @@
 <div class="container">
   <div style="margin: 15px 0; overflow-y: auto">
 
-    <div style="width: 50%; float: left; padding: 0 15px">
-      <p class="text-28 text-center">{{model.address}}</p>
+    <div style="width: 50%; float: left; padding-right: 15px">
+      <p class="text-32 text-center">{{model.address}}</p>
       {{image-view images=model.images length=model.images.length}}
     </div>
     <div style="width: calc(50% - 15px); float: left; margin-left:15px">
-      <p class="text-28 text-center">{{{rental-category-rooms model.category model.rooms}}}</p>
-      <div class='block' style='padding: 35px 50px'>
+      <p class="text-32 text-center">{{{rental-category-rooms model.category model.rooms}}} {{#if (eq model.category 'квартира')}} квартира{{/if}}</p>
+    </div>
+    <div style="width: calc(50% - 15px); float: left; margin-left: 15px; padding: 0 0 10px 25px">
         {{#link-to 'rentals' (query-params type=model.type category=model.property_type)}}Назад к списку объектов{{/link-to}}
 
-        <a style='cursor: pointer; float: right' onClick="window.print()">Распечатать</a><br><br>
+        <a style='cursor: pointer; float: right; margin-right: 92px' onClick="window.print()">Распечатать</a><br><br>
 
-        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц{{/if}}</span><br><br>
+        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц<br>{{/if}}</span><br>
+        {{#if (eq model.type 'sell')}}
+          <small>{{{price-per-meter model.price model.area}}} руб./м²</small><br><br>
+        {{/if}}
 
         {{model.district}} район<br>
         <span style='margin-left: 20px'class="{{metro-logo model.metro}}">{{model.metro}}</span><br>
@@ -25,6 +29,10 @@
             Площадь комнат:<br>
             Площадь кухни:<br>
             Этаж/Этажей:
+            {{#if (eq model.type 'sell')}}
+              <br><br>Тип дома:
+              <br>Вид сделки:
+            {{/if}}
           </div>
           <div style='width: calc(40% - 10px); float: left'>
             {{model.area}} м²<br>
@@ -32,6 +40,10 @@
             {{model.room_space}} м²<br>
             {{model.kitchen_space}} м²<br>
             {{model.floor}}/{{model.floors_total}}
+            {{#if (eq model.type 'sell')}}
+              <br><br>{{model.building_type}}
+              <br>{{model.deal_status}}
+            {{/if}}
           </div>
         </div>
 
@@ -39,17 +51,23 @@
           {{model.description}}
         </div>
 
-        <div style='width: 100%; overflow-y: auto; margin-top: 20px; padding-bottom: 20px'>
+        <div style='width: 100%; overflow-y: auto; overflow-x: visible; margin-top: 20px; padding: 0 5px 20px 5px'>
           <button class="left" style='width: calc(50% - 10px); height: 35px; margin-right: 20px' {{action 'popup1'}}>Записаться на просмотр</button>
           <button class="left" style='width: calc(50% - 10px); height: 35px' {{action 'popup2'}}>Задать вопрос</button>
         </div>
 
-        <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 100px'>
-          {{model.name}}<br>
-          {{model.phone}}<br>
-          {{model.mail}}<br>
+        <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 110px'>
+          <div style='width: 32%;float: left'>
+            агент:<br>
+            телефон:<br>
+            почта:<br>
+          </div>
+          <div style='width: 68%; float: left'>
+            {{model.name}}<br>
+            {{model.phone}}<br>
+            {{model.mail}}<br>
+          </div>
         </div>
-      </div>
     </div>
   </div>
   {{location-map location=(spb-address model.address)}} 
