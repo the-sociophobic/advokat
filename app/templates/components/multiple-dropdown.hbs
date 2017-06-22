@@ -9,15 +9,10 @@
     </div>
   </div>
   <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{width}}">
-      <label for="any" {{action 'any'}}>
-        {{input type="checkbox" checked=anyFlag id="any"}}
-        Любой
-      </label>
+      {{custom-checkbox label='Любой' checked=anyChech}}
+
       {{#each options as |option|}}
-        <label for="{{option}}" {{action 'toggleLabel' option}}>
-          {{input type="checkbox" checked=(or (if-in checkedOptions option) anyFlag) id=option}}
-          {{option}}
-        </label>
+        {{custom-checkbox label=option checked=(or (if-in checkedOptions option) anyFlag)}}
       {{/each}}
   </div>
 </div>
