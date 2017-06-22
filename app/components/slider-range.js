@@ -34,7 +34,7 @@ export default Ember.Component.extend({
       var offset = event.target.parentElement.getBoundingClientRect().left;
       var mousePercent = (mouseX - offset) / parseInt(this.get('width'), 10); 
 
-      if (mousePercent < 0 || mousePercent > this.get('maxPos') - 0.08) { return; }
+      if (mousePercent < 0 || mousePercent > this.get('maxPos') - 0.04) { return; }
 
       this.set('minPos', mousePercent);
       if (this.get('step') - Math.floor(this.get('step')) > 0) {
@@ -52,7 +52,7 @@ export default Ember.Component.extend({
       var offset = event.target.parentElement.getBoundingClientRect().left;
       var mousePercent = (mouseX - offset) / parseInt(this.get('width'), 10); 
 
-      if (mousePercent > 1 || mousePercent < this.get('minPos') + 0.08) { return; }
+      if (mousePercent > 1 || mousePercent < this.get('minPos') + 0.04) { return; }
 
       this.set('maxPos', mousePercent);
       if (this.get('step') - Math.floor(this.get('step')) > 0) {

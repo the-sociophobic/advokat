@@ -12,9 +12,10 @@
         {{#link-to 'rentals' (query-params type=model.type category=model.property_type)}}Назад к списку объектов{{/link-to}}
 
         <a style='cursor: pointer; float: right; margin-right: 92px' onClick="window.print()">Распечатать</a><br><br>
-
-        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц<br>{{/if}}</span><br>
+      
+        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц{{/if}}</span>
         {{#if (eq model.type 'sell')}}
+          <a style='cursor: pointer; float: right; margin-right: 92px' {{action 'toCalc'}}>100</a><br>
           <small>{{{price-per-meter model.price model.area}}} руб./м²</small><br><br>
         {{/if}}
 

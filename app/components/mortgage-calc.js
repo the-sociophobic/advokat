@@ -20,8 +20,8 @@ export default Ember.Component.extend({
   
   init() {
     this._super(...arguments);
-    this.set('payment', 35);
-    this.set('term', 5);
-    this.set('rate', 12);
+    this.set('payment', 30);
+    this.set('term', 20);
+    this.set('rate', 11);
   }
 });

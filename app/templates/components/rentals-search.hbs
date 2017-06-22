@@ -53,10 +53,10 @@
     <div class="space35">
       Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
       {{#if buyCheck}}
-        {{price-short-calm priceMinValue}} - {{price-short-calm priceMaxValue}}{{number-plus priceMaxValue priceMax}}
+        {{price-short-million priceMinValue}} - {{price-short-million priceMaxValue}}{{number-plus priceMaxValue priceMax}}
         {{slider-range width="331px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=200000 commit=(action 'commit')}}
       {{else}}
-        {{price-short-calm priceMinValueRent}} - {{price-short-calm priceMaxValueRent}}{{number-plus priceMaxValueRent priceMaxRent}}
+        {{price-short-thousand priceMinValueRent}} - {{price-short-thousand priceMaxValueRent}}{{number-plus priceMaxValueRent priceMaxRent}}
         {{slider-range width="331px" min=priceMinRent max=priceMaxRent minValue=priceMinValueRent maxValue=priceMaxValueRent step=2000 commit=(action 'commit')}}
       {{/if}}
     </div>
@@ -71,10 +71,10 @@
     <div class="space35">
       Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
       {{#if buyCheck}}
-        {{price-short-calm priceCommericalMinValue}} - {{price-short-calm priceCommericalMaxValue}}{{number-plus priceCommericalMaxValue priceCommericalMax}}
+        {{price-short-million priceCommericalMinValue}} - {{price-short-million priceCommericalMaxValue}}{{number-plus priceCommericalMaxValue priceCommericalMax}}
         {{slider-range width="525px" min=priceCommericalMin max=priceCommericalMax minValue=priceCommericalMinValue maxValue=priceCommericalMaxValue step=200000 commit=(action 'commit')}}
       {{else}}
-        {{price-short-calm priceCommericalMinValueRent}} - {{price-short-calm priceCommericalMaxValueRent}}{{number-plus priceCommericalMaxValueRent priceCommericalMaxRent}}
+        {{price-short-thousand priceCommericalMinValueRent}} - {{price-short-thousand priceCommericalMaxValueRent}}{{number-plus priceCommericalMaxValueRent priceCommericalMaxRent}}
         {{slider-range width="525px" min=priceCommericalMinRent max=priceCommericalMaxRent minValue=priceCommericalMinValueRent maxValue=priceCommericalMaxValueRent step=2000 commit=(action 'commit')}}
       {{/if}}
     </div>
@@ -94,10 +94,10 @@
     <div class="space35">
       Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
       {{#if buyCheck}}
-        {{price-short-calm priceCountryMinValue}} - {{price-short-calm priceCountryMaxValue}}{{number-plus priceCountryMaxValue priceCountryMax}}
+        {{price-short-million priceCountryMinValue}} - {{price-short-million priceCountryMaxValue}}{{number-plus priceCountryMaxValue priceCountryMax}}
         {{slider-range width="331px" min=priceCountryMin max=priceCountryMax minValue=priceCountryMinValue maxValue=priceCountryMaxValue step=200000 commit=(action 'commit')}}
       {{else}}
-        {{price-short-calm priceCountryMinValueRent}} - {{price-short-calm priceCountryMaxValueRent}}{{number-plus priceCountryMaxValueRent priceCountryMaxRent}}
+        {{price-short-thousand priceCountryMinValueRent}} - {{price-short-thousand priceCountryMaxValueRent}}{{number-plus priceCountryMaxValueRent priceCountryMaxRent}}
         {{slider-range width="331px" min=priceCountryMinRent max=priceCountryMaxRent minValue=priceCountryMinValueRent maxValue=priceCountryMaxValueRent step=2000 commit=(action 'commit')}}
       {{/if}}
     </div>
