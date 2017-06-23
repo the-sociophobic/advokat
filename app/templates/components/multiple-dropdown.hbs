@@ -11,8 +11,8 @@
   <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{width}}">
       {{custom-checkbox label='Любой' checked=anyChech}}
 
-      {{#each options as |option|}}
-        {{custom-checkbox label=option checked=(or (if-in checkedOptions option) anyFlag)}}
+      {{#each options as |option index|}}
+        {{custom-checkbox label=option checked=checkedBool.[index]}}
       {{/each}}
   </div>
 </div>

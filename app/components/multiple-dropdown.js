@@ -3,6 +3,15 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   isExpanded: false,
   anyFlag: true,
+  checkedBool: undefined,
+  
+  init() {
+    this._super(...arguments);
+    
+    var tmp = Array(this.get('options').length).fill(true);
+    
+    this.set('checkedBool', tmp);
+  },
   
   actions: {
     toggleExpand() {
