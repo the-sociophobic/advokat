@@ -218,12 +218,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* FEEDBACK */
 .index-feedback {
-    width: 303px;
+    width: 286px;
     height: 280px;
     background: white;
     border-radius: 5px;
     position: relative;
     margin-top: 10px;
+    margin-right: 2px;
     text-align: center;
 }
 

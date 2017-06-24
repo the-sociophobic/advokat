@@ -22,7 +22,7 @@
 }
 
 .checkbox:hover::before {
-    opacity: .65;
+    opacity: .35;
 }
 
 .checkbox.checked::before {
@@ -32,5 +32,5 @@
 }
 
 .checkbox.checked:hover::before {
-    opacity: .75;
+    opacity: .35;
 }

@@ -1,8 +1,10 @@
-<div class="index-feedback right">
+<div class="index-feedback right  block">
   <b>Отзывы:</b>
   <div style='width: 100%; height: calc(100% - 30px); overflow-y: scroll'>
-    {{#each feedbacks as |feedback|}}
-      {{feedback-listing feedback=feedback}}
+    {{#each feedbacks as |feedback index|}}
+      {{#if (less index 3)}}
+        {{feedback-listing feedback=feedback}}
+      {{/if}}
     {{/each}}
   </div>
 </div>

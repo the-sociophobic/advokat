@@ -13,7 +13,7 @@
     </div>
     <div class="search {{if isHidden "test"}}">
       <div class="container-wide" style="padding-bottom: 10px">
-      <p style="margin-bottom: -7px; margin-left: -420px">недвижимость</p>
+        <p class='text-18' style="margin-bottom: -7px; margin-left: -420px"><b>недвижимость</b></p>
         {{#if buyCheck}}
           {{#link-to 'rentals' (query-params type='sell' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
           {{#link-to 'rentals' (query-params type='sell' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}

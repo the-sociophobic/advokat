@@ -72,7 +72,8 @@
 }
 
 .multiple-dropdown-options .no-check:hover {
-  background-color: #e2e2e2;
+  color: white;
+  background-color: #01ba7e;
 }
 
 .multiple-dropdown-checked {

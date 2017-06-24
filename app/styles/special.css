@@ -23,11 +23,18 @@
 }
 
 .vertical-line {
-    height: 158px;
+    height: calc(100% - 30px);
     margin: 15px 22px;
     border-left: 1px solid #c2c2c2;
     content: "";
     float: left;
+}
+
+.horizontal-line {
+    width: 100%;
+    margin: 15px 0 5px 0;
+    border-top: 1px solid #c2c2c2;
+    content: "";
 }
 
 .full-area {

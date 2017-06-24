@@ -86,8 +86,8 @@ export default Ember.Component.extend({
     this.set('areaMinValue', this.get('areaMin'));
     this.set('areaMaxValue', this.get('areaMax'));
 
-    this.set('priceMin', 1);
-    this.set('priceMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 30000000);
+    this.set('priceMin', 600000);
+    this.set('priceMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 20000000);
     this.set('priceMinValue', this.get('priceMin'));
     this.set('priceMaxValue', this.get('priceMax'));
     this.set('priceMinRent', 1);
@@ -100,8 +100,8 @@ export default Ember.Component.extend({
     this.set('areaCommericalMinValue', this.get('areaCommericalMin'));
     this.set('areaCommericalMaxValue', this.get('areaCommericalMax'));
 
-    this.set('priceCommericalMin', 1);
-    this.set('priceCommericalMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 30000000);
+    this.set('priceCommericalMin', 600000);
+    this.set('priceCommericalMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 20000000);
     this.set('priceCommericalMinValue', this.get('priceCommericalMin'));
     this.set('priceCommericalMaxValue', this.get('priceCommericalMax'));
     this.set('priceCommericalMinRent', 1);
@@ -114,8 +114,8 @@ export default Ember.Component.extend({
     this.set('areaCountryMinValue', this.get('areaCountryMin'));
     this.set('areaCountryMaxValue', this.get('areaCountryMax'));
 
-    this.set('priceCountryMin', 1);
-    this.set('priceCountryMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 30000000);
+    this.set('priceCountryMin', 600000);
+    this.set('priceCountryMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 20000000);
     this.set('priceCountryMinValue', this.get('priceCountryMin'));
     this.set('priceCountryMaxValue', this.get('priceCountryMax'));
     this.set('priceCountryMinRent', 1);

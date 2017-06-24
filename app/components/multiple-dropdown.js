@@ -3,16 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   isExpanded: false,
   anyFlag: true,
-  checkedBool: undefined,
-  
-  init() {
-    this._super(...arguments);
-    
-    var tmp = Array(this.get('options').length).fill(true);
-    
-    this.set('checkedBool', tmp);
-  },
-  
+
   actions: {
     toggleExpand() {
       this.toggleProperty('isExpanded');
@@ -24,6 +15,8 @@ export default Ember.Component.extend({
     
     Collapse() {
       this.set('isExpanded', false);
+      if (this.get('checkedOptions').length === 0)
+        this.set('anyFlag', true);
     },
     
     toggleLabel(label) {
@@ -50,6 +43,7 @@ export default Ember.Component.extend({
         this.set('checkedOptions', this.get('options').copy());
 
       this.toggleProperty('anyFlag');
+      
       this.get('commit')();
     }
   }

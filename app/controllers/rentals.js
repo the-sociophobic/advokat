@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   
   actions: {
     filterByAll(type, property_type, roomsOrLotMin, roomsOrLotMax, areaMin, areaMax, priceMin, priceMax, category, district) {
-      if (property_type == 'commerical') {
+      if (property_type === 'commerical') {
         return this.get('store').query('rental', { type: type,
                                                    property_type: property_type,
                                                    areaMin: areaMin,
@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
                                                    priceMax: priceMax,
                                                    category: category,
                                                    district: district }); }
-      else if (property_type == 'country') {
+      else if (property_type === 'country') {
         return this.get('store').query('rental', { type: type,
                                                    property_type: property_type,
                                                    lotMin: roomsOrLotMin,

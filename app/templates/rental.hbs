@@ -15,7 +15,7 @@
       
         <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц{{/if}}</span>
         {{#if (eq model.type 'sell')}}
-          <a style='cursor: pointer; float: right; margin-right: 92px' {{action 'toCalc'}}>100</a><br>
+          <a style='cursor: pointer; float: right; margin-right: 92px' {{action 'toCalc'}}>{{number-spaces monthly}} руб./мес.</a><br>
           <small>{{{price-per-meter model.price model.area}}} руб./м²</small><br><br>
         {{/if}}
 
@@ -25,31 +25,46 @@
 
         <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
           <div style='width: calc(60% - 10px); padding-left: 30px; float: left'>
-            Общая площадь:<br>
-            Жилая площадь:<br>
-            Площадь комнат:<br>
-            Площадь кухни:<br>
-            Этаж/Этажей:
-            {{#if (eq model.type 'sell')}}
-              <br><br>Тип дома:
-              <br>Вид сделки:
-            {{/if}}
+            {{#unless  (eq model.property_type 'country')}}
+              Общая площадь:<br>
+              {{#unless (eq model.property_type 'commerical')}}
+                Жилая площадь:<br>
+                Площадь комнат:<br>
+                Площадь кухни:<br>
+              {{/unless}}
+              Этаж/Этажей:
+              {{#if (eq model.type 'sell')}}
+                <br><br>Тип дома:
+                <br>Вид сделки:
+              {{/if}}
+            {{else}}
+              Площадь дома:<br>
+              Площадь участка:<br>
+            {{/unless}}
           </div>
           <div style='width: calc(40% - 10px); float: left'>
             {{model.area}} м²<br>
-            {{model.living_space}} м²<br>
-            {{model.room_space}} м²<br>
-            {{model.kitchen_space}} м²<br>
-            {{model.floor}}/{{model.floors_total}}
+            {{#unless  (eq model.property_type 'country')}}
+              {{#unless (eq model.property_type 'commerical')}}
+                {{model.living_space}} м²<br>
+                {{model.room_space}} м²<br>
+                {{model.kitchen_space}} м²<br>
+              {{/unless}}
+              {{model.floor}}/{{model.floors_total}}
+            {{else}}
+              {{model.lot_area}} м²
+            {{/unless}}
             {{#if (eq model.type 'sell')}}
               <br><br>{{model.building_type}}
-              <br>{{model.deal_status}}
+              {{#unless (eq model.property_type 'new')}}
+                <br>{{model.deal_status}}
+              {{/unless}}
             {{/if}}
           </div>
         </div>
 
         <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
-          {{model.description}}
+          {{{model.description}}}
         </div>
 
         <div style='width: 100%; overflow-y: auto; overflow-x: visible; margin-top: 20px; padding: 0 5px 20px 5px'>
@@ -73,7 +88,8 @@
   </div>
   {{location-map location=(spb-address model.address)}} 
   {{#if (eq model.type 'sell')}}
-    {{mortgage-calc total=model.price}}
+    <p class='text-20 text-center'>калькулятор ипотеки</p>
+    {{mortgage-calc total=model.price monthly=monthly}}
   {{/if}}
 </div>
 

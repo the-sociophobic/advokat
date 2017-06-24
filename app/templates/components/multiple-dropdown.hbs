@@ -9,10 +9,9 @@
     </div>
   </div>
   <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{width}}">
-      {{custom-checkbox label='Любой' checked=anyChech}}
-
-      {{#each options as |option index|}}
-        {{custom-checkbox label=option checked=checkedBool.[index]}}
+      {{custom-checkbox label='Любой' checked=anyFlag commit=(action 'any')}}
+      {{#each options as |option|}}
+        {{custom-checkbox label=option checked=(or anyFlag (if-in checkedOptions option)) commit=(action 'toggleLabel' option)}}
       {{/each}}
   </div>
 </div>

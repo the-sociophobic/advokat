@@ -43,21 +43,21 @@
     <div class="space35">
       <span>Кол-во комнат:  &nbsp;  &nbsp; 
         {{roomsMinValue}} - {{roomsMaxValue}}{{number-plus roomsMaxValue roomsMax}}</span>
-      {{slider-range width="332px" min=roomsMin max=roomsMax minValue=roomsMinValue maxValue=roomsMaxValue step=1 commit=(action 'commit')}}
+      {{slider-range width="300px" min=roomsMin max=roomsMax minValue=roomsMinValue maxValue=roomsMaxValue step=1 commit=(action 'commit')}}
     </div>
     <div class="space35">
       <span>Общая площадь, м²: &nbsp;  &nbsp; 
         {{areaMinValue}} - {{areaMaxValue}}{{number-plus areaMaxValue areaMax}}</span>
-      {{slider-range width="332px" min=areaMin max=areaMax minValue=areaMinValue maxValue=areaMaxValue step=1 commit=(action 'commit')}}
+      {{slider-range width="300px" min=areaMin max=areaMax minValue=areaMinValue maxValue=areaMaxValue step=1 commit=(action 'commit')}}
     </div>
     <div class="space35">
       Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
       {{#if buyCheck}}
         {{price-short-million priceMinValue}} - {{price-short-million priceMaxValue}}{{number-plus priceMaxValue priceMax}}
-        {{slider-range width="331px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=200000 commit=(action 'commit')}}
+        {{slider-range width="395px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=200000 commit=(action 'commit')}}
       {{else}}
         {{price-short-thousand priceMinValueRent}} - {{price-short-thousand priceMaxValueRent}}{{number-plus priceMaxValueRent priceMaxRent}}
-        {{slider-range width="331px" min=priceMinRent max=priceMaxRent minValue=priceMinValueRent maxValue=priceMaxValueRent step=2000 commit=(action 'commit')}}
+        {{slider-range width="395px" min=priceMinRent max=priceMaxRent minValue=priceMinValueRent maxValue=priceMaxValueRent step=2000 commit=(action 'commit')}}
       {{/if}}
     </div>
   </div>  
@@ -84,21 +84,21 @@
     <div class="space35">
       <span>Общая площадь, м²: &nbsp;  &nbsp;  
         {{areaCountryMinValue}} - {{areaCountryMaxValue}}{{number-plus areaCountryMaxValue areaCountryMax}}</span>
-      {{slider-range width="332px" min=areaCountryMin max=areaCountryMax minValue=areaCountryMinValue maxValue=areaCountryMaxValue step=1 commit=(action 'commit')}}
+      {{slider-range width="300px" min=areaCountryMin max=areaCountryMax minValue=areaCountryMinValue maxValue=areaCountryMaxValue step=1 commit=(action 'commit')}}
     </div>
     <div class="space35">
       <span>Площадь участка, м²:  &nbsp;  &nbsp; 
         {{lotMinValue}} - {{lotMaxValue}}{{number-plus lotMaxValue lotMax}}</span>
-      {{slider-range width="332px" min=lotMin max=lotMax minValue=lotMinValue maxValue=lotMaxValue step=1 commit=(action 'commit')}}
+      {{slider-range width="300px" min=lotMin max=lotMax minValue=lotMinValue maxValue=lotMaxValue step=1 commit=(action 'commit')}}
     </div>
     <div class="space35">
       Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
       {{#if buyCheck}}
         {{price-short-million priceCountryMinValue}} - {{price-short-million priceCountryMaxValue}}{{number-plus priceCountryMaxValue priceCountryMax}}
-        {{slider-range width="331px" min=priceCountryMin max=priceCountryMax minValue=priceCountryMinValue maxValue=priceCountryMaxValue step=200000 commit=(action 'commit')}}
+        {{slider-range width="395px" min=priceCountryMin max=priceCountryMax minValue=priceCountryMinValue maxValue=priceCountryMaxValue step=200000 commit=(action 'commit')}}
       {{else}}
         {{price-short-thousand priceCountryMinValueRent}} - {{price-short-thousand priceCountryMaxValueRent}}{{number-plus priceCountryMaxValueRent priceCountryMaxRent}}
-        {{slider-range width="331px" min=priceCountryMinRent max=priceCountryMaxRent minValue=priceCountryMinValueRent maxValue=priceCountryMaxValueRent step=2000 commit=(action 'commit')}}
+        {{slider-range width="395px" min=priceCountryMinRent max=priceCountryMaxRent minValue=priceCountryMinValueRent maxValue=priceCountryMaxValueRent step=2000 commit=(action 'commit')}}
       {{/if}}
     </div>
   </div>
@@ -110,7 +110,7 @@
   <div class="text-center">Найдено {{results.length}} {{numerals-counter results.length 'предложение' 'предложения' 'предложений'}}</div>
   <ul class="results">
     {{#each results as |rental|}}
-      <li>{{rental-listing rental=rental}}</li>
+      <li>{{rental-listing rental=rental length=rental.images.length}}</li>
     {{/each}}
   </ul>
 </div>

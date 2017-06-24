@@ -27,456 +27,393 @@ export default function() {
   this.namespace = '/api';
 
   let rentals = [{
-      type: 'rentals',
-      id: 1,
-      attributes: {
-        price: 37000000,
+  type: 'rentals',
+  id: 1,
+  attributes: {
+    price: 4500000,                  /* цена */
 
-        name: 'Татьяна',
-        phone: '+79114560921',
-        mail: 'btd.spb@mail.ru',
+    name: 'Татьяна Владимировна',
+    phone: '+7 961 611-56-11',
+    mail: '89616115611@mail.ru',
 
-        type: 'sell',
-        property_type: 'living',
-        category:  'студия',
+    type: 'sell',                     /* 'sell' - покупка 'rent' - аренда */
+    property_type: 'living',          /* 'living' - жилая 'new' - новостройки 'commerical' - коммерческая 'country' - загородная */
+    category:  'квартира',            /*  */
 
-        district: 'Адмиралтейский',
+    district: 'Приморский',            /* район */
 
-        metro: 'Ломоносовская',
-        time_on_transport: 3,
-        time_on_foot: 9,
+    metro: 'Комендантский проспект',
+    time_on_transport: 0,             /* время на транспорте */
+    time_on_foot: 5,                  /* время пешком */
 
-        address: 'улица Полярников 6',
-        apartment: 13,
-        latitude: '59.997256',
-        longitude: '30.297199',
+    address: 'улица Уточкина 5',
+    apartment: '00',                    /* номер квартиры */
+    latitude: '60.011445',            /* широта */
+    longitude: '30.263735',           /* долгота */
 
-        rooms: 2,
-        area: 44,
-        living_space: 32,
-        room_space: '12, 20',
-        kitchen_space: 12,
+    rooms: 2,                         /* комнаты */
+    area: 45.8,                         /* площадь */
+    living_space: 28.6,                 /* общая жилая площадь */
+    room_space: '18.4+10.2',       /* площади комнат в кавычках */
+    kitchen_space: 7.00,                 /* площадь кухни */
 
-        floor: 6,
-        floors_total: 25,
+    floor: 9,                         /* этаж */
+    floors_total: 9,                 /* всего этажей */
 
-        building_type: 'кирпичный',
-        
-        deal_status: 'встречная покупка',
+    building_type: 'крупно-панельный',       /* тип здания */
 
-        description: 'принцип относительности заключается в относительной полезности обсуждения полезности относительного принципа относительно абсолютного стол рыба фонарь аптека улица градусник',
+    deal_status: 'прямая продажа',        /* тип сделки */
 
-        special: true,
-      },
-      relationships: {
-        images: {
-          data: [
-            { type: 'image', id: 1 },
-            { type: 'image', id: 2 },
-            { type: 'image', id: 3 },
-            { type: 'image', id: 4 }
-          ]
-        }
-      }
-    },
-    {
-      type: 'rentals',
-      id: 2,
-      attributes: {
-        price: 14600000,
+    description: 'Чистая светлая квартира рядом с метро. Новые трубы и двери, стеклопакеты, стены и полы выровнены, проводка новая.<br>Отличная инфраструктура, рядом школа, детский сад, магазины, у метро - торгово-развлекательный комплекс. Зеленый двор с детской площадкой.',
 
-        name: 'Андрей',
-        phone: '+79114560921',
-        mail: 'btd.spb@mail.ru',
+    special: true,                    /* показывать на главной true/false - да/нет */
+  },
+  relationships: {
+    images: {
+      data: [
+        { type: 'image', id: 1 },
+        { type: 'image', id: 2 },
+        { type: 'image', id: 3 },
+        { type: 'image', id: 4 },
+        { type: 'image', id: 5 },
+        { type: 'image', id: 6 },
+        { type: 'image', id: 7 },
+        { type: 'image', id: 8 },
+        { type: 'image', id: 9 }
+      ]
+    }
+  }
+},
+{
+  type: 'rentals',
+  id: 11,
+  attributes: {
+    price: 4290000,                  /* цена */
 
-        type: 'sell',
-        property_type: 'living',
-        category:  'квартира',
+    name: 'Марина Вячеславовна',
+    phone: '+7 921 350-28-44',
+    mail: 'advokat1995@list.ru',
 
-        district: 'Кировский',
+    type: 'sell',                     /* 'sell' - покупка 'rent' - аренда */
+    property_type: 'living',          /* 'living' - жилая 'new' - новостройки 'commerical' - коммерческая 'country' - загородная */
+    category:  'квартира',            /*  */
 
-        metro: 'Технологический Институт 2',
-        time_on_transport: 5,
-        time_on_foot: 7,
+    district: 'Выборгский',            /* район */
 
-        address: 'улица Аэродромная 5',
-        apartment: 34,
-        latitude: '59.997256',
-        longitude: '30.297199',
+    metro: 'Парнас',
+    time_on_transport: 0,             /* время на транспорте */
+    time_on_foot: 5,                  /* время пешком */
 
-        rooms: 3,
-        area: 55,
-        living_space: 55,
-        room_space: '20, 22, 13',
-        kitchen_space: 0,
+    address: 'улица Федора Абрамова 4А',
+    apartment: '00',                    /* номер квартиры */
+    latitude: '60.069756',            /* широта */
+    longitude: '30.332291',           /* долгота */
 
-        floor: 4,
-        floors_total: 25,
+    rooms: 1,                         /* комнаты */
+    area: 42,                         /* площадь */
+    living_space: 18,                 /* общая жилая площадь */
+    room_space: '18',       /* площади комнат в кавычках */
+    kitchen_space: 13,                 /* площадь кухни */
 
-        building_type: 'кирпичный',
-        
-        deal_status: 'расселение',
-        
-        description: 'Те, кому когда-либо приходилось делать в квартире ремонт, наверное, обращали внимание на старые газеты, наклеенные под обоями. Как правило, пока все статьи не перечитаешь, ничего другого делать не можешь. Интересно же — обрывки текста, чья-то жизнь... Так же и с рыбой. Пока заказчик не прочтет всё, он не успокоится. Бывали случаи, когда дизайн принимался именно из-за рыбного текста, который, разумеется, никакого отношения к работе не имел.',
+    floor: 20,                         /* этаж */
+    floors_total: 26,                 /* всего этажей */
 
-        special: true,
-      },
-      relationships: {
-        images: {
-          data: [
-            { type: 'image', id: 5 },
-            { type: 'image', id: 6 }
-          ]
-        }
-      }
-    },
-    {
-      type: 'rentals',
-      id: 3,
-      attributes: {
-        price: 5300000,
+    building_type: 'кирп. монолит',       /* тип здания */
 
-        name: 'Оксана',
-        phone: '+79114560921',
-        mail: 'btd.spb@mail.ru',
+    deal_status: 'встречная покупка',        /* тип сделки */
 
-        type: 'sell',
-        property_type: 'living',
-        category:  'квартира',
+    description: 'Отличная просторная светлая, теплая квартира с&nbsp;большим балконом в &quot;Северной долине&quot;. Кухонный гарнитур-бонус. Магистральные фильтры для воды. Гардеробная. Вид на&nbsp;город. Близость метро. Детские сады и&nbsp;школа рядом. Супермаркеты, ТЦ, сбербанк, аптека в&nbsp;пешей доступности. Паркинг.',
 
-        district: 'Петроградский',
-
-        metro: 'Площадь Александра Невского 2',
-        time_on_transport: 5,
-        time_on_foot: 25,
-
-        address: 'Тележная улица 28',
-        apartment: 6,
-        latitude: '59.997256',
-        longitude: '30.297199',
-        
-        rooms: 2,
-        area: 13,
-        living_space: 10,
-        room_space: '6, 4',
-        kitchen_space: 3,
-
-        floor: 20,
-        floors_total: 25,
-
-        building_type: 'кирпичный',
-        
-        deal_status: 'прямая продажа',
-        
-        description: 'Принцип восприятия непредвзято создает паллиативный интеллект, условно. Концепция ментально оспособляет закон внешнего мира. Сомнение раскладывает на элементы неоднозначный структурализм. Смысл жизни профанирует принцип восприятия, отрицая очевидное. Жизнь философски ассоциирует напряженный постмодернизм. Объект деятельности означает конфликт. Согласно предыдущему, конфликт, в рамках сегодняшних воззрений, ясен не всем.',
-
-        special: true,
-      },
-      relationships: {
-        images: {
-          data: [
-            { type: 'image', id: 7 },
-            { type: 'image', id: 8 }
-          ]
-        }
-      }
-    },
-    {
-      type: 'rentals',
-      id: 4,
-      attributes: {
-        price: 70000,
-
-        name: 'Ирина',
-        phone: '+79114560921',
-        mail: 'btd.spb@mail.ru',
-        
-        type: 'rent',
-        property_type: 'commerical',
-        category: 'офис',
-        
-        district: 'Кировский',
-
-        metro: 'Проспект Ветеранов',
-        time_on_transport: 3,
-        time_on_foot: 10,
-
-        address: 'проспект Ветеранов 43',
-        apartment: 38,
-        latitude: '59.842291',
-        longitude: '30.242064',
-
-        rooms: 2,
-        living_space: 40,
-        room_space: '12, 28',
-        kitchen_space: 3,
-        area: 43,
-
-        floor: 5,
-        floors_total: 8,
-
-        building_type: 'монолит',
-
-        description: 'хахахахаххахахахахаххаахаххахахаххахахаххахха',
-        
-        special: false,
-      },
-      relationships: {
-        images: {
-          data: [
-            { type: 'image', id: 9 },
-            { type: 'image', id: 10 },
-            { type: 'image', id: 11 }
-          ]
-        }
-      }
-    },
-    {
-      type: 'rentals',
-      id: 5,
-      attributes: {
-        price: 7000000,
-
-        name: 'Сергей',
-        phone: '+79114560921',
-        mail: 'btd.spb@mail.ru',
-
-        type: 'sell',
-        property_type: 'commerical',
-        category:  'квартира',
-        
-        district: 'Невский',
-
-        metro: 'Обводный Канал',
-        time_on_transport: 11,
-        time_on_foot: 14,
-
-        address: 'Невский проспект 20',
-        apartment: 10,
-        latitude: '59.997256',
-        longitude: '30.297199',
-
-        rooms: 3,
-        area: 83,
-        living_space: 70,
-        room_space: '20, 20, 30',
-        kitchen_space: 13,
-
-        floor: 3,
-        floors_total: 25,
-        
-        building_type: 'кирпичный',
-
-        deal_status: 'встречная покупка',
-
-        description: 'что-то с чем-то и кое-чем, таки, вот....',
-
-        special: true,
-      },
-      relationships: {
-        images: {
-          data: [
-            { type: 'image', id: 12 },
-            { type: 'image', id: 13 }
-          ]
-        }
-      }
-    },
-    {
-      type: 'rentals',
-      id: 6,
-      attributes: {
-        price: 345000,
-
-        name: 'Багир',
-        phone: '+79114560921',
-        mail: 'btd.spb@mail.ru',
-
-        type: 'rent',
-        property_type: 'living',
-        category:  'комната',
-        district: 'Василеостровский',
-
-        metro: 'Василеостровская',
-        time_on_transport: 9,
-        time_on_foot: 13,
-
-        address: 'Средний проспект 12',
-        apartment: 26,
-        latitude: '59.997256',
-        longitude: '30.297199',
-
-        rooms: 1,
-        area: 9,
-        living_space: 8,
-        room_space: '8',
-        kitchen_space: 1,
-
-        floor: 10,
-        floors_total: 11,
-        
-        building_type: 'блочный',
-
-        description: 'маленькая комната с тараканами, крысами и мертвым владельцем',
-
-        special: true,
-      },
-      relationships: {
-        images: { 
-          data: [
-            { type: 'image', id: 14 },
-            { type: 'image', id: 15 },
-            { type: 'image', id: 16 }
-          ]
-        }
-      }
-    }];
+    special: true,                    /* показывать на главной true/false - да/нет */
+  },
+  relationships: {
+    images: {
+      data: [
+        { type: 'image', id: 101 },
+        { type: 'image', id: 102 },
+        { type: 'image', id: 103 },
+        { type: 'image', id: 104 },
+        { type: 'image', id: 105 },
+        { type: 'image', id: 106 },
+        { type: 'image', id: 107 },
+        { type: 'image', id: 108 },
+        { type: 'image', id: 109 }
+      ]
+    }
+  }
+}];
 
   let images = [{
-      type: 'image',
-      id: 1,
-      attributes: {
-        url: 'https://pp.userapi.com/c621216/v621216679/2800/vrPtZgGSDBE.jpg',
-        width: 1280,
-        height: 853
-      },
-      relationships: { rental: 1 }
-    },{
-      type: 'image',
-      id: 2,
-      attributes: {
-        url: 'https://pp.userapi.com/c622629/v622629580/3631e/b82k_eYITGM.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 1 }
-    },{
-      type: 'image',
-      id: 3,
-      attributes: {
-        url: 'https://pp.userapi.com/c631625/v631625299/6aca/8kqunVT6u5k.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 1 }
-    },{
-      type: 'image',
-      id: 4,
-      attributes: {
-        url: 'https://pp.userapi.com/c628421/v628421149/26fe7/Z8syXt-K4pA.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 1 }
-    },{
-      type: 'image',
-      id: 5,
-      attributes: {
-        url: 'https://pp.userapi.com/c630721/v630721254/e23/sy5K4xYLgpc.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 2 }
-    },{
-      type: 'image',
-      id: 6,
-      attributes: {
-        url: 'https://pp.userapi.com/c405923/v405923786/4677/Bqwy69aFaic.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 2 }
-    },{
-      type: 'image',
-      id: 7,
-      attributes: {
-        url: 'https://pp.userapi.com/c629325/v629325968/1a781/KkIO2WVfJPE.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 3 }
-    },{
-      type: 'image',
-      id: 8,
-      attributes: {
-        url: 'https://pp.userapi.com/c627328/v627328393/17895/4wdpQVKWWac.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 3 }
-    },{
-      type: 'image',
-      id: 9,
-      attributes: {
-        url: 'https://pp.userapi.com/c620529/v620529436/1eb24/s0dp3mgbyeM.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 4 }
-    },{
-      type: 'image',
-      id: 10,
-      attributes: {
-        url: 'https://cs7055.userapi.com/c540105/v540105986/157fe/5WB_nPAlh5Y.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 4 }
-    },{
-      type: 'image',
-      id: 11,
-      attributes: {
-        url: 'https://cs7055.userapi.com/c623616/v623616650/c668/Lypg0g9yyNs.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 4 }
-    },{
-      type: 'image',
-      id: 12,
-      attributes: {
-        url: 'https://pp.userapi.com/c320117/v320117634/a10d/9-foSi8jEQQ.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 5 }
-    },{
-      type: 'image',
-      id: 13,
-      attributes: {
-        url: 'https://pp.userapi.com/c623124/v623124606/4d124/sYuedT6Se34.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 5 }
-    },{
-      type: 'image',
-      id: 14,
-      attributes: {
-        url: 'https://pp.userapi.com/c623324/v623324337/e1d8/nBekmoSldpY.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 6 }
-    },{
-      type: 'image',
-      id: 15,
-      attributes: {
-        url: 'https://pp.userapi.com/c628129/v628129275/29a7/UZ78HvrDAa0.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 6 }
-    },{
-      type: 'image',
-      id: 16,
-      attributes: {
-        url: 'https://pp.userapi.com/c618131/v618131427/236d6/TmM7APzbz08.jpg',
-        width: 480,
-        height: 200
-      },
-      relationships: { rental: 6 }
-    }];
+  type: 'image',
+  id: 1,           /* уникальный номер */
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/231a/RM-IpxdLqGY.jpg', /* ссылка на изображение в интернете */
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 1 }
+},{
+  type: 'image',
+  id: 2,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2324/Bb2_zpxFJGA.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 1 }
+},{
+  type: 'image',
+  id: 3,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/232e/KMEWfHSsIMU.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 1 }
+},{
+  type: 'image',
+  id: 4,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2338/l5LwMtYAfa0.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 1 }
+},{
+  type: 'image',
+  id: 5,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2342/SrKZ5FujDHE.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 2 }
+},{
+  type: 'image',
+  id: 6,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/234c/HtQxKEdz50M.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 2 }
+},{
+  type: 'image',
+  id: 7,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2356/Ejeu58wrvhQ.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 3 }
+},{
+  type: 'image',
+  id: 8,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2360/0I0vD1SbNZg.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 3 }
+},{
+  type: 'image',
+  id: 9,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2369/9f7I3u4NDcE.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 4 }
+},{
+  type: 'image',
+  id: 10,
+  attributes: {
+    url: 'https://cs7055.userapi.com/c540105/v540105986/157fe/5WB_nPAlh5Y.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 4 }
+},{
+  type: 'image',
+  id: 101,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/238a/lePad5TrCPY.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 4 }
+},{
+  type: 'image',
+  id: 102,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/2394/u9BIGmWv45o.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 5 }
+},{
+  type: 'image',
+  id: 103,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/239e/SPYbLBXFowM.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 5 }
+},{
+  type: 'image',
+  id: 104,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23a8/hDCuwb72Zk4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: 105,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23b2/gnk7WFGDnws.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: 106,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: 107,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23c6/qX8qJOCLX78.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: 108,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23d0/flCqKNI_Y9o.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: 109,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23da/7r5mBIu_5zs.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: 110,
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '1а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23b2/gnk7WFGDnws.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '2а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '3а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23b2/gnk7WFGDnws.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '4а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '5а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23b2/gnk7WFGDnws.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '6а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '7а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23b2/gnk7WFGDnws.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '8а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '9а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23b2/gnk7WFGDnws.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+},{
+  type: 'image',
+  id: '10а',
+  attributes: {
+    url: 'https://pp.userapi.com/c841536/v841536181/23bc/ImTY2iJy8d4.jpg',
+    width: 480,
+    height: 200
+  },
+  relationships: { rental: 6 }
+}];
 
   let feedbacks = [{
       type: 'feedback',
@@ -543,7 +480,7 @@ export default function() {
       }
     }];
   
-  this.get('/index', function(db, request) {
+  this.get('/index', function() {
     let filteredRentals = rentals.filter(function(i) {
       return i.attributes.special;
     });
@@ -563,45 +500,47 @@ export default function() {
       let unit = i.attributes;
       let query = request.queryParams;
       
-      if (typeof query.type == 'undefined')
-        return { data: rentals };
+      if (typeof query.type === 'undefined') {
+        return { data: rentals };}
 
       if (query.category != null) {
         let category = query.category.map(function(value) { return value.toLowerCase(); });
-        if (category.indexOf(' ' + unit.category) == -1)
-          return false;
+        if (category.indexOf(' ' + unit.category) === -1) {
+          return false;}
       }
       if (query.district != null) {
         let district = query.district.map(function(value) { return value.toLowerCase(); });
-        if (district.indexOf(' ' + unit.district.toLowerCase()) == -1)
-          return false;
+        if (district.indexOf(' ' + unit.district.toLowerCase()) === -1) {
+          return false;}
       }
       
-      if (query.property_type == 'commerical') {
-        return (unit.type == query.type) &&
-               (unit.property_type == query.property_type) &&
+      if (query.property_type === 'commerical') {
+        return (unit.type === query.type) &&
+               (unit.property_type === query.property_type) &&
                (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
                (unit.price >= query.priceMin && unit.price <= query.priceMax); }
-      else if (query.property_type  == 'country') {
-        return (unit.type == query.type) &&
-               (unit.property_type == query.property_type) &&
+      else if (query.property_type  === 'country') {
+        return (unit.type === query.type) &&
+               (unit.property_type === query.property_type) &&
                (unit.lot_area >= query.lotMin && unit.lot_area <= query.lotMax) &&
                (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
                (unit.price >= query.priceMin && unit.price <= query.priceMax); }
       else {
-        return (unit.type == query.type) &&
-               (unit.property_type == query.property_type) &&
+        return (unit.type === query.type) &&
+               (unit.property_type === query.property_type) &&
                (unit.rooms >= query.roomsMin && unit.rooms <= query.roomsMax) &&
                (unit.area >= query.areaMin && unit.area <= query.areaMax) &&
                (unit.price >= query.priceMin && unit.price <= query.priceMax); }
     });
+    
+    filteredRentals.sort(function(a, b) {return a.price - b.price;});
     return { data: filteredRentals };
   });
 
   this.get('/rentals/:id', (schema, request) => {
     let rental = rentals.filter(function(i) {
-      if (i.id == request.params.id)
-        return true;
+      if (i.id === request.params.id) {
+        return true;}
       return false;
     });
     let rent =  rental[0];
@@ -611,8 +550,8 @@ export default function() {
   
   this.get('/images/:id', (schema, request) => {
     let image = images.filter(function(i) {
-      if (i.id == request.params.id)
-        return true;
+      if (i.id === request.params.id) {
+        return true;}
       return false;
     });
     let img = image[0];
