@@ -10,7 +10,7 @@
 
 <div class='image-preview'>
   {{#each images as |image index|}}
-    <div class='image-container' style='{{if (eq slideIndex index) 'opacity: 1'}}'>
+    <div class='image-container' style='{{if (eq slideIndex index) 'opacity: 1'}}; {{image-view-offset index slideIndex}}'>
       <img src="{{image.url}}"/>
     </div>
   {{/each}}

@@ -6,17 +6,11 @@ export default Ember.Component.extend({
   rate: undefined,
   total: undefined,
 
-  first: Ember.computed('total', 'payment', function() {
-    return (this.get('total') * this.get('payment') / 100).toFixed(); }),
+  first: undefined,
   
-  credit: Ember.computed('total', 'first', function() {
-    return (this.get('total') - this.get('first')).toFixed(); }),
+  credit: undefined,
   
-  monthly: Ember.computed('rate', 'credit', 'term', 'monthly', function() {
-    let q = this.get('rate') / 1200 + 1;
-    let pow = Math.pow(q, this.get('term') * 12);
-    let res = this.get('credit') * pow / (1 + ((pow / q - 1) / (q - 1)));
-    return res.toFixed(); }),
+  monthly: undefined,
   
   init() {
     this._super(...arguments);
@@ -26,10 +20,32 @@ export default Ember.Component.extend({
   },
   
   didInsertElement() {
+    this.set('first', this.get('total') * this.get('payment') / 100);
+
+    this.set('credit', this.get('total') - this.get('first'));
+
     let q = this.get('rate') / 1200 + 1;
     let pow = Math.pow(q, this.get('term') * 12);
     let res = this.get('credit') * pow / (1 + ((pow / q - 1) / (q - 1)));
     this.set('monthly', res.toFixed());
-  },
 
+    this.set('first', this.get('first').toFixed());
+    this.set('credit', this.get('credit').toFixed());
+  },
+  
+  actions: {
+    commit() {
+    this.set('first', this.get('total') * this.get('payment') / 100);
+
+    this.set('credit', this.get('total') - this.get('first'));
+
+    let q = this.get('rate') / 1200 + 1;
+    let pow = Math.pow(q, this.get('term') * 12);
+    let res = this.get('credit') * pow / (1 + ((pow / q - 1) / (q - 1)));
+    this.set('monthly', res.toFixed());
+
+    this.set('first', this.get('first').toFixed());
+    this.set('credit', this.get('credit').toFixed());
+    }
+  }
 });

@@ -24,7 +24,7 @@
         {{model.address}}
 
         <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
-          <div style='width: calc(60% - 10px); padding-left: 30px; float: left'>
+          <div style='width: calc(50% - 10px); padding-left: 30px; float: left'>
             {{#unless  (eq model.property_type 'country')}}
               Общая площадь:<br>
               {{#unless (eq model.property_type 'commerical')}}
@@ -42,17 +42,17 @@
               Площадь участка:<br>
             {{/unless}}
           </div>
-          <div style='width: calc(40% - 10px); float: left'>
-            {{model.area}} м²<br>
+          <div style='width: calc(50% - 10px); float: left'>
+            {{dot-to-comma model.area}} м²<br>
             {{#unless  (eq model.property_type 'country')}}
               {{#unless (eq model.property_type 'commerical')}}
-                {{model.living_space}} м²<br>
-                {{model.room_space}} м²<br>
-                {{model.kitchen_space}} м²<br>
+                {{dot-to-comma model.living_space}} м²<br>
+                {{dot-to-comma model.room_space}} м²<br>
+                {{dot-to-comma model.kitchen_space}} м²<br>
               {{/unless}}
               {{model.floor}}/{{model.floors_total}}
             {{else}}
-              {{model.lot_area}} м²
+              {{dot-to-comma model.lot_area}} м²
             {{/unless}}
             {{#if (eq model.type 'sell')}}
               <br><br>{{model.building_type}}

@@ -3,18 +3,28 @@
       <div class='block' style="width: 894px; height: 400px; float: left; margin: 15px 0; padding: 10px">
         <p class='text-20'>Новости</p>
         <div style='width: 100%; height: calc(100% - 50px); overflow-y: scroll'>
-
-          <div style='width: calc(100% - 10px); padding: 15px; margin: 10px 0 10px 0; overflow-y: auto'>
-            <p class='text-left text-20'>{{posts.[0].title}}</p>
-            <p class='text-left'>{{posts.[0].body}}</p>
-            <div class='horizontal-line'></div>
-          </div>
-          <div style='width: calc(100% - 10px); padding: 15px; margin: 10px 0 10px 0; overflow-y: auto'>
-            <p class='text-left text-20'>{{posts.[1].title}}</p>
-            <p class='text-left'>{{posts.[1].body}}</p>
-            <div class='horizontal-line'></div>
-          </div>
-          
+          {{#each posts as |post index|}}
+            {{#if (eq index 0)}}
+              <article class='listing' style='height: 140px'>
+                <p class='text-left text-20'>{{post.title}}</p>
+                <div class='fade' style='bottom: 0; height: 110px'>
+                  <p class='text-left'>{{post.body}}</p>
+                </div>
+                {{#link-to 'posts'}}<p class='text-right'>Подробнее</p>{{/link-to}}
+              </article>
+                {{#link-to 'posts'}}<p class='text-right'>Подробнее</p>{{/link-to}}
+            <div class='horizontal-line'></div><br>
+            {{/if}}
+            {{#if (eq index 1)}}
+              <article class='listing' style='height: 120px'>
+                <p class='text-left text-20'>{{post.title}}</p>
+                <div class='fade'>
+                  <p class='text-left'>{{post.body}}</p>
+                </div>
+              </article>
+                {{#link-to 'posts'}}<p class='text-right'>Подробнее</p>{{/link-to}}
+            {{/if}}
+          {{/each}}
         </div>
       </div>
       

@@ -1,10 +1,14 @@
 <div class="index-feedback right  block">
   <b>Отзывы:</b>
   <div style='width: 100%; height: calc(100% - 30px); overflow-y: scroll'>
+    <ul>
     {{#each feedbacks as |feedback index|}}
       {{#if (less index 3)}}
-        {{feedback-listing feedback=feedback}}
+        <li>
+          {{feedback-listing feedback=feedback}}
+        </li>
       {{/if}}
     {{/each}}
+    </ul>
   </div>
 </div>

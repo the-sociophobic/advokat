@@ -1,1 +1,14 @@
-{{outlet}}
+<div class='container'>
+  <br>
+    <p class='text-28'>Новости</p>
+  <br>
+    {{#each model as |post index|}}
+        <article>
+          <p class='text-left text-20'>{{post.title}}</p>
+          <div>
+            <p class='text-left'>{{post.body}}</p>
+          </div>
+        </article>
+        <div class='horizontal-line'></div><br>
+    {{/each}}
+</div>

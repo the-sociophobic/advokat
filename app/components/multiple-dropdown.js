@@ -33,6 +33,9 @@ export default Ember.Component.extend({
       }
       this.set('checkedOptions', hehe);
       
+      if(this.get('checkedOptions').length == this.get('options').length)
+        this.set('anyFlag', true);
+
       this.get('commit')();
     },
     

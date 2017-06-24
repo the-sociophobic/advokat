@@ -1,1 +1,14 @@
-{{outlet}}
+<div class='container'>
+  <br>
+    <p class='text-28'>Отзывы</p>
+  <br>
+    {{#each model as |feedback index|}}
+        <article>
+          <p class='text-left text-20'>{{feedback.title}}</p>
+          <div>
+            <p class='text-left'>{{feedback.body}}</p>
+          </div>
+        </article>
+        <div class='horizontal-line'></div><br>
+    {{/each}}
+</div>

@@ -33,6 +33,8 @@ export default Ember.Component.extend({
           else {
             this.set('value', this.get('min') +  Math.round((mousePercent * (this.get('max') - this.get('min'))) / this.get('step')) * this.get('step') );}
         }
+      
+      this.get('commit')();
     }
   }
 });
