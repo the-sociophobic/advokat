@@ -1,0 +1,117 @@
+{
+  type: 'rentals',
+  id: 1,
+  attributes: {
+    price: 4500000,
+
+    name: 'Татьяна Владимировна',
+    phone: '9616115611',
+    mail: '89616115611@mail.ru',
+
+    type: 'купить',
+    property_type: 'жилая',
+    category:  'квартира',
+
+    district: 'Приморский',
+
+    metro: 'Комендантский проспект',
+    time_on_transport: 0,
+    time_on_foot: 5,
+
+    address: 'улица Уточкина 5',
+    apartment: '00',
+    latitude: '60.011445',
+    longitude: '30.263735',
+
+    rooms: 2,
+    area: 45.8,
+    living_space: 28.6,
+    room_space: '18.4 + 10.2',
+    kitchen_space: 7.00,
+
+    floor: 9,
+    floors_total: 9,
+
+    building_type: 'крупно-панельный',
+
+    deal_status: 'прямая продажа',
+
+    description: 'Чистая светлая квартира рядом с метро. Новые трубы и двери, стеклопакеты, стены и полы выровнены, проводка новая.<br>Отличная инфраструктура, рядом школа, детский сад, магазины, у метро - торгово-развлекательный комплекс. Зеленый двор с детской площадкой.',
+
+    special: true
+  },
+  relationships: {
+    images: {
+      data: [
+        { type: 'image', id: 1 },
+        { type: 'image', id: 2 },
+        { type: 'image', id: 3 },
+        { type: 'image', id: 4 },
+        { type: 'image', id: 5 },
+        { type: 'image', id: 6 },
+        { type: 'image', id: 7 },
+        { type: 'image', id: 8 },
+        { type: 'image', id: 9 }
+      ]
+    }
+  }
+}
+
+{
+  type: 'rentals',
+  id: 11,
+  attributes: {
+    price: 4290000,
+
+    name: 'Марина Вячеславовна',
+    phone: '9213502844',
+    mail: 'advokat1995@list.ru',
+
+    type: 'купить',
+    property_type: 'жилая',
+    category:  'квартира',
+
+    district: 'Выборгский',
+
+    metro: 'Парнас',
+    time_on_transport: 0,
+    time_on_foot: 5,
+
+    address: 'улица Федора Абрамова 4А',
+    apartment: '00',
+    latitude: '60.069756',
+    longitude: '30.332291',
+
+    rooms: 1,
+    area: 42,
+    living_space: 18,
+    room_space: '18',
+    kitchen_space: 13,
+
+    floor: 20,
+    floors_total: 26,
+
+    building_type: 'кирп. монолит',
+
+    deal_status: 'встречная покупка',
+
+    description: 'Отличная просторная светлая, теплая квартира с&nbsp;большим балконом в &quot;Северной долине&quot;. Кухонный гарнитур-бонус. Магистральные фильтры для воды. Гардеробная. Вид на&nbsp;город. Близость метро. Детские сады и&nbsp;школа рядом. Супермаркеты, ТЦ, сбербанк, аптека в&nbsp;пешей доступности. Паркинг.',
+
+    special: true
+  },
+  relationships: {
+    images: {
+      data: [
+        { type: 'image', id: 101 },
+        { type: 'image', id: 102 },
+        { type: 'image', id: 103 },
+        { type: 'image', id: 104 },
+        { type: 'image', id: 105 },
+        { type: 'image', id: 106 },
+        { type: 'image', id: 107 },
+        { type: 'image', id: 108 },
+        { type: 'image', id: 109 }
+      ]
+    }
+  }
+}

@@ -28,6 +28,7 @@ module.exports = function(defaults) {
   app.import('app/styles/radio.css');
   app.import('app/styles/slider.css');
   app.import('app/styles/dropdown.css');
+  app.import('app/styles/accordion.css');
   app.import('app/styles/checkbox.css');
   app.import('app/styles/metro.css');
   

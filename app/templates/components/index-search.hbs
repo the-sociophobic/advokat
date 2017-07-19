@@ -15,10 +15,10 @@
       <div class="container-wide" style="padding-bottom: 10px">
         <p class='text-18' style="margin-bottom: -7px; margin-left: -420px"><b>недвижимость</b></p>
         {{#if buyCheck}}
-          {{#link-to 'rentals' (query-params type='sell' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='sell' category='new')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='sell' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='sell' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='купить' category='жилая')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='купить' category='новостройки')}}<b>СТРОЯЩАЯСЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='купить' category='коммерческая')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='купить' category='загородная')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
         {{/if}}
         {{#if sellCheck}}
           <a {{action popup}}><b>ЖИЛАЯ</b></a>
@@ -27,9 +27,9 @@
           <a {{action popup}}><b>ЗАГОРОДНАЯ</b></a>
         {{/if}}
         {{#if rentCheck}}
-          {{#link-to 'rentals' (query-params type='rent' category='living')}}<b>ЖИЛАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='rent' category='commerical')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
-          {{#link-to 'rentals' (query-params type='rent' category='country')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='арендовать' category='жилая')}}<b>ЖИЛАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='арендовать' category='коммерческая')}}<b>КОММЕРЧЕСКАЯ</b>{{/link-to}}
+          {{#link-to 'rentals' (query-params type='арендовать' category='загородная')}}<b>ЗАГОРОДНАЯ</b>{{/link-to}}
         {{/if}}
         {{#if toRentCheck}}
           <a {{action popup}}><b>ЖИЛАЯ</b></a>

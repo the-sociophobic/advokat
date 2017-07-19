@@ -40,7 +40,7 @@
 
 .listing-description {
     font-size: 14px;
-    width:   772px;
+    width: 757px;
     height: 4.5em;
     display: block;
     overflow: hidden;
@@ -237,4 +237,16 @@
 .footer .map-container {
     margin-top: 7px;
     margin-bottom: 0;
+}
+
+
+.rental-input {
+    padding: 35px;
+}
+
+.rental-input input {
+    font-size: 14px;
+    width: 250px;
+    height: 28px;
+    padding-left: 10px;
 }

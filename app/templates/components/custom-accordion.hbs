@@ -1,0 +1,11 @@
+<div class='accordion-container {{if expanded 'expanded'}}'>
+  <div class='accordion-title' {{action 'toggleExpand'}}>
+    {{#if expanded}}
+      -
+    {{else}}
+      +
+    {{/if}}
+    {{title}}
+  </div>
+  <div class='accordion-body'>{{yield}}</div>
+</div>

@@ -1,5 +1,5 @@
 <div class="multiple-dropdown" style="width:{{width}}" {{action 'Collapse' on="mouseLeave" preventDefault=false}}>
-  <div class="multiple-dropdown-field block {{if isExpanded "rot-arrow"}}" style="width:{{width}}" {{action 'toggleExpand' preventDefault=false}}>
+  <div class="multiple-dropdown-field block" style="width:{{width}}" {{action 'toggleExpand' preventDefault=false}}>
     <div class="multiple-dropdown-checked" style="width:calc({{width}} - 5px)">
       {{#if (eq checked.length 0)}}
         {{any}}
@@ -9,13 +9,7 @@
     </div>
   </div>
   <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{options-width}}">
-    <div class='no-check' {{action 'any'}}>
-      {{any}}
-    </div>
-    {{#each options as |Unit|}}
-      <div class='no-check' {{action 'toggleLabel' Unit}}>
-        {{Unit}}
-      </div>
-    {{/each}}
+    {{yield}}
   </div>
 </div>
+

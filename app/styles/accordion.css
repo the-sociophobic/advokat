@@ -1,0 +1,37 @@
+.accordion-container {
+  margin: 20px 0;
+}
+
+.accordion-title {
+  width: 100%;
+  height: 38px;
+  padding: 5px 12px;
+  background: #f2f2f2;
+  border: 1px solid #c2c2c2;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accordion-title::after {
+  
+}
+
+.expanded .accordion-title {
+  opacity: .5;
+  border-radius: 5px 5px 0 0;
+}
+
+.accordion-body {
+  width: 100%;
+  max-height: 0px;
+  border 0px;
+  overflow: hidden;
+}
+
+.expanded .accordion-body {
+  padding: 10px;
+  border: 1px solid #c2c2c2;
+  border-top: 0px;  
+  max-height: 1000px;
+  overflow: auto;
+}

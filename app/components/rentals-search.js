@@ -86,7 +86,7 @@ export default Ember.Component.extend({
     this.set('areaMinValue', this.get('areaMin'));
     this.set('areaMaxValue', this.get('areaMax'));
 
-    this.set('priceMin', 600000);
+    this.set('priceMin', 0);
     this.set('priceMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 20000000);
     this.set('priceMinValue', this.get('priceMin'));
     this.set('priceMaxValue', this.get('priceMax'));
@@ -100,7 +100,7 @@ export default Ember.Component.extend({
     this.set('areaCommericalMinValue', this.get('areaCommericalMin'));
     this.set('areaCommericalMaxValue', this.get('areaCommericalMax'));
 
-    this.set('priceCommericalMin', 600000);
+    this.set('priceCommericalMin', 0);
     this.set('priceCommericalMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 20000000);
     this.set('priceCommericalMinValue', this.get('priceCommericalMin'));
     this.set('priceCommericalMaxValue', this.get('priceCommericalMax'));
@@ -114,7 +114,7 @@ export default Ember.Component.extend({
     this.set('areaCountryMinValue', this.get('areaCountryMin'));
     this.set('areaCountryMaxValue', this.get('areaCountryMax'));
 
-    this.set('priceCountryMin', 600000);
+    this.set('priceCountryMin', 0);
     this.set('priceCountryMax', /*Math.max.apply(Math, this.get('rentals').map(function(rental){ return rental.price; })) + 100000*/ 20000000);
     this.set('priceCountryMinValue', this.get('priceCountryMin'));
     this.set('priceCountryMaxValue', this.get('priceCountryMax'));
@@ -130,15 +130,15 @@ export default Ember.Component.extend({
   },
   
   didReceiveAttrs() {
-    this.set('buyCheck',        this.get('type')     === 'sell'       ? true : false);
-    this.set('rentCheck',       this.get('type')     === 'rent'       ? true : false);
-    this.set('livingCheck',     this.get('category') === 'living'     ? true : false);
-    this.set('newCheck',        this.get('category') === 'new'        ? true : false);
-    this.set('commericalCheck', this.get('category') === 'commerical' ? true : false);
-    this.set('countryCheck',    this.get('category') === 'country'    ? true : false);
+    this.set('buyCheck',        this.get('type')     === 'купить'       ? true : false);
+    this.set('rentCheck',       this.get('type')     === 'арендовать'   ? true : false);
+    this.set('livingCheck',     this.get('category') === 'жилая'        ? true : false);
+    this.set('newCheck',        this.get('category') === 'новостройки'  ? true : false);
+    this.set('commericalCheck', this.get('category') === 'коммерческая' ? true : false);
+    this.set('countryCheck',    this.get('category') === 'загородная'   ? true : false);
     
-    if (this.get('type') === 'sell') {
-      if (this.get('category') === 'commerical') {
+    if (this.get('type') === 'купить') {
+      if (this.get('category') === 'коммерческая') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -153,7 +153,7 @@ export default Ember.Component.extend({
 
                            this.get('commericalChecked'),
                            this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
-      else if (this.get('category') === 'country') {
+      else if (this.get('category') === 'загородная') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -184,7 +184,7 @@ export default Ember.Component.extend({
                            this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
     }
       else {
-        if (this.get('category') === 'commerical') {
+        if (this.get('category') === 'коммерческая') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -199,7 +199,7 @@ export default Ember.Component.extend({
 
                            this.get('commericalChecked'),
                            this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
-      else if (this.get('category') === 'country') {
+      else if (this.get('category') === 'загородная') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -233,29 +233,29 @@ export default Ember.Component.extend({
   
   actions: {
     buy() {
-      this.set('type', 'sell');
+      this.set('type', 'купить');
     },
     rent() {
-      this.set('type', 'rent');
-      if (this.get('category') === 'new') {
-        this.set('category', 'living'); }
+      this.set('type', 'арендовать');
+      if (this.get('category') === 'новостройки') {
+        this.set('category', 'жилая'); }
     },
     living() {
-      this.set('category', 'living');
+      this.set('category', 'жилая');
     },
     new() {
-      this.set('category', 'new');
+      this.set('category', 'новостройки');
     },
     commerical() {
-      this.set('category', 'commerical');
+      this.set('category', 'коммерческая');
     },
     country() {
-      this.set('category', 'country');
+      this.set('category', 'загородная');
     },
     
     commit() {
-    if (this.get('type') === 'sell') {
-      if (this.get('category') === 'commerical') {
+    if (this.get('type') === 'купить') {
+      if (this.get('category') === 'коммерческая') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -270,7 +270,7 @@ export default Ember.Component.extend({
 
                            this.get('commericalChecked'),
                            this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
-      else if (this.get('category') === 'country') {
+      else if (this.get('category') === 'загородная') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -301,7 +301,7 @@ export default Ember.Component.extend({
                            this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
     }
       else {
-        if (this.get('category') === 'commerical') {
+        if (this.get('category') === 'коммерческая') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 
@@ -316,7 +316,7 @@ export default Ember.Component.extend({
 
                            this.get('commericalChecked'),
                            this.get('districtCityChecked')).then((filterResults) => this.set('results', filterResults)); }
-      else if (this.get('category') === 'country') {
+      else if (this.get('category') === 'загородная') {
         this.get('filter')(this.get('type'),
                            this.get('category'),
 

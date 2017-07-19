@@ -13,8 +13,8 @@
 
         <a style='cursor: pointer; float: right; margin-right: 92px' onClick="window.print()">Распечатать</a><br><br>
       
-        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'rent')}}/месяц{{/if}}</span>
-        {{#if (eq model.type 'sell')}}
+        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'арендовать')}}/месяц{{/if}}</span>
+        {{#if (eq model.type 'купить')}}
           <a style='cursor: pointer; float: right; margin-right: 92px' {{action 'toCalc'}}>{{number-spaces monthly}} руб./мес.</a><br>
           <small>{{{price-per-meter model.price model.area}}} руб./м²</small><br><br>
         {{/if}}
@@ -25,15 +25,15 @@
 
         <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
           <div style='width: calc(50% - 10px); padding-left: 30px; float: left'>
-            {{#unless  (eq model.property_type 'country')}}
+            {{#unless  (eq model.property_type 'загородная')}}
               Общая площадь:<br>
-              {{#unless (eq model.property_type 'commerical')}}
+              {{#unless (eq model.property_type 'коммерческая')}}
                 Жилая площадь:<br>
                 Площадь комнат:<br>
                 Площадь кухни:<br>
               {{/unless}}
               Этаж/Этажей:
-              {{#if (eq model.type 'sell')}}
+              {{#if (eq model.type 'купить')}}
                 <br><br>Тип дома:
                 <br>Вид сделки:
               {{/if}}
@@ -44,8 +44,8 @@
           </div>
           <div style='width: calc(50% - 10px); float: left'>
             {{dot-to-comma model.area}} м²<br>
-            {{#unless  (eq model.property_type 'country')}}
-              {{#unless (eq model.property_type 'commerical')}}
+            {{#unless  (eq model.property_type 'загородная')}}
+              {{#unless (eq model.property_type 'коммерческая')}}
                 {{dot-to-comma model.living_space}} м²<br>
                 {{dot-to-comma model.room_space}} м²<br>
                 {{dot-to-comma model.kitchen_space}} м²<br>
@@ -54,9 +54,9 @@
             {{else}}
               {{dot-to-comma model.lot_area}} м²
             {{/unless}}
-            {{#if (eq model.type 'sell')}}
+            {{#if (eq model.type 'купить')}}
               <br><br>{{model.building_type}}
-              {{#unless (eq model.property_type 'new')}}
+              {{#unless (eq model.property_type 'новостройки')}}
                 <br>{{model.deal_status}}
               {{/unless}}
             {{/if}}
@@ -80,14 +80,14 @@
           </div>
           <div style='width: 68%; float: left'>
             {{model.name}}<br>
-            {{model.phone}}<br>
+            {{phone-formatting model.phone}}<br>
             {{model.mail}}<br>
           </div>
         </div>
     </div>
   </div>
   {{location-map location=(spb-address model.address)}} 
-  {{#if (eq model.type 'sell')}}
+  {{#if (eq model.type 'купить')}}
     <p class='text-20 text-center'>калькулятор ипотеки</p>
     {{mortgage-calc total=model.price monthly=monthly}}
   {{/if}}

@@ -1,5 +1,7 @@
 {
   "name": "advokat",
   "dependencies": {
+    "jquery.inputmask": "^3.3.7",
+    "moment": "^2.18.1"
   }
 }

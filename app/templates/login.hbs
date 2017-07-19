@@ -1,0 +1,13 @@
+<div class='container'>
+  {{#if session.isAuthenticated}}
+    <button {{action 'logout'}}>Выйти</button>
+  {{else}}
+    <form {{action 'authenticate' on='submit'}}>
+      {{input value=identification placeholder='Логин'}}
+      {{input value=password       placeholder='Пароль' type='password'}}
+      <button type='submit'>Войти</button>
+    </form>
+      {{identification}}
+      Fail: {{errorMessage}}
+  {{/if}}
+</div>

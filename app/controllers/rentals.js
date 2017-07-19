@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   queryParams: ['type', 'category'],
-  type:     'sell',
-  category: 'living',
+  type:     'купить',
+  category: 'жилая',
   
   actions: {
     filterByAll(type, property_type, roomsOrLotMin, roomsOrLotMax, areaMin, areaMax, priceMin, priceMax, category, district) {
