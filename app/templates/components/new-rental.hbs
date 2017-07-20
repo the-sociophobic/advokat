@@ -7,7 +7,15 @@
 </div>
 
 <div>
-  {{custom-dropdown options=typeOptions checked=typeChecked width="250px" any='Вид сделки' commit=(action 'commit')}}
+  {{custom-dropdown options=typeOptions checked=typeChecked width="250px" any='Тип сделки' commit=(action 'commit')}}
+  
+  {{type}}
+  
+  {{#if (eq type 'купить')}}
+    {{custom-dropdown options=categoryBuyOptions checked=categoryBuyChecked width="250px" any='Тип недвижимости' commit=(action 'commit')}}
+  {{else}}
+    {{custom-dropdown options=categoryRentOptions checked=categoryRentChecked width="250px" any='Тип недвижимости' commit=(action 'commit')}}
+  {{/if}}
 
   {{#if (eq category 'жилая')}}
     {{custom-dropdown options=livingOptions     checked=livingChecked     width="250px" any='Тип' commit=(action 'commit')}}

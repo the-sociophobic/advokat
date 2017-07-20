@@ -15,14 +15,14 @@ export default Ember.Component.extend({
       this.set('isExpanded', false);
     },
     toggleLabel(label) {
-      var hehe = [label];
+      var hehe = label;
       this.set('checked', hehe);
       this.set('isExpanded', false);
       
       this.get('commit')();
     },
     any() {
-      var hehe = [];
+      var hehe = undefined;
       this.set('checked', hehe);
       this.set('isExpanded', false);
 
