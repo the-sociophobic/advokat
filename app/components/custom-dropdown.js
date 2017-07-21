@@ -16,14 +16,14 @@ export default Ember.Component.extend({
     },
     toggleLabel(label) {
       var hehe = label;
-      this.set('checked', hehe);
+      this.set('selected', hehe);
       this.set('isExpanded', false);
       
       this.get('commit')();
     },
     any() {
       var hehe = undefined;
-      this.set('checked', hehe);
+      this.set('selected', hehe);
       this.set('isExpanded', false);
 
       this.get('commit')();

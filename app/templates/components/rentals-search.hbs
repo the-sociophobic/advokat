@@ -17,16 +17,16 @@
   <div class="space35">
     <span>Тип: </span>
     {{#if livingCheck}}
-      {{custom-dropdown options=livingOptions checked=livingChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=livingOptions selected=livingChecked width="250px" commit=(action 'commit')}}
     {{/if}}
     {{#if newCheck}}
-      {{custom-dropdown options=newOptions checked=newChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=newOptions selected=newChecked width="250px" commit=(action 'commit')}}
     {{/if}}
     {{#if commericalCheck}}
-      {{custom-dropdown options=commericalOptions checked=commericalChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=commericalOptions selected=commericalChecked width="250px" commit=(action 'commit')}}
     {{/if}}
     {{#if countryCheck}}
-      {{custom-dropdown options=countryOptions checked=countryChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=countryOptions selected=countryChecked width="250px" commit=(action 'commit')}}
     {{/if}}
   </div>
   <div class="space35">

@@ -1,30 +1,119 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
+  
   districtCity: [' Адмиралтейский',' Василеостровский',' Выборгский',' Калининский',' Кировский',' Колпинский',' Красногвардейский',' Красносельский',' Кронштадтский',' Курортный',' Московский',' Невский',' Петроградский',' Петродворцовый',' Приморский',' Пушкинский',' Фрунзенский',' Центральный'],
   districtCityChecked: [],
   districtCountry: ['Бокситогорский', 'Волосовский', 'Волховский', 'Всеволожский', 'Выборгский', 'Гатчинский', 'Кингисеппский', 'Киришский', 'Кировский', 'Лодейнопольский', 'Ломоносовский', 'Лужский', 'Подпорожский', 'Приозерский', 'Сланцевский', 'Тихвинский', 'Тосненский'],
   districtCountryChecked: [],
 
   typeOptions: ['купить', 'арендовать'],
-  typeChecked: [],
   categoryBuyOptions: ['жилая', 'новостройки', 'коммерческая', 'загородная'],
-  categoryBuyChecked: [],
   categoryRentOptions: ['жилая', 'коммерческая', 'загородная'],
-  categoryRentChecked: [],
   livingOptions: ['квартира', 'комната', 'студия'],
-  livingChecked: [],
   newOptions: ['квартира', 'студия'],
-  newChecked: [],
   commericalOptions: ['офис', 'торговые', 'различного назначения', 'здания', 'склады, Гаражи'],
-  commericalChecked: [],
   countryOptions: ['дом', 'таунхаус', 'участок'],
-  countryChecked: [],
   
+  buildingTypeOptions: ['кирпичный', 'кирпично-монолитный', 'сталинский', 'старый фонд', 'старый фонд с КР', 'панельный', 'блочный'],
+  dealStatusOptions: ['прямая продажа', 'встречная покупка', 'расселение', 'переуступка'],
+  specialOptions: ['да', 'нет'],
+  
+  red: ['проспект ветеранов', 'ленинский проспект', 'автово', 'кировский завод', 'нарвская', 'балтийская', 'технологический институт 1', 'пушкинская', 'владимирская', 'площадь восстания', 'выборгская', 'лесная', 'площадь мужества', 'политехническая', 'академическая', 'гражданский проспект', 'девяткино'],
+  blue: ['купчино', 'звездная', 'звёздная', 'московская', 'парк победы', 'электросила', 'московские ворота', 'фрунзенская', 'технологический институт 2', 'сенная площадь', 'невский проспект', 'горьковская', 'петроградская', 'черная речка', 'чёрная речка', 'пионерская', 'удельная', 'озерки', 'проспект просвещения', 'парнас'],
+  green: ['приморская', 'василеостровская', 'гостинный двор', 'маяковская', 'площадь александра невского 1', 'елизаровская', 'ломоносовская', 'пролетарская', 'обухово', 'рыбацкое'],
+  orange: ['театральная', 'спасская', 'достоевская', 'лиговский проспект', 'площадь александра невского 2', 'новочеркасская', 'ладожская', 'проспект большевиков', 'улица дыбенко'],
+  violet: ['шушары', 'дунайская', 'проспект славы', 'международная', 'бухарестская', 'волковская', 'обводный канал', 'звенигородская', 'садовая', 'адмиралтейская', 'спортивная', 'чкаловская', 'крестовский остров', 'старая деревня', 'комендантский проспект'],
+
+  metro_options: [],
+  
+  images: [],
   
   actions: {
-    commit() {
+    commit_type() {
+      this.set('property_type', undefined);
+      this.set('category',      undefined);
+      this.set('district',      undefined);
+    },
+    commit_property_type() {
+      this.set('category',      undefined);
+      this.set('district',      undefined);
+    },
+    metro_filter() {
+      let options = [];
+      var { metro, red, blue, green, orange, violet } = this.getProperties('metro', 'red', 'blue', 'green', 'orange', 'violet');
       
+      for(var i = 0; i < red.length; i++)
+        if (red[i].includes(metro.toLowerCase()))
+          options.push(red[i]);
+      for(var i = 0; i < blue.length; i++)
+        if (blue[i].includes(metro.toLowerCase()))
+          options.push(blue[i]);
+      for(var i = 0; i < green.length; i++)
+        if (green[i].includes(metro.toLowerCase()))
+          options.push(green[i]);
+      for(var i = 0; i < orange.length; i++)
+        if (orange[i].includes(metro.toLowerCase()))
+          options.push(orange[i]);
+      for(var i = 0; i < violet.length; i++)
+        if (violet[i].includes(metro.toLowerCase()))
+          options.push(violet[i]);
+      
+      this.set('metro_options', options);
+    },
+    toggleMetro(label) {
+      this.set('metro', label);
+      this.set('metro_options', []);
+    },
+    
+    add() {
+      let rental = this.get('store').createRecord('rental', {
+        price: this.get('price'),
+
+        name: this.get('price'),
+        phone: this.get('price'),
+        mail: this.get('price'),
+
+        type: this.get('price'),
+        property_type: this.get('price'),
+        category:  this.get('price'),
+
+        district: this.get('price'),
+
+        metro: this.get('price'),
+        time_on_transport: this.get('price'),
+        time_on_foot: this.get('price'),
+
+        address: this.get('price'),
+        apartment: this.get('price'),
+        latitude: this.get('price'),
+        longitude: this.get('price'),
+
+        rooms: this.get('price'),
+        area: this.get('price'),
+        living_space: this.get('price'),
+        room_space:  this.get('price'),
+        kitchen_space: this.get('price'),
+        lot_area: this.get('price'),
+
+        floor: this.get('price'),
+        floors_total: this.get('price'),
+
+        building_type: this.get('price'),
+
+        deal_status: this.get('price'),
+
+        description: this.get('price'),
+
+        special: this.get('price'),
+
+        creation_date: new Date(),
+        last_update_date: new Date(),
+        expire_date: new Date().setFullYear(new Date().getFullYear() + 1)
+      });
+
+      rental.save();
     }
   }
 });

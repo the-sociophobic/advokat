@@ -59,13 +59,13 @@ export default Ember.Component.extend({
   districtCountryChecked: [],
 
   livingOptions: [' Квартира', ' Комната', ' Студия'],
-  livingChecked: [],
+  livingChecked: undefined,
   newOptions: [' Квартира', ' Студия'],
-  newChecked: [],
+  newChecked: undefined,
   commericalOptions: [' Офис', ' Торговые', ' Различного назначения', ' Здания', ' Склады, Гаражи'],
-  commericalChecked: [],
+  commericalChecked: undefined,
   countryOptions: [' Дом', ' Таунхаус', ' Участок'],
-  countryChecked: [],
+  countryChecked: undefined,
   
   buyCheck:        undefined,
   rentCheck:       undefined,
