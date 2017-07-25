@@ -64,7 +64,7 @@ button:hover {
     width: 100vw;
     max-width: 1920px;
     min-width: 1024px;
-    background:  #fdfdfd;
+    background:  white;
     display: flex;
     flex-direction: column;
     min-height: 100vh;

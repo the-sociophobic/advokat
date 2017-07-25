@@ -15,94 +15,72 @@
   </div>
       
   <div class="space35">
-    <span>Тип: </span>
+    <span>Тип:</span>
     {{#if livingCheck}}
-      {{custom-dropdown options=livingOptions selected=livingChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=livingOptions     selected=category width="250px" commit=(action 'filter')}}
     {{/if}}
     {{#if newCheck}}
-      {{custom-dropdown options=newOptions selected=newChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=newOptions        selected=category width="250px" commit=(action 'filter')}}
     {{/if}}
     {{#if commericalCheck}}
-      {{custom-dropdown options=commericalOptions selected=commericalChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=commericalOptions selected=category width="250px" commit=(action 'filter')}}
     {{/if}}
     {{#if countryCheck}}
-      {{custom-dropdown options=countryOptions selected=countryChecked width="250px" commit=(action 'commit')}}
+      {{custom-dropdown options=countryOptions    selected=category width="250px" commit=(action 'filter')}}
     {{/if}}
   </div>
+
   <div class="space35">
-    <span>Район: </span>
-    {{#unless countryCheck}}
-      {{multiple-dropdown options=districtCity checkedOptions=districtCityChecked width="802px" commit=(action 'commit')}}
+    <span>Район:</span>
+    {{#if countryCheck}}
+      {{multiple-dropdown options=countryDistrict.options checkedOptions=countryDistrict.selected width="802px" commit=(action 'filter')}}
     {{else}}
-      {{multiple-dropdown options=districtCountry checkedOptions=districtCountryChecked width="802px" commit=(action 'commit')}}
-    {{/unless}}
+      {{multiple-dropdown options=cityDistrict.options    checkedOptions=cityDistrict.selected    width="802px" commit=(action 'filter')}}
+    {{/if}}
   </div>
   
   
-  <div class='rentals-sliders {{if commericalCheck 'h-0'}} {{if countryCheck 'h-0'}}'>
+  <div class='rentals-sliders'>
+    {{#if (or livingCheck newCheck)}}
+      <div class="space35">
+        <span>Кол-во комнат:  &nbsp;  &nbsp; {{rooms.minValue}} - {{rooms.maxValue}}{{number-plus rooms.maxValue rooms.max}}</span>
+        {{slider-range width="290px" min=rooms.min max=rooms.max minValue=rooms.minValue maxValue=rooms.maxValue step=1 commit=(action 'filter')}}
+      </div>
+    {{/if}}
     <div class="space35">
-      <span>Кол-во комнат:  &nbsp;  &nbsp; 
-        {{roomsMinValue}} - {{roomsMaxValue}}{{number-plus roomsMaxValue roomsMax}}</span>
-      {{slider-range width="290px" min=roomsMin max=roomsMax minValue=roomsMinValue maxValue=roomsMaxValue step=1 commit=(action 'commit')}}
-    </div>
-    <div class="space35">
-      <span>Общая площадь, м²: &nbsp;  &nbsp; 
-        {{areaMinValue}} - {{areaMaxValue}}{{number-plus areaMaxValue areaMax}}</span>
-      {{slider-range width="290px" min=areaMin max=areaMax minValue=areaMinValue maxValue=areaMaxValue step=1 commit=(action 'commit')}}
-    </div>
-    <div class="space35">
-      Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
-      {{#if buyCheck}}
-        {{price-short-million priceMinValue}} - {{price-short-million priceMaxValue}}{{number-plus priceMaxValue priceMax}}
-        {{slider-range width="415px" min=priceMin max=priceMax minValue=priceMinValue maxValue=priceMaxValue step=200000 commit=(action 'commit')}}
+      <span>Общая площадь, м²: &nbsp;  &nbsp; {{area.minValue}} - {{area.maxValue}}{{number-plus area.maxValue area.max}}</span>
+      {{#if commericalCheck}}
+        {{slider-range width="525px" min=area.min max=area.max minValue=area.minValue maxValue=area.maxValue step=1 commit=(action 'filter')}}
       {{else}}
-        {{price-short-thousand priceMinValueRent}} - {{price-short-thousand priceMaxValueRent}}{{number-plus priceMaxValueRent priceMaxRent}}
-        {{slider-range width="415px" min=priceMinRent max=priceMaxRent minValue=priceMinValueRent maxValue=priceMaxValueRent step=2000 commit=(action 'commit')}}
+        {{slider-range width="290px" min=area.min max=area.max minValue=area.minValue maxValue=area.maxValue step=1 commit=(action 'filter')}}
       {{/if}}
     </div>
-  </div>  
-
-  <div class='rentals-sliders {{unless commericalCheck 'h-0'}}'>
+    {{#if countryCheck}}
+      <div class="space35">
+        <span>Площадь участка, м²:  &nbsp;  &nbsp; {{lot.minValue}} - {{lot.maxValue}}{{number-plus lot.maxValue lot.max}}</span>
+        {{slider-range width="290px" min=lot.min max=lot.max minValue=lot.minValue maxValue=lot.maxValue step=1 commit=(action 'filter')}}
+      </div>
+    {{/if}}
     <div class="space35">
-      <span>Общая площадь, м²:  &nbsp;  &nbsp; 
-        {{areaCommericalMinValue}} - {{areaCommericalMaxValue}}{{number-plus areaCommericalMaxValue areaCommericalMax}}</span>
-      {{slider-range width="525px" min=areaCommericalMin max=areaCommericalMax minValue=areaCommericalMinValue maxValue=areaCommericalMaxValue step=1 commit=(action 'commit')}}
-    </div>
-    <div class="space35">
-      Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
       {{#if buyCheck}}
-        {{price-short-million priceCommericalMinValue}} - {{price-short-million priceCommericalMaxValue}}{{number-plus priceCommericalMaxValue priceCommericalMax}}
-        {{slider-range width="525px" min=priceCommericalMin max=priceCommericalMax minValue=priceCommericalMinValue maxValue=priceCommericalMaxValue step=200000 commit=(action 'commit')}}
+        <span>Цена, млн. рублей:  &nbsp;  &nbsp; 
+        {{price-short-million buy.minValue}} - {{price-short-million buy.maxValue}}{{number-plus buy.maxValue buy.max}}</span>
+        {{#if commericalCheck}}
+          {{slider-range width="525px" min=buy.min max=buy.max minValue=buy.minValue maxValue=buy.maxValue step=buy.step commit=(action 'filter')}}
+        {{else}}
+          {{slider-range width="415px" min=buy.min max=buy.max minValue=buy.minValue maxValue=buy.maxValue step=buy.step commit=(action 'filter')}}
+        {{/if}}
       {{else}}
-        {{price-short-thousand priceCommericalMinValueRent}} - {{price-short-thousand priceCommericalMaxValueRent}}{{number-plus priceCommericalMaxValueRent priceCommericalMaxRent}}
-        {{slider-range width="525px" min=priceCommericalMinRent max=priceCommericalMaxRent minValue=priceCommericalMinValueRent maxValue=priceCommericalMaxValueRent step=2000 commit=(action 'commit')}}
-      {{/if}}
-    </div>
-  </div>
-
-  <div class='rentals-sliders {{unless countryCheck 'h-0'}}'>
-    <div class="space35">
-      <span>Общая площадь, м²: &nbsp;  &nbsp;  
-        {{areaCountryMinValue}} - {{areaCountryMaxValue}}{{number-plus areaCountryMaxValue areaCountryMax}}</span>
-      {{slider-range width="290px" min=areaCountryMin max=areaCountryMax minValue=areaCountryMinValue maxValue=areaCountryMaxValue step=1 commit=(action 'commit')}}
-    </div>
-    <div class="space35">
-      <span>Площадь участка, м²:  &nbsp;  &nbsp; 
-        {{lotMinValue}} - {{lotMaxValue}}{{number-plus lotMaxValue lotMax}}</span>
-      {{slider-range width="290px" min=lotMin max=lotMax minValue=lotMinValue maxValue=lotMaxValue step=1 commit=(action 'commit')}}
-    </div>
-    <div class="space35">
-      Цена, {{#if buyCheck}}млн.{{else}}тыс.{{/if}} рублей:  &nbsp;  &nbsp; 
-      {{#if buyCheck}}
-        {{price-short-million priceCountryMinValue}} - {{price-short-million priceCountryMaxValue}}{{number-plus priceCountryMaxValue priceCountryMax}}
-        {{slider-range width="415px" min=priceCountryMin max=priceCountryMax minValue=priceCountryMinValue maxValue=priceCountryMaxValue step=200000 commit=(action 'commit')}}
-      {{else}}
-        {{price-short-thousand priceCountryMinValueRent}} - {{price-short-thousand priceCountryMaxValueRent}}{{number-plus priceCountryMaxValueRent priceCountryMaxRent}}
-        {{slider-range width="415px" min=priceCountryMinRent max=priceCountryMaxRent minValue=priceCountryMinValueRent maxValue=priceCountryMaxValueRent step=2000 commit=(action 'commit')}}
+        <span>Цена, тыс. рублей:  &nbsp;  &nbsp; 
+        {{price-short-thousand rent.minValue}} - {{price-short-thousand rent.maxValue}}{{number-plus rent.maxValue rent.max}}</span>
+        {{#if commericalCheck}}
+          {{slider-range width="525px" min=rent.min max=rent.max minValue=rent.minValue maxValue=rent.maxValue step=rent.step commit=(action 'filter')}}
+        {{else}}
+          {{slider-range width="415px" min=rent.min max=rent.max minValue=rent.minValue maxValue=rent.maxValue step=rent.step commit=(action 'filter')}}
+        {{/if}}
       {{/if}}
     </div>
   </div>
-
 </div>
 
 
@@ -110,7 +88,7 @@
   <div class="text-center">Найдено {{results.length}} {{numerals-counter results.length 'предложение' 'предложения' 'предложений'}}</div>
   <ul class="results">
     {{#each results as |rental|}}
-      <li>{{rental-listing rental=rental length=rental.images.length}}</li>
+      <li>{{rental-listing rental=rental}}</li>
     {{/each}}
   </ul>
 </div>

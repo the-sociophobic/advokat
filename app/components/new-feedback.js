@@ -4,11 +4,11 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
 
   actions: {
-    add() {      
+    add() {
       let feedback = this.get('store').createRecord('feedback', {
-        date: '',
-        title: 'haha',
-        body: 'hehehe'
+        date: '2',
+        title: 'zzz',
+        body: 'zzzr'
       });
 
       feedback.save();
