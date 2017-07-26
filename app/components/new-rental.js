@@ -71,42 +71,42 @@ export default Ember.Component.extend({
       let rental = this.get('store').createRecord('rental', {
         price: this.get('price'),
 
-        name: this.get('price'),
-        phone: this.get('price'),
-        mail: this.get('price'),
+        name: this.get('name'),
+        phone: this.get('phone'),
+        mail: this.get('mail'),
 
-        type: this.get('price'),
-        property_type: this.get('price'),
-        category:  this.get('price'),
+        type: this.get('type'),
+        property_type: this.get('property_type'),
+        category:  this.get('category'),
 
-        district: this.get('price'),
+        district: this.get('district'),
 
-        metro: this.get('price'),
-        time_on_transport: this.get('price'),
-        time_on_foot: this.get('price'),
+        metro: this.get('metro'),
+        time_on_transport: this.get('time_on_transport'),
+        time_on_foot: this.get('time_on_foot'),
 
-        address: this.get('price'),
-        apartment: this.get('price'),
-        latitude: this.get('price'),
-        longitude: this.get('price'),
+        address: this.get('address'),
+        apartment: this.get('apartment'),
+        latitude: this.get('latitude'),
+        longitude: this.get('longitude'),
 
-        rooms: this.get('price'),
-        area: this.get('price'),
-        living_space: this.get('price'),
-        room_space:  this.get('price'),
-        kitchen_space: this.get('price'),
-        lot_area: this.get('price'),
+        rooms: this.get('rooms'),
+        area: this.get('area'),
+        living_space: this.get('living_space'),
+        room_space:  this.get('room_space'),
+        kitchen_space: this.get('kitchen_space'),
+        lot_area: this.get('lot_area'),
 
-        floor: this.get('price'),
-        floors_total: this.get('price'),
+        floor: this.get('floor'),
+        floors_total: this.get('floors_total'),
 
-        building_type: this.get('price'),
+        building_type: this.get('building_type'),
 
-        deal_status: this.get('price'),
+        deal_status: this.get('deal_status'),
 
-        description: this.get('price'),
+        description: this.get('description'),
 
-        special: this.get('price'),
+        special: this.get('special'),
 
         creation_date: new Date(),
         last_update_date: new Date(),
