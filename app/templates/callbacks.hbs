@@ -1,0 +1,11 @@
+<div class='container'>
+  <br>
+    <p class='text-28'>Записи</p>
+  <br>
+    {{#each model as |callback index|}}
+      {{callback-listing callback=callback}}
+      {{#if (less index (addition model.length -1))}}
+        <div class='horizontal-line'></div><br>
+      {{/if}}
+    {{/each}}
+</div>

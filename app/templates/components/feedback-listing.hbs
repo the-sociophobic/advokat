@@ -1,11 +1,10 @@
-<article class='listing' style='height: 140px'>
+<article class='listing' style='height: 153px'>
   <div style='width: calc(100% - 14px); padding: 2px 7px; margin: 7px; overflow-y: auto'>
-    <p class='text-center'>{{feedback.title}}</p>
-    <small>{{feedback.date}}</small>
-    <div class='fade' style='height: 3em; overflow:hidden; position: absolute; top: 2.5em'>
+    <p class='text-center' style='margin-bottom: 3px'>{{feedback.title}}</p>
+    <small>{{date feedback.date}}</small>
+    <div class='fade' style='height: 3em; overflow:hidden; position: absolute; top: 4em'>
       <p class='text-left'>{{feedback.body}}</p>
-    </div><br><br>
+    </div><br><br><br><br>
     {{#link-to 'feedbacks'}}<p class='text-right'>Подробнее</p>{{/link-to}}
-    <div class='horizontal-line'></div>
   </div>
 </article>

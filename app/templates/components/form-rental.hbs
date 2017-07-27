@@ -1,0 +1,88 @@
+<div class='rental-input' style='overflow: auto'>
+  {{input value=rental.price placeholder='Цена' type='number'}}<br><br>
+
+  {{input value=rental.name placeholder='Имя'}}<br>
+  +7{{input type='number' value=rental.phone placeholder='Телефон'}}<br>
+  {{input value=rental.email placeholder='email'}}<br><br>
+
+  
+  
+  {{custom-dropdown options=typeOptions selected=rental.type width="250px" any='Тип сделки' commit=(action 'commit_type')}}
+
+  {{#if (eq rental.type 'купить')}}
+    {{custom-dropdown options=categoryBuyOptions  selected=rental.property_type width="250px" any='Тип недвижимости' commit=(action 'commit_property_type')}}
+  {{/if}}
+  {{#if (eq rental.type 'арендовать')}}
+    {{custom-dropdown options=categoryRentOptions selected=rental.property_type width="250px" any='Тип недвижимости' commit=(action 'commit_property_type')}}
+  {{/if}}
+
+  {{#if (eq rental.property_type 'жилая')}}
+    {{custom-dropdown options=livingOptions     selected=rental.category width="250px" any='Тип'}}
+  {{/if}}
+  {{#if (eq rental.property_type 'новостройки')}}
+    {{custom-dropdown options=newOptions        selected=rental.category width="250px" any='Тип'}}
+  {{/if}}
+  {{#if (eq rental.property_type 'коммерческая')}}
+    {{custom-dropdown options=commericalOptions selected=rental.category width="250px" any='Тип'}}
+  {{/if}}
+  {{#if (eq rental.property_type 'загородная')}}
+    {{custom-dropdown options=countryOptions    selected=rental.category width="250px" any='Тип'}}
+  {{/if}}
+
+  <br><br>
+  {{#unless (eq rental.property_type 'загородная')}}
+    {{custom-dropdown options=districtCity    selected=rental.district width='250px' options-width='802px' any='Район'}}
+  {{else}}
+    {{custom-dropdown options=districtCountry selected=rental.district width='250px' options-width='802px' any='Район'}}
+  {{/unless}}
+  
+  
+
+  {{#unless (eq rental.property_type 'загородная')}}
+    {{input value=rental.metro placeholder='метро' key-up=(action 'metro_filter')}}
+    <div class="multiple-dropdown-options {{if (eq metro_options.length 0) "hidden"}}" style="width: 350px">
+      {{#each metro_options as |metro_option|}}
+        <div class='no-check' style='max-width: 360px' {{action 'toggleMetro' metro_option}}>
+          <span style='margin-left: 20px' class="{{metro-logo metro_option}}">{{metro_option}}</span>
+        </div>
+      {{/each}}
+    </div>
+  {{/unless}}
+  <br>
+  {{input value=rental.time_on_transport placeholder='Время на транспорте (в мин)' type='number'}}<br>
+  {{input value=rental.time_on_foot      placeholder='Время пешком (в мин)'        type='number'}}<br><br>
+  
+  {{input value=rental.address placeholder='Адрес (без квартиры)'}}<br>
+  {{input value=rental.apartment placeholder='квартира'}}<br><br>
+  
+  {{#unless (eq rental.property_type 'загородная')}}
+    {{input value=rental.area placeholder='Общая площадь' type='number'}}<br>
+    {{#unless (eq rental.property_type 'коммерческая')}}
+      {{input value=rental.rooms         placeholder='кол-во комнат'   type='number'}}<br>
+      {{input value=rental.living_space  placeholder='жилая площадь'   type='number'}}<br>
+      {{input value=rental.kitchen_space placeholder='площадь кухни'   type='number'}}<br>
+      {{input value=rental.room_space    placeholder='площади комнат'               }}<br>
+    {{/unless}}
+    {{input value=rental.floor           placeholder='этаж' type='number'}}<br>
+    {{input value=rental.floors_total    placeholder='всего этажей' type='number'}}<br>
+    {{#if (eq rental.type 'купить')}}
+      {{custom-dropdown options=buildingTypeOptions selected=rental.building_type width='250px' any='Тип дома'}}<br>
+    {{/if}}
+  {{else}}
+    {{input value=rental.area            placeholder='площадь дома'   type='number'}}<br>
+    {{input value=rental.lot_area        placeholder='площадь участка' type='number'}}<br>
+  {{/unless}}
+  {{#if (eq rental.type 'купить')}}
+    {{custom-dropdown options=dealStatusOptions selected=rental.deal_status width='250px' any='Тип продажи'}}<br>
+  {{/if}}
+  <br>
+  {{textarea cols="80" rows="6" placeholder='Описание' value=rental.description}}<br><br>
+  
+  {{custom-dropdown options=specialOptions selected=rental.special width='250px' any='Показывать на главной'}}<br><br>
+
+  изображения: <input type='file' multiple/><br>
+</div>
+
+
+
+

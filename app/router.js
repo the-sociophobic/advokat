@@ -17,8 +17,9 @@ Router.map(function() {
   this.route('privacy');
   this.route('feedbacks');
   this.route('posts');
-  this.route('new');
   this.route('login');
+  this.route('callbacks');
+  this.route('edit');
 });
 
 export default Router;

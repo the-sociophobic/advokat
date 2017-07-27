@@ -4,9 +4,12 @@
     <ul>
     {{#each feedbacks as |feedback index|}}
       {{#if (less index 3)}}
-        <li>
           {{feedback-listing feedback=feedback}}
-        </li>
+          {{#if (less index 2)}}
+            <div class='horizontal-line' style='margin-left: 14px; margin-right: 7px; width: calc(100% - 21px)'></div>
+          {{else}}
+            <br>
+          {{/if}}
       {{/if}}
     {{/each}}
     </ul>

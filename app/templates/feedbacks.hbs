@@ -3,12 +3,15 @@
     <p class='text-28'>Отзывы</p>
   <br>
     {{#each model as |feedback index|}}
-        <article>
-          <p class='text-left text-20'>{{feedback.title}}</p>
-          <div>
-            <p class='text-left'>{{feedback.body}}</p>
-          </div>
-        </article>
+      <article>
+        <p class='text-left text-20'>{{feedback.title}}</p>
+        <div>
+          <small>{{date feedback.date}}</small>
+          <p class='text-left'>{{feedback.body}}</p>
+        </div>
+      </article>
+      {{#if (less index (addition model.length -1))}}
         <div class='horizontal-line'></div><br>
+      {{/if}}
     {{/each}}
 </div>
