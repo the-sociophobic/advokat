@@ -19,7 +19,11 @@ Router.map(function() {
   this.route('posts');
   this.route('login');
   this.route('callbacks');
-  this.route('edit');
+  this.route('edit', function() {
+    this.route('rental');
+    this.route('post');
+    this.route('feedback');
+  });
 });
 
 export default Router;

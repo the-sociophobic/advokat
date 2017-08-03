@@ -9,8 +9,10 @@
 
   <div style='padding: 15px; margin-top: 200px'>
     {{rental.rooms}} комн. {{dot-to-comma  rental.area}} м²<br>
-    {{rental.address}}<br>
-    <b>{{number-spaces rental.price}} ₽</b>
+    <div style='width: 100%; height: 1.5em; overflow: hidden'>
+      {{rental.address}}
+    </div>
+    {{number-spaces rental.price}} ₽
     <div class="right">
       {{#link-to 'rental' rental}}
         Подробнее

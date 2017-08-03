@@ -73,16 +73,20 @@
         <button class="left" style='width: calc(50% - 10px); height: 35px' {{action 'popup2'}}>Задать вопрос</button>
       </div>
 
-      <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 110px'>
-        <div style='width: 32%;float: left'>
+      <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 15px 15px 100px'>
+        <div style='width: 20%;float: left'>
           агент:<br>
           телефон:<br>
-          почта:<br>
+          {{#if model.mail}}
+            почта:<br>
+          {{/if}}
         </div>
-        <div style='width: 68%; float: left'>
+        <div style='width: 80%; float: left'>
           {{model.name}}<br>
           {{phone-formatting model.phone}}<br>
-          {{model.mail}}<br>
+          {{#if model.mail}}
+            {{model.mail}}<br>
+          {{/if}}
         </div>
       </div>
     </div>

@@ -1,6 +1,15 @@
-<div class='container'>
+<div class='container'>  
+  {{#custom-accordion title='Просьбы перезвонить'}}
+    {{#each model.callbacks as |callback index|}}
+      {{callback-listing callback=callback}}
+      {{#if (less index (addition model.callbacks.length -1))}}
+        <div class='horizontal-line'></div><br>
+      {{/if}}
+    {{/each}}
+  {{/custom-accordion}}
+
   {{#custom-accordion title='Редактировать Объявления'}}
-  <div style='width: calc(100% + 10px); margin-left: -5px'>
+  <div style='width: calc(100% + 20px); margin-left: -10px'>
     {{#if editableRental}}
       {{form-rental rental=editableRental}}
       <button {{action 'discardRental'}}>Отмена</button>
@@ -21,6 +30,34 @@
     </ul>
     {{/if}}
   </div>
+  {{/custom-accordion}}
+
+  {{#custom-accordion title='Редактировать Агентов'}}
+    {{#if editableAgent}}
+      {{form-agent agent=editableAgent}}
+      <button {{action 'discardAgent'}}>Отмена</button>
+      <button {{action 'deleteAgent'}}>Удалить</button>
+      <button {{action 'saveAgent'}}>Сохранить</button>
+    {{else}}
+      <div style='height: 40px'>
+        <button {{action 'newAgent'}}>Добавить</button>
+      </div>
+      {{#each model.agents as |agent index|}}
+        <article>
+          <div>
+            <p class='text-left'>{{agent.name}} {{agent.surname}}<br>
+              {{phone-formatting agent.phone}}</p>
+          </div>
+        </article>
+        <div style='height: 30px'>
+          <button {{action 'editAgent' agent.id}}>Редактировать</button>
+          <button {{action 'deleteAgent' agent.id}}>Удалить</button>
+        </div>
+        {{#if (less index (addition model.agents.length -1))}}
+          <div class='horizontal-line'></div><br>
+        {{/if}}
+      {{/each}}
+    {{/if}}
   {{/custom-accordion}}
 
   {{#custom-accordion title='Редактировать Отзывы'}}
@@ -81,3 +118,4 @@
     {{/if}}
   {{/custom-accordion}}
 </div>
+

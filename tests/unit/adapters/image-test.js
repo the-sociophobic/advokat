@@ -1,12 +1,12 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:new', 'Unit | Controller | new', {
+moduleFor('adapter:image', 'Unit | Adapter | image', {
   // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  // needs: ['serializer:foo']
 });
 
 // Replace this with your real tests.
 test('it exists', function(assert) {
-  let controller = this.subject();
-  assert.ok(controller);
+  let adapter = this.subject();
+  assert.ok(adapter);
 });

@@ -11,7 +11,13 @@
     <div class="listing-row">
       <div class="listing-column" style="margin-left: 25px; margin-right: 10px; width: 230px">
         <div style='overflow: auto; padding-left: 20px; margin-left: -20px'><span class="{{metro-logo rental.metro}}">{{rental.metro}}</span></div>
-        <div style='overflow: auto'><small><i>{{rental.time_on_foot}} мин пешком</i></small></div>
+        {{#if rental.time_on_foot}}
+          <div style='overflow: auto'><small><i>{{rental.time_on_foot}} мин пешком</i></small></div>
+        {{else}}
+          {{#if rental.time_on_transport}}
+            <div style='overflow: auto'><small><i>{{rental.time_on_transport}} мин на транспорте</i></small></div>
+          {{/if}}
+        {{/if}}
         <div style='overflow: auto'><p class="text-14">{{rental.address}}</p></div>
       </div>
       <div class="listing-column" style="width: 160px">
@@ -40,9 +46,10 @@
   <div class="listing-agent" style="text-align:right">
     <span>{{phone-formatting rental.phone}}</span><br>
     <span>{{rental.name}}</span>
-    <br><br><br>
-    {{#link-to 'rental' rental}}
-      <span>Подробнее</span>
-    {{/link-to}}
+    <div style='position: absolute; bottom: 20px; right: 30px'>
+      {{#link-to 'rental' rental}}
+        <span>Подробнее</span>
+      {{/link-to}}
+    </div>
   </div>
 </article>

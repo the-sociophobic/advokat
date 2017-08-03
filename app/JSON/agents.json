@@ -1,0 +1,10 @@
+{
+  type: 'agent',
+  attributes: {
+    name: 'testt',
+    surname: 'testt',
+    middlename: 'testt',
+    phone: 'testt',
+    email: 'testt'
+  }
+}

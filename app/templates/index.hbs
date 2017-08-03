@@ -29,7 +29,9 @@
       Будем рады помочь в решении жилищных вопросов.</p>
     </div>
     <div style="width: 350px; float: left">
-      {{index-feedback feedbacks=model.feedbacks}}
+      {{#if model.feedbacks.length}}
+        {{index-feedback feedbacks=model.feedbacks}}
+      {{/if}}
     </div>
   </div>
 </div>
@@ -44,7 +46,9 @@
   </div>
 </div>
 
-{{index-posts posts=model.posts}}
+{{#if model.posts.length}}
+  {{index-posts posts=model.posts}}
+{{/if}}
 
 {{callback-form shown=showPopup1 title='Оценить объект' description='оставьте заявку, мы обязательно с Вами свяжемся'}}
 {{callback-form shown=showPopup2 title='Сопровождение сделки' description='оставьте заявку, мы обязательно с Вами свяжемся'}}
