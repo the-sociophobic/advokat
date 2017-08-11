@@ -18,25 +18,25 @@
 
 .index-search-1 {
     background: url(/assets/images/index-search-1.jpg);
-    background-size: 100vw 67vw;
+    background-size: cover;
     background-position: 30% 65%;
     animation:  40s slide-1 infinite
 }
 .index-search-2 {
     background: url(/assets/images/index-search-2.jpg);
-    background-size: 100vw 66vw;
+    background-size: cover;
     background-position: 30% 30%;
     animation:  40s slide-2 infinite
 }
 .index-search-3 {
     background: url(/assets/images/index-search-3.jpg);
-    background-size: 100vw 65vw;
+    background-size: cover;
     background-position: 30% 55%;
     animation:  40s slide-3 infinite
 }
 .index-search-4 {
     background: url(/assets/images/index-search-4.jpg);
-    background-size: 100vw 56vw;
+    background-size: cover;
     background-position: 30% 40%; 
     animation:  40s slide-4 infinite
 }

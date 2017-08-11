@@ -1,11 +1,7 @@
 <div class='rental-input' style='overflow: auto'>
   {{input value=rental.price placeholder='Цена' type='number'}}<br><br>
 
-  {{input value=rental.name placeholder='Имя'}}<br>
-  +7{{input type='number' value=rental.phone placeholder='Телефон'}}<br>
-  {{input value=rental.email placeholder='email'}}<br><br>
-
-  
+  {{agents-dropdown selected=rental.agent width="250px" any='агент' commit=(action 'commit_type')}}<br>
   
   {{custom-dropdown options=typeOptions selected=rental.type width="250px" any='Тип сделки' commit=(action 'commit_type')}}
 
@@ -17,23 +13,23 @@
   {{/if}}
 
   {{#if (eq rental.property_type 'жилая')}}
-    {{custom-dropdown options=livingOptions     selected=rental.category width="250px" any='Тип'}}
+    {{custom-dropdown options=livingOptions     selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
   {{/if}}
   {{#if (eq rental.property_type 'новостройки')}}
-    {{custom-dropdown options=newOptions        selected=rental.category width="250px" any='Тип'}}
+    {{custom-dropdown options=newOptions        selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
   {{/if}}
   {{#if (eq rental.property_type 'коммерческая')}}
-    {{custom-dropdown options=commericalOptions selected=rental.category width="250px" any='Тип'}}
+    {{custom-dropdown options=commericalOptions selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
   {{/if}}
   {{#if (eq rental.property_type 'загородная')}}
-    {{custom-dropdown options=countryOptions    selected=rental.category width="250px" any='Тип'}}
+    {{custom-dropdown options=countryOptions    selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
   {{/if}}
 
   <br><br>
   {{#unless (eq rental.property_type 'загородная')}}
-    {{custom-dropdown options=districtCity    selected=rental.district width='250px' options-width='802px' any='Район'}}
+    {{custom-dropdown options=districtCity    selected=rental.district width='250px' options-width='802px' any='Район' commit=(action 'commit')}}
   {{else}}
-    {{custom-dropdown options=districtCountry selected=rental.district width='250px' options-width='802px' any='Район'}}
+    {{custom-dropdown options=districtCountry selected=rental.district width='250px' options-width='802px' any='Район' commit=(action 'commit')}}
   {{/unless}}
   
   
@@ -73,7 +69,7 @@
     {{input value=rental.lot_area        placeholder='площадь участка' type='number'}}<br>
   {{/unless}}
   {{#if (eq rental.type 'купить')}}
-    {{custom-dropdown options=dealStatusOptions selected=rental.deal_status width='250px' any='Тип продажи'}}<br>
+    {{custom-dropdown options=dealStatusOptions selected=rental.deal_status width='250px' any='Тип продажи' commit=(action 'commit')}}<br>
   {{/if}}
   <br>
   {{textarea cols="80" rows="6" placeholder='Описание' value=rental.description}}
@@ -81,9 +77,16 @@
   Перед Сохранением рекомендуется "Оттипографить" текст описания тут: <a href="https://www.artlebedev.ru/typograf/" target="_blank">Типограф</a>
   <br><br>
   
-  {{custom-dropdown options=specialOptions selected=rental.special width='250px' any='Показывать на главной'}}<br><br>
+  {{custom-checkbox label='Показывать на главной' checked=rental.special commit=(action 'commit_special')}}<br><br>
 
-  изображения: <input type='file' multiple/><br>
+  изображения: {{file-upload rental=rental}}
+  
+  {{rental.images.length}}
+  {{image-view images=rental.images}}
+
+  <button class='cancel' {{action 'cancel'}}>Отмена</button>
+  <button class='delete' {{action 'delete'}}>Удалить</button>
+  <button class='save' {{action 'save'}}>Сохранить</button>
 </div>
 
 

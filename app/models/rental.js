@@ -11,10 +11,9 @@ export default DS.Model.extend({
   description: DS.attr()
   /* Site */
   price: DS.attr(),
-
   name: DS.attr(),
-  phone: DS.attr(),
-  mail: DS.attr(),
+
+  agent: DS.belongsTo('agent', { async: true }),
 
   type: DS.attr(),
   property_type: DS.attr(),

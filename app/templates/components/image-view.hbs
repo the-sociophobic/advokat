@@ -1,7 +1,7 @@
 <div class='image-view'>
   <div class="image-container">
     {{#each images as |image index|}}
-      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.url}}"/>
+      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
     {{/each}}
     <div class="left-arrow"  {{action 'prevImage'}}></div>
     <div class="right-arrow" {{action 'nextImage'}}></div>
@@ -11,7 +11,7 @@
 <div class='image-preview'>
   {{#each images as |image index|}}
     <div class='image-container' style='{{if (eq slideIndex index) 'opacity: 1'}}; {{image-view-offset index slideIndex}}'>
-      <img src="{{image.url}}"/>
+      <img src="{{image.link}}"/>
     </div>
   {{/each}}
 </div> 

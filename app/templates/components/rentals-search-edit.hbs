@@ -1,1 +1,110 @@
-{{yield}}
+{{#if filtration}}
+  <div class="rentals-search block block-no-top">
+
+    <div class="rentals-radio-panel w1">
+      {{radio-button classs='rentals-radio radio-left'   checkedClass='rentals-radio-checked' checked=buyCheck        label='Купить'       onCheck=(action 'buy')       }}
+      {{radio-button classs='rentals-radio radio-right'  checkedClass='rentals-radio-checked' checked=rentCheck       label='Арендовать'   onCheck=(action 'rent')      }}
+    </div>
+
+    <div class="rentals-radio-panel w2 {{if rentCheck "w3"}}">
+      {{radio-button classs='rentals-radio radio-left'   checkedClass='rentals-radio-checked' checked=livingCheck     label='Жилая'        onCheck=(action 'living')    }}
+      {{#if buyCheck}}
+      {{radio-button classs='rentals-radio radio-center' checkedClass='rentals-radio-checked' checked=newCheck        label='Новостройки'  onCheck=(action 'new')       }}
+      {{/if}}
+      {{radio-button classs='rentals-radio radio-center' checkedClass='rentals-radio-checked' checked=commericalCheck label='Коммерческая' onCheck=(action 'commerical')}}
+      {{radio-button classs='rentals-radio radio-right'  checkedClass='rentals-radio-checked' checked=countryCheck    label='Загородная'   onCheck=(action 'country')   }}
+    </div>
+
+    <div class="space35">
+      <span>Тип:</span>
+      {{#if livingCheck}}
+        {{custom-dropdown options=livingOptions     selected=category width="250px" commit=(action 'filter')}}
+      {{/if}}
+      {{#if newCheck}}
+        {{custom-dropdown options=newOptions        selected=category width="250px" commit=(action 'filter')}}
+      {{/if}}
+      {{#if commericalCheck}}
+        {{custom-dropdown options=commericalOptions selected=category width="250px" commit=(action 'filter')}}
+      {{/if}}
+      {{#if countryCheck}}
+        {{custom-dropdown options=countryOptions    selected=category width="250px" commit=(action 'filter')}}
+      {{/if}}
+    </div>
+
+    <div class="space35">
+      <span>Район:</span>
+      {{#if countryCheck}}
+        {{multiple-dropdown options=countryDistrict.options checkedOptions=countryDistrict.selected width="373px" options-width="802px" commit=(action 'filter')}}
+      {{else}}
+        {{multiple-dropdown options=cityDistrict.options    checkedOptions=cityDistrict.selected    width="373px" options-width="802px" commit=(action 'filter')}}
+      {{/if}}
+    </div>
+
+    <div class="space35">
+      <span>Агент:</span>
+      {{agents-dropdown selected=agent width="373px" commit=(action 'filter')}}
+    </div>
+
+
+    <div class='rentals-sliders'>
+      {{#if (or livingCheck newCheck)}}
+        <div class="space35">
+          <span>Кол-во комнат:  &nbsp;  &nbsp; {{rooms.minValue}} - {{rooms.maxValue}}{{number-plus rooms.maxValue rooms.max}}</span>
+          {{slider-range width="290px" min=rooms.min max=rooms.max minValue=rooms.minValue maxValue=rooms.maxValue step=1 commit=(action 'filter')}}
+        </div>
+      {{/if}}
+      <div class="space35">
+        <span>Общая площадь, м²: &nbsp;  &nbsp; {{area.minValue}} - {{area.maxValue}}{{number-plus area.maxValue area.max}}</span>
+        {{#if commericalCheck}}
+          {{slider-range width="525px" min=area.min max=area.max minValue=area.minValue maxValue=area.maxValue step=1 commit=(action 'filter')}}
+        {{else}}
+          {{slider-range width="290px" min=area.min max=area.max minValue=area.minValue maxValue=area.maxValue step=1 commit=(action 'filter')}}
+        {{/if}}
+      </div>
+      {{#if countryCheck}}
+        <div class="space35">
+          <span>Площадь участка, м²:  &nbsp;  &nbsp; {{lot.minValue}} - {{lot.maxValue}}{{number-plus lot.maxValue lot.max}}</span>
+          {{slider-range width="290px" min=lot.min max=lot.max minValue=lot.minValue maxValue=lot.maxValue step=1 commit=(action 'filter')}}
+        </div>
+      {{/if}}
+      <div class="space35">
+        {{#if buyCheck}}
+          <span>Цена, млн. рублей:  &nbsp;  &nbsp; 
+          {{price-short-million buy.minValue}} - {{price-short-million buy.maxValue}}{{number-plus buy.maxValue buy.max}}</span>
+          {{#if commericalCheck}}
+            {{slider-range width="525px" min=buy.min max=buy.max minValue=buy.minValue maxValue=buy.maxValue step=buy.step commit=(action 'filter')}}
+          {{else}}
+            {{slider-range width="415px" min=buy.min max=buy.max minValue=buy.minValue maxValue=buy.maxValue step=buy.step commit=(action 'filter')}}
+          {{/if}}
+        {{else}}
+          <span>Цена, тыс. рублей:  &nbsp;  &nbsp; 
+          {{price-short-thousand rent.minValue}} - {{price-short-thousand rent.maxValue}}{{number-plus rent.maxValue rent.max}}</span>
+          {{#if commericalCheck}}
+            {{slider-range width="525px" min=rent.min max=rent.max minValue=rent.minValue maxValue=rent.maxValue step=rent.step commit=(action 'filter')}}
+          {{else}}
+            {{slider-range width="415px" min=rent.min max=rent.max minValue=rent.minValue maxValue=rent.maxValue step=rent.step commit=(action 'filter')}}
+          {{/if}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+<div class="container">
+  <div class="text-center" style='width: 100%'>
+    {{results.length}} {{numerals-counter results.length 'объект' 'объекта' 'объектов'}}
+  </div>
+  <div style='width: 100%; height: 25px; padding: 0 487px'>
+    {{#if filtration}}
+      <button class='cancel left' {{action 'toggleFiltration'}}>отключить фильтрацию</button>
+    {{else}}
+      <button class='save left' {{action 'toggleFiltration'}}>включить фильтрацию</button>
+    {{/if}}
+  </div>
+    {{#each results as |rental index|}}
+      {{rental-listing-edit rental=rental}}
+      {{#if (less index (addition results.length -1))}}
+        <hr>
+      {{/if}}
+    {{/each}}
+</div>

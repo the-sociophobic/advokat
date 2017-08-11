@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:edit/feedback', 'Unit | Route | edit/feedback', {
+moduleFor('route:agent-new', 'Unit | Route | agent new', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

@@ -1,1 +1,17 @@
-{{yield}}
+<article class="rental-listing-edit">
+  <div style='width: 450px; float: left; overflow: hidden'>
+    {{rental.address}}
+  </div>
+  <div style='width: 300px; float: left; overflow: hidden'>
+    {{rental.agent.name}} {{rental.agent.surname}}
+  </div>
+  <div style='width: 120px; float: left; overflow: hidden'>
+    {{number-spaces rental.price}} ₽
+  </div>
+  <div style='width: 200px; float: right;'>
+    {{#link-to 'rental-edit' rental class='edit'}}
+      <span>Редактировать</span>
+    {{/link-to}}
+    <button class='delete' {{action 'delete'}}>Удалить</button>
+  </div>
+</article>

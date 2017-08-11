@@ -19,12 +19,30 @@ export default EmberUploader.FileField.extend({
       // Handle finished upload
     });
     
+    var that = this;
     if (!Ember.isEmpty(files)) {
       // this second argument is optional and can to be sent as extra data with the upload      
       uploader.upload(files).then(function(data) {
         // Handle success
       }, function(error) {
         // Handle failure
+        let maxDate = 0;
+        let maxLink;
+          
+        that.get('store').findAll('binary').then(a => {
+          a.toArray().forEach(item => {
+            if (parseInt(item.get('uploadDate')) > maxDate) {
+              maxDate = parseInt(item.get('uploadDate'));
+              maxLink = item.get('link');
+            }
+          });
+          let rental = that.get('rental');
+          let image = that.get('store').createRecord('image', { link: maxLink, rental: rental });
+          image.save();
+          that.get('store').peekRecord('rental', rental.id).save();
+        });
+        
+        //var lastUploaded = Math.max.apply(Math, a.toArray().map(img => { return parseInt(img.get('uploadDate')); }));
       });
     }
   }

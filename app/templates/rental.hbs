@@ -3,7 +3,7 @@
 
     <div style="width: 50%; float: left; padding-right: 15px">
       <p class="text-32 text-center">{{model.address}}</p>
-      {{image-view images=model.images length=model.images.length}}
+      {{image-view images=model.images}}
     </div>
     <div style="width: calc(50% - 15px); float: left; margin-left:15px">
       <p class="text-32 text-center">{{{rental-category-rooms model.category model.rooms}}} {{#if (eq model.category 'квартира')}} квартира{{/if}}</p>
@@ -77,15 +77,15 @@
         <div style='width: 20%;float: left'>
           агент:<br>
           телефон:<br>
-          {{#if model.mail}}
+          {{#if model.agent.mail}}
             почта:<br>
           {{/if}}
         </div>
         <div style='width: 80%; float: left'>
-          {{model.name}}<br>
-          {{phone-formatting model.phone}}<br>
-          {{#if model.mail}}
-            {{model.mail}}<br>
+          {{model.agent.name}} {{model.agent.surname}}<br>
+          {{phone-formatting model.agent.phone}}<br>
+          {{#if model.agent.mail}}
+            {{model.agent.mail}}<br>
           {{/if}}
         </div>
       </div>

@@ -3,119 +3,52 @@
     {{#each model.callbacks as |callback index|}}
       {{callback-listing callback=callback}}
       {{#if (less index (addition model.callbacks.length -1))}}
-        <div class='horizontal-line'></div><br>
+          <hr>
       {{/if}}
     {{/each}}
   {{/custom-accordion}}
 
-  {{#custom-accordion title='Редактировать Объявления'}}
-  <div style='width: calc(100% + 20px); margin-left: -10px'>
-    {{#if editableRental}}
-      {{form-rental rental=editableRental}}
-      <button {{action 'discardRental'}}>Отмена</button>
-      <button {{action 'deleteRental'}}>Удалить</button>
-      <button {{action 'saveRental'}}>Сохранить</button>
-    {{else}}
-    <ul class="results">
-      <div style='height: 40px'>
-        <button {{action 'newRental'}}>Добавить</button>
-      </div>
-      {{#each model.rentals as |rental|}}
-        <li>{{rental-listing rental=rental}}</li>
-        <div style='height: 40px; margin-top: -15px'>
-          <button {{action 'editRental' rental.id}}>Редактировать</button>
-          <button {{action 'deleteRental' rental.id}}>Удалить</button>
-        </div>
-      {{/each}}
-    </ul>
-    {{/if}}
-  </div>
+  {{#custom-accordion title='Редактировать Объявления' minHeight='800px'}}
+    {{rentals-search-edit rentals=model.rentals agents=model.agents type=type property_type=property_type}}
+    <div style='height: 50px; padding-top: 12px'>
+      {{#link-to 'rental-new' class='save'}}Добавить{{/link-to}}
+    </div>
   {{/custom-accordion}}
 
   {{#custom-accordion title='Редактировать Агентов'}}
-    {{#if editableAgent}}
-      {{form-agent agent=editableAgent}}
-      <button {{action 'discardAgent'}}>Отмена</button>
-      <button {{action 'deleteAgent'}}>Удалить</button>
-      <button {{action 'saveAgent'}}>Сохранить</button>
-    {{else}}
-      <div style='height: 40px'>
-        <button {{action 'newAgent'}}>Добавить</button>
-      </div>
-      {{#each model.agents as |agent index|}}
-        <article>
-          <div>
-            <p class='text-left'>{{agent.name}} {{agent.surname}}<br>
-              {{phone-formatting agent.phone}}</p>
-          </div>
-        </article>
-        <div style='height: 30px'>
-          <button {{action 'editAgent' agent.id}}>Редактировать</button>
-          <button {{action 'deleteAgent' agent.id}}>Удалить</button>
-        </div>
-        {{#if (less index (addition model.agents.length -1))}}
-          <div class='horizontal-line'></div><br>
-        {{/if}}
-      {{/each}}
-    {{/if}}
+    {{#each model.agents as |agent index|}}
+      {{agent-listing-edit agent=agent}}
+      {{#if (less index (addition model.agents.length -1))}}
+        <hr>
+      {{/if}}
+    {{/each}}
+    <div style='height: 50px; padding-top: 12px'>
+      {{#link-to 'agent-new' class='save'}}Добавить{{/link-to}}
+    </div>
   {{/custom-accordion}}
 
   {{#custom-accordion title='Редактировать Отзывы'}}
-    {{#if editableFeedback}}
-      {{form-feedback feedback=editableFeedback}}
-      <button {{action 'discardFeedback'}}>Отмена</button>
-      <button {{action 'deleteFeedback'}}>Удалить</button>
-      <button {{action 'saveFeedback'}}>Сохранить</button>
-    {{else}}
-      <div style='height: 40px'>
-        <button {{action 'newFeedback'}}>Добавить</button>
-      </div>
-      {{#each model.feedbacks as |feedback index|}}
-        <article>
-          <p class='text-left text-20'>{{feedback.title}}</p>
-          <div>
-            <small>{{date feedback.date}}</small>
-            <p class='text-left'>{{feedback.body}}</p>
-          </div>
-        </article>
-        <div style='height: 30px'>
-          <button {{action 'editFeedback' feedback.id}}>Редактировать</button>
-          <button {{action 'deleteFeedback' feedback.id}}>Удалить</button>
-        </div>
-        {{#if (less index (addition model.feedbacks.length -1))}}
-          <div class='horizontal-line'></div><br>
-        {{/if}}
-      {{/each}}
-    {{/if}}
+    {{#each model.feedbacks as |feedback index|}}
+      {{feedback-listing-edit feedback=feedback}}
+      {{#if (less index (addition model.feedbacks.length -1))}}
+        <hr>
+      {{/if}}
+    {{/each}}
+    <div style='height: 50px; padding-top: 12px'>
+      {{#link-to 'feedback-new' class='save'}}Добавить{{/link-to}}
+    </div>
   {{/custom-accordion}}
   
   {{#custom-accordion title='Редактировать Новости'}}
-    {{#if editablePost}}
-      {{form-post post=editablePost}}
-      <button {{action 'discardPost'}}>Отмена</button>
-      <button {{action 'deletePost'}}>Удалить</button>
-      <button {{action 'savePost'}}>Сохранить</button>
-    {{else}}
-      <div style='height: 40px'>
-        <button {{action 'newPost'}}>Добавить</button>
-      </div>
-      {{#each model.posts as |post index|}}
-        <article>
-          <p class='text-left text-20'>{{post.title}}</p>
-          <div>
-            <small>{{date post.date}}</small>
-            <p class='text-left'>{{post.body}}</p>
-          </div>
-        </article>
-        <div style='height: 30px'>
-          <button {{action 'editPost' post.id}}>Редактировать</button>
-          <button {{action 'deletePost' post.id}}>Удалить</button>
-        </div>
-        {{#if (less index (addition model.posts.length -1))}}
-          <div class='horizontal-line'></div><br>
-        {{/if}}
-      {{/each}}
-    {{/if}}
+    {{#each model.posts as |post index|}}
+      {{post-listing-edit post=post}}
+      {{#if (less index (addition model.posts.length -1))}}
+        <hr>
+      {{/if}}
+    {{/each}}
+    <div style='height: 50px; padding-top: 12px'>
+      {{#link-to 'post-new' class='save'}}Добавить{{/link-to}}
+    </div>
   {{/custom-accordion}}
 </div>
 

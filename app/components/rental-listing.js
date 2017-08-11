@@ -1,7 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
   slideIndex: 0,
+
+  init() {
+    this._super(...arguments);
+    //upload images to store....
+    this.get('store').query('image', {
+      filter: {
+        rental: this.get('store').peekRecord('rental', this.get('rental').id)
+      }
+    }).then(() => {});
+  },
   
   didInsertElement() {
     this._super(...arguments);

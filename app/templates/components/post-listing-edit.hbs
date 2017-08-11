@@ -1,0 +1,13 @@
+<article>
+  <p class='text-left text-20'>{{post.title}}</p>
+  <div>
+    <small>{{date post.date}}</small>
+    <p class='text-left'>{{post.body}}</p>
+  </div>
+  <div style='width: 200px; float: right;'>
+    {{#link-to 'post-edit' post class='edit'}}
+      <span>Редактировать</span>
+    {{/link-to}}
+    <button class='delete' {{action 'delete'}}>Удалить</button>
+  </div>
+</article>

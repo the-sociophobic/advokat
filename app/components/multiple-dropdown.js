@@ -33,18 +33,16 @@ export default Ember.Component.extend({
       }
       this.set('checkedOptions', hehe);
       
-      if(this.get('checkedOptions').length == this.get('options').length)
+      if(this.get('checkedOptions').length == this.get('options').length) {
         this.set('anyFlag', true);
+        this.set('checkedOptions', []);
+      }
 
       this.get('commit')();
     },
     
     any() {
-      if (this.get('anyFlag'))
-        this.set('checkedOptions', []);
-      else
-        this.set('checkedOptions', this.get('options').copy());
-
+      this.set('checkedOptions', []);
       this.toggleProperty('anyFlag');
       
       this.get('commit')();

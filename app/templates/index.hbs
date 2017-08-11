@@ -14,28 +14,6 @@
   </div>
 </div>
 
-<div class="index-about">
-  <div class="container" style=''>
-    <div style="width: 150px; height: 200px; float: left">
-      <a href='/about'>
-        <div class="logo-gradient" style="width: 100px; height: 76px; margin: 0 0 0 22px"><div class="logo-letter" style="width: 100px; height: 60px; bottom: -15px;"></div></div>
-      </a>
-    </div>
-    <div style="width: 700px; padding-top: 30px; float: left">
-      <p class="text-40">гентство недвижимости Адвокат</p>
-      <p class="text-20">Основано в 1995 году.<br>
-      Накопленный опыт работы позволяет решать любые вопросы<br>в сфере недвижимости,
-      на высоком профессиональном уровне, качественно.<br>
-      Будем рады помочь в решении жилищных вопросов.</p>
-    </div>
-    <div style="width: 350px; float: left">
-      {{#if model.feedbacks.length}}
-        {{index-feedback feedbacks=model.feedbacks}}
-      {{/if}}
-    </div>
-  </div>
-</div>
-
 <div class="container">
   <div class="index-listing">
     {{#each model.rentals as |rental index|}}

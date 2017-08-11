@@ -83,21 +83,24 @@ export default Ember.Component.extend({
           if (property_type === 'загородная') {
             if (countryDistrict.selected.length) {
               let district = countryDistrict.selected.map(function(value) { return value.toLowerCase(); });
-              if (district.indexOf(rental.get('district').toLowerCase()) == -1)
-                return false;
+              if (rental.get('district'))
+                if (district.indexOf(rental.get('district').toLowerCase()) == -1)
+                  return false;
             }
           } else {
             if (cityDistrict.selected.length) {
               let district = cityDistrict.selected.map(function(value) { return value.toLowerCase(); });
-              if (district.indexOf(rental.get('district').toLowerCase()) == -1)
-                return false;
+              if (rental.get('district'))
+                if (district.indexOf(rental.get('district').toLowerCase()) == -1)
+                  return false;
             }
           }
           
           /* rooms */
           if (property_type === 'жилая' || property_type === 'новостройки') {
-            if (rental.get('rooms') <  rooms.minValue ||
-                rental.get('rooms') > (rooms.maxValue > rooms.max * 0.998 ? rooms.max * 100 : rooms.maxValue))
+            var rentalRooms = rental.get('rooms') ? rental.get('rooms') : 1;
+            if (rentalRooms <  rooms.minValue ||
+                rentalRooms > (rooms.maxValue > rooms.max * 0.998 ? rooms.max * 100 : rooms.maxValue))
               return false;
           }
           /* area */

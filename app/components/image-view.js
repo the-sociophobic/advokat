@@ -20,10 +20,10 @@ export default Ember.Component.extend({
   
   actions: {
     nextImage() {
-      this.set('slideIndex', (this.get('slideIndex') + 1) % this.get('length'));
+      this.set('slideIndex', (this.get('slideIndex') + 1) % this.get('images.length'));
     },
     prevImage() {
-      this.set('slideIndex', (this.get('length') + this.get('slideIndex') - 1) % this.get('length'));
+      this.set('slideIndex', (this.get('images.length') + this.get('slideIndex') - 1) % this.get('images.length'));
     }
   }
 });

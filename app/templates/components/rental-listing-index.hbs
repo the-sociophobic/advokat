@@ -1,7 +1,7 @@
 <div class="block rental-listing-index">
   <div class="image-container">
     {{#each rental.images as |image index|}}
-      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.url}}"/>
+      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
     {{/each}}
     <div class="left-arrow"  {{action 'prevImage'}}></div>
     <div class="right-arrow" {{action 'nextImage'}}></div>

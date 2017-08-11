@@ -1,0 +1,14 @@
+<article class="rental-listing-edit">
+  <div style='width: 300px; float: left; overflow: hidden'>
+    {{agent.name}} {{agent.surname}}
+  </div>
+  <div style='width: 200px; float: left; overflow: hidden'>
+    {{phone-formatting agent.phone}}
+  </div>
+  <div style='width: 200px; float: right;'>
+    {{#link-to 'agent-edit' agent class='edit'}}
+      <span>Редактировать</span>
+    {{/link-to}}
+    <button class='delete' {{action 'delete'}}>Удалить</button>
+  </div>
+</article>

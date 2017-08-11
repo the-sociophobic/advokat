@@ -2,4 +2,8 @@
   {{input type="date" value=feedback.date}}
   {{input type="text" placeholder='Заголовок' value=feedback.title}}
   {{textarea cols="80" rows="6" placeholder='Текст' value=feedback.body}}
+  <br><br>
+  <button class='cancel' {{action 'cancel'}}>Отмена</button>
+  <button class='delete' {{action 'delete'}}>Удалить</button>
+  <button class='save' {{action 'save'}}>Сохранить</button>
 </div>

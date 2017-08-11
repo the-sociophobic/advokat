@@ -4,4 +4,8 @@
   {{input type="text" placeholder='Отчество' value=agent.middlename}}<br>
 +7{{input type='number' placeholder='Телефон' value=agent.phone}}<br>
   {{input type="text" placeholder='email' value=agent.email}}
+  <br><br>
+  <button class='cancel' {{action 'cancel'}}>Отмена</button>
+  <button class='delete' {{action 'delete'}}>Удалить</button>
+  <button class='save' {{action 'save'}}>Сохранить</button>
 </div>

@@ -17,7 +17,8 @@
 }
 
 .expanded .accordion-title {
-  opacity: .5;
+  opacity: .65;
+  border-bottom: 0px;
   border-radius: 5px 5px 0 0;
 }
 
@@ -30,21 +31,8 @@
 }
 
 .expanded .accordion-body {
-  padding: 10px;
-  border: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
   border-top: 0px;  
-  max-height: 2000px;
+  max-height: 5000px;
   overflow: auto;
-}
-
-.accordion-body button {
-  width: 140px;
-  height: 35px;
-  margin: 0 0 10px 25px;
-  box-shadow: 0px 1px 2px rgba(194, 194, 194, .6);
-  transition: box-shadow 150ms;
-}
-
-.accordion-body button:hover {
-  box-shadow: 0px 2px 6px rgba(194, 194, 194, .6);
 }
