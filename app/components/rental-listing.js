@@ -3,16 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   slideIndex: 0,
-
-  init() {
-    this._super(...arguments);
-    //upload images to store....
-    this.get('store').query('image', {
-      filter: {
-        rental: this.get('store').peekRecord('rental', this.get('rental').id)
-      }
-    }).then(() => {});
-  },
+  images: undefined,
   
   didInsertElement() {
     this._super(...arguments);
@@ -26,10 +17,10 @@ export default Ember.Component.extend({
   
   actions: {
     nextImage() {
-      this.set('slideIndex', (this.get('slideIndex') + 1) % 10);
+      this.set('slideIndex', (this.get('slideIndex') + 1) % this.get('images').get('length'));
     },
     prevImage() {
-      this.set('slideIndex', (this.get('images').get('length') + this.get('slideIndex') - 1) % 10);
+      this.set('slideIndex', (this.get('images').get('length') + this.get('slideIndex') - 1) % this.get('images').get('length'));
     }
   }
 });

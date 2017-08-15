@@ -28,7 +28,6 @@ export default Ember.Component.extend({
     
   store: Ember.inject.service(),
   rental: undefined,
-  images: undefined,
   init() {
     this._super(...arguments);
     if (this.get('editable'))
@@ -37,13 +36,6 @@ export default Ember.Component.extend({
       });
     else
       this.set('rental', this.get('store').createRecord('rental'));
-
-    //upload images to store....
-    this.get('store').query('image', {
-      filter: {
-        rental: this.get('rental')
-      }
-    });
   },
   
   actions: {
@@ -62,7 +54,11 @@ export default Ember.Component.extend({
       
     },
     commit_special() {
-      this.toggleProperty('rental.special');
+      var a = this.get('rental.special');
+      if (a === false || a === 'нет' || a === 'false')
+        this.set('rental.special', 'да');
+      else
+        this.set('rental.special', 'нет');
     },
     commit_type() {
       this.set('property_type', undefined);
@@ -75,28 +71,29 @@ export default Ember.Component.extend({
     },
     metro_filter() {
       let options = [];
-      var { metro, red, blue, green, orange, violet } = this.getProperties('metro', 'red', 'blue', 'green', 'orange', 'violet');
+      var { red, blue, green, orange, violet } = this.getProperties('red', 'blue', 'green', 'orange', 'violet');
+      var metro = this.get('rental.metro');
       
-      for(let i = 0; i < red.length; i++)
+      for(var i = 0; i < red.length; i++)
         if (red[i].toLowerCase().includes(metro.toLowerCase()))
           options.push(red[i]);
-      for(let i = 0; i < blue.length; i++)
+      for(var i = 0; i < blue.length; i++)
         if (blue[i].toLowerCase().includes(metro.toLowerCase()))
           options.push(blue[i]);
-      for(let i = 0; i < green.length; i++)
+      for(var i = 0; i < green.length; i++)
         if (green[i].toLowerCase().includes(metro.toLowerCase()))
           options.push(green[i]);
-      for(let i = 0; i < orange.length; i++)
+      for(var i = 0; i < orange.length; i++)
         if (orange[i].toLowerCase().includes(metro.toLowerCase()))
           options.push(orange[i]);
-      for(let i = 0; i < violet.length; i++)
+      for(var i = 0; i < violet.length; i++)
         if (violet[i].toLowerCase().includes(metro.toLowerCase()))
           options.push(violet[i]);
       
       this.set('metro_options', options);
     },
     toggleMetro(label) {
-      this.set('metro', label);
+      this.set('rental.metro', label);
       this.set('metro_options', []);
     },
   }

@@ -86,16 +86,18 @@ export default Ember.Component.extend({
             /* district */
             if (property_type === 'загородная') {
               if (countryDistrict.selected.length) {
-                let district = countryDistrict.selected.map(function(value) { return value.toLowerCase(); });
+                let district = countryDistrict.selected.map(value => { return ' ' + value.toLowerCase(); });
+                
                 if (rental.get('district'))
-                  if (district.indexOf(rental.get('district').toLowerCase()) == -1)
+                  if (district.indexOf(rental.get('district').toLowerCase()) === -1)
                     return false;
               }
             } else {
               if (cityDistrict.selected.length) {
-                let district = cityDistrict.selected.map(function(value) { return value.toLowerCase(); });
+                let district = cityDistrict.selected.map(value => { return ' ' + value.toLowerCase(); });
+                
                 if (rental.get('district'))
-                  if (district.indexOf(rental.get('district').toLowerCase()) == -1)
+                  if (district.indexOf(rental.get('district').toLowerCase()) === -1)
                     return false;
               }
             }

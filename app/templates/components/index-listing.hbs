@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="index-listing">
+    {{#each rentals as |rental index|}}
+      {{#if (less index show)}}
+        {{rental-listing-index editable=rental}}
+      {{/if}}
+    {{/each}}
+  </div>
+</div>

@@ -20,7 +20,7 @@ export default Ember.Component.extend({
     },
     
     toggleLabel(label) {
-      var hehe = (this.get('anyFlag') ? this.get('options').copy() : this.get('checkedOptions').copy());
+      var hehe = (this.get('anyFlag') ? [] : this.get('checkedOptions').copy());
       this.set('anyFlag', false);
       
       var index = hehe.indexOf(label);

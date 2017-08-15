@@ -95,7 +95,8 @@
     height: auto;
 }
 
-.left-arrow, .right-arrow {
+/* buttons */
+.left-arrow, .right-arrow, .delete-button {
     width: 28px;
     height: 48px;
     z-index: 50;
@@ -105,8 +106,22 @@
     transition: opacity 150ms;
 }
 
-.left-arrow:hover, .right-arrow:hover {
+.left-arrow:hover, .right-arrow:hover, .magnifier:hover {
     opacity: .7;
+}
+
+.delete-button, .magnifier {
+  float: left;
+  opacity: .4;
+  width: 48px;
+  height: 48px;
+  margin: 163.5px 216.5px;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+
+.delete-button:hover {
+  opacity: .95;
 }
 
 .left-arrow {
@@ -117,6 +132,16 @@
 .right-arrow {
     background: url(/assets/images/right_arrow.png) no-repeat;
     float: right;
+}
+
+.delete-button {
+  background: url(/assets/images/cross.png) no-repeat;
+  background-size: 48px 48px;
+}
+
+.magnifier {
+  background: url(/assets/images/magnifier.png) no-repeat;
+  background-size: 48px 48px;
 }
 
 

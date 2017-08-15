@@ -48,7 +48,7 @@
 }
 
 .multiple-dropdown-options label {
-    width: 230px;
+    width: 100%;
     margin: 10px;
     display: block;
     cursor: pointer;
@@ -62,7 +62,6 @@
 .multiple-dropdown-options .no-check {
     background-color: white;
     width: 100%;
-    max-width: 266.5px;
     height: 40px;
     padding: 7px 10px;
     display: block;

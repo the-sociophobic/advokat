@@ -55,11 +55,26 @@ hr {
     z-index: 200;
     cursor: pointer;
 }
+.halo {
+}
+
+.halo::before {
+  /*
+  background: blue;
+  border: 1px solid red;
+  */
+  content: "";
+  position: absolute;
+  left: -58px;
+  width: 790px;
+  height: 360px;
+  cursor: default;
+}  
 
 .space35 {
-    float: left;
-    margin: 0 20px 10px 35px;
-    height: 50px;
+  float: left;
+  margin: 0 20px 10px 35px;
+  height: 50px;
 }
 
 .fade::after {

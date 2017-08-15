@@ -21,14 +21,12 @@ export default EmberUploader.FileField.extend({
     
     var that = this;
     if (!Ember.isEmpty(files)) {
-      // this second argument is optional and can to be sent as extra data with the upload      
-      uploader.upload(files).then(function(data) {
+      uploader.upload(files[0]).then(function(data) {
         // Handle success
       }, function(error) {
         // Handle failure
         let maxDate = 0;
         let maxLink;
-          
         that.get('store').findAll('binary').then(a => {
           a.toArray().forEach(item => {
             if (parseInt(item.get('uploadDate')) > maxDate) {

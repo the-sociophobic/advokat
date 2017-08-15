@@ -14,15 +14,7 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="index-listing">
-    {{#each model.rentals as |rental index|}}
-      {{#if (less index 4)}}
-        {{rental-listing-index rental=rental length=rental.images.length}}
-      {{/if}}
-    {{/each}}
-  </div>
-</div>
+{{index-listing rentals=model.rentals}}
 
 {{#if model.posts.length}}
   {{index-posts posts=model.posts}}

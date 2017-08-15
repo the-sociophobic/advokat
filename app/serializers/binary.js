@@ -15,17 +15,17 @@ export default ApplicationSerializer.extend({
 
     for (let i = 0; i < a.length; i++) {
       
-      if(a.charAt(i) === '_' && a.charAt(i + 1) === 'i' && a.charAt(i + 2) === 'd') {
+      if (a.charAt(i) === '_' && a.charAt(i + 1) === 'i' && a.charAt(i + 2) === 'd') {
         i += 14;
         while(a.charAt(i) != '\"')
           _id += a.charAt(i++);
       }
-      if(a.charAt(i) == '$' && a.charAt(i + 1) == 'd' && a.charAt(i + 2) == 'a' && a.charAt(i + 3) == 't' && a.charAt(i + 4) == 'e') {
+      if (a.charAt(i) == '$' && a.charAt(i + 1) == 'd' && a.charAt(i + 2) == 'a' && a.charAt(i + 3) == 't' && a.charAt(i + 4) == 'e') {
         i += 7;
         while(a.charAt(i) != '}')
           uploadDate += a.charAt(i++);
       }
-      if(a.charAt(i) == 'h' && a.charAt(i + 1) == 'r' && a.charAt(i + 2) == 'e' && a.charAt(i + 3) == 'f') {
+      if (a.charAt(i) == 'h' && a.charAt(i + 1) == 'r' && a.charAt(i + 2) == 'e' && a.charAt(i + 3) == 'f') {
         i += 8;
         while(a.charAt(i) != '\"') {
           link += a.charAt(i++);

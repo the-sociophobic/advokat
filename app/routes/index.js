@@ -11,9 +11,9 @@ export default Ember.Route.extend({
   
   model() {
     return RSVP.hash({
-      rentals: this.get('store').findAll('rental').then(function(rentals) {
-        return rentals.filter(function(rental) {
-          return rental.special;
+      rentals: this.get('store').findAll('rental').then(rentals => {
+        return rentals.filter(rental => {
+          return (rental.get('special') === 'да');
         });
       }),
       feedbacks: this.get('store').findAll('feedback'),

@@ -1,5 +1,5 @@
-<div class="multiple-dropdown" style="width:{{width}}" {{action 'Collapse' on="mouseLeave" preventDefault=false}}>
-  <div class="multiple-dropdown-field block {{if isExpanded "rot-arrow"}}" style="width:{{width}}" {{action 'toggleExpand' preventDefault=false}}>
+<div class="multiple-dropdown" style="width:{{width}}" {{action 'Collapse' on="mouseLeave"}}>
+  <div class="multiple-dropdown-field block {{if isExpanded "rot-arrow"}}" style="width:{{width}}" {{action 'toggleExpand'}}>
     <div class="multiple-dropdown-checked" style="width:calc({{width}} - 5px)">
       {{#if anyFlag}}
         Любой
@@ -9,10 +9,10 @@
     </div>
   </div>
   
-  <div class="multiple-dropdown-options {{unless isExpanded "hidden"}}" style="width: {{options-width}}">
-      {{custom-checkbox label='Любой' checked=anyFlag commit=(action 'any')}}
-      {{#each options as |option|}}
-        {{custom-checkbox label=option checked=(or anyFlag (if-in checkedOptions option)) commit=(action 'toggleLabel' option)}}
-      {{/each}}
+  <div class="multiple-dropdown-options halo {{unless isExpanded "hidden"}}" style="width: {{options-width}}">
+    {{custom-checkbox label='Любой' checked=anyFlag commit=(action 'any')}}
+    {{#each options as |option|}}
+      {{custom-checkbox label=option checked=(if-in checkedOptions option) commit=(action 'toggleLabel' option)}}
+    {{/each}}
   </div>
 </div>

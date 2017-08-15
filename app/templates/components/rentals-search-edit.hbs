@@ -34,9 +34,9 @@
     <div class="space35">
       <span>Район:</span>
       {{#if countryCheck}}
-        {{multiple-dropdown options=countryDistrict.options checkedOptions=countryDistrict.selected width="373px" options-width="802px" commit=(action 'filter')}}
+        {{multiple-dropdown options=countryDistrict.options checkedOptions=countryDistrict.selected width="373px" options-width="637px" commit=(action 'filter')}}
       {{else}}
-        {{multiple-dropdown options=cityDistrict.options    checkedOptions=cityDistrict.selected    width="373px" options-width="802px" commit=(action 'filter')}}
+        {{multiple-dropdown options=cityDistrict.options    checkedOptions=cityDistrict.selected    width="373px" options-width="637px" commit=(action 'filter')}}
       {{/if}}
     </div>
 

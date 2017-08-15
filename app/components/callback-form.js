@@ -12,6 +12,9 @@ export default Ember.Component.extend({
     toggleShown() {
       this.toggleProperty('shown');
     },
+    close() {
+      this.set('shown', false);
+    },
     add() {
       var { title, name, phone, message } = this.getProperties('title', 'name', 'phone', 'message');
       if (this.get('accepted') && (name && phone && message)) {

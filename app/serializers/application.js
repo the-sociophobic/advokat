@@ -18,7 +18,6 @@ export default DS.JSONAPISerializer.extend({
       if (payload._id) {
         payload.id = payload._id.$oid;
         payload = { data: payload };
-        //alert(JSON.stringify(payload.data, null, 4));
       }
     }
     
@@ -31,21 +30,22 @@ export default DS.JSONAPISerializer.extend({
 
     json = json.data;
     //json.type = json.type.slice(0, -1);
-    
+    /*
     if (json.hasOwnProperty('relationships')) {
-      /*
+      //alert('ahaha');
       if (json.relationships.hasOwnProperty('images')) {
+        //alert('aha');
         let data = json.relationships.images.data;
         for (var i = 0; i < data.length; i++)
           data[i].type = data[i].type.slice(0, -1);
         json.relationships.images.data = data;
       }
-      if (json.relationships.hasOwnProperty('rental')) {
+      if (json.relationships.hasOwnProperty('agent')) {
+        console.log(JSON.stringify(json, null, 4));
         json.relationships.rental.data.type = json.relationships.rental.data.type.slice(0, -1);
       }
-      */
     }
-
+    */
     return json;
   },
 });

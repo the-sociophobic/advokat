@@ -2,7 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   slideIndex: 0,
-  
+  store: Ember.inject.service(),
+  rental: undefined,
+  init() {
+    this._super(...arguments);
+    this.get('store').findRecord('rental', this.get('editable').id).then(rental => {
+      this.set('rental', rental);
+    });
+  },
+
   didInsertElement() {
     this._super(...arguments);
     var images = document.querySelectorAll('.image-container img');
@@ -15,10 +23,10 @@ export default Ember.Component.extend({
   
   actions: {
     nextImage() {
-      this.set('slideIndex', (this.get('slideIndex') + 1) % this.get('length'));
+      this.set('slideIndex', (this.get('slideIndex') + 1) % this.get('rental.images.length'));
     },
     prevImage() {
-      this.set('slideIndex', (this.get('length') + this.get('slideIndex') - 1) % this.get('length'));
+      this.set('slideIndex', (this.get('rental.images.length') + this.get('slideIndex') - 1) % this.get('rental.images.length'));
     }
   }
 });

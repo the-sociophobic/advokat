@@ -17,25 +17,25 @@
   <div class="space35">
     <span>Тип:</span>
     {{#if livingCheck}}
-      {{custom-dropdown options=livingOptions     selected=category width="250px" commit=(action 'filter')}}
+      {{custom-dropdown options=livingOptions     selected=category width="415px" commit=(action 'filter')}}
     {{/if}}
     {{#if newCheck}}
-      {{custom-dropdown options=newOptions        selected=category width="250px" commit=(action 'filter')}}
+      {{custom-dropdown options=newOptions        selected=category width="415px" commit=(action 'filter')}}
     {{/if}}
     {{#if commericalCheck}}
-      {{custom-dropdown options=commericalOptions selected=category width="250px" commit=(action 'filter')}}
+      {{custom-dropdown options=commericalOptions selected=category width="415px" commit=(action 'filter')}}
     {{/if}}
     {{#if countryCheck}}
-      {{custom-dropdown options=countryOptions    selected=category width="250px" commit=(action 'filter')}}
+      {{custom-dropdown options=countryOptions    selected=category width="415px" commit=(action 'filter')}}
     {{/if}}
   </div>
 
   <div class="space35">
     <span>Район:</span>
     {{#if countryCheck}}
-      {{multiple-dropdown options=countryDistrict.options checkedOptions=countryDistrict.selected width="802px" commit=(action 'filter')}}
+      {{multiple-dropdown options=countryDistrict.options checkedOptions=countryDistrict.selected width="637px" commit=(action 'filter')}}
     {{else}}
-      {{multiple-dropdown options=cityDistrict.options    checkedOptions=cityDistrict.selected    width="802px" commit=(action 'filter')}}
+      {{multiple-dropdown options=cityDistrict.options    checkedOptions=cityDistrict.selected    width="637px" commit=(action 'filter')}}
     {{/if}}
   </div>
   

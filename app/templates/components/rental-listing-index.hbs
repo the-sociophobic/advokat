@@ -1,5 +1,6 @@
 <div class="block rental-listing-index">
   <div class="image-container">
+    {{rental.images.length}}
     {{#each rental.images as |image index|}}
       <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
     {{/each}}

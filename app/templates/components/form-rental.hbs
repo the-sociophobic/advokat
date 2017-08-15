@@ -72,17 +72,17 @@
     {{custom-dropdown options=dealStatusOptions selected=rental.deal_status width='250px' any='Тип продажи' commit=(action 'commit')}}<br>
   {{/if}}
   <br>
-  {{textarea cols="80" rows="6" placeholder='Описание' value=rental.description}}
+  {{{textarea cols="80" rows="6" placeholder='Описание' value=rental.description}}}
   <br>
   Перед Сохранением рекомендуется "Оттипографить" текст описания тут: <a href="https://www.artlebedev.ru/typograf/" target="_blank">Типограф</a>
   <br><br>
   
-  {{custom-checkbox label='Показывать на главной' checked=rental.special commit=(action 'commit_special')}}<br><br>
+  {{custom-checkbox label='Показывать на главной' checked=(da-net rental.special) commit=(action 'commit_special')}}<br><br>
 
   изображения: {{file-upload rental=rental}}
   
-  {{rental.images.length}}
-  {{image-view images=rental.images}}
+  Количество изображений: {{rental.images.length}}
+  {{image-view images=rental.images edit=true}}
 
   <button class='cancel' {{action 'cancel'}}>Отмена</button>
   <button class='delete' {{action 'delete'}}>Удалить</button>

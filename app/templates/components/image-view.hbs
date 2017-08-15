@@ -5,13 +5,31 @@
     {{/each}}
     <div class="left-arrow"  {{action 'prevImage'}}></div>
     <div class="right-arrow" {{action 'nextImage'}}></div>
+    {{#if images.length}}
+      {{#if edit}}
+        <div class="delete-button" {{action 'delete'}}></div>
+      {{else}}
+        <div class="magnifier" {{action 'zoomIn'}}></div>
+      {{/if}}
+    {{/if}}
   </div>
 </div>
 
 <div class='image-preview'>
   {{#each images as |image index|}}
     <div class='image-container' style='{{if (eq slideIndex index) 'opacity: 1'}}; {{image-view-offset index slideIndex}}'>
-      <img src="{{image.link}}"/>
+      <img src="{{image.link}}" style='cursor: pointer' {{action 'setSlideIndex' index}}/>
     </div>
   {{/each}}
-</div> 
+</div>
+
+{{#if zoomed}}
+  <div class='popup-background' {{action 'zoomOut'}}></div>
+  <div class="image-container full-screen">
+    {{#each images as |image index|}}
+      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
+    {{/each}}
+    <div class="left-arrow"  {{action 'prevImage'}}></div>
+    <div class="right-arrow" {{action 'nextImage'}}></div>
+  </div>
+{{/if}}
