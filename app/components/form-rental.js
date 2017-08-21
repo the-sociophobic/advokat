@@ -28,11 +28,15 @@ export default Ember.Component.extend({
     
   store: Ember.inject.service(),
   rental: undefined,
+  number: 0,
+  showImages: true,
+  
   init() {
     this._super(...arguments);
     if (this.get('editable'))
       this.get('store').findRecord('rental', this.get('editable').id).then(rental => {
         this.set('rental', rental);
+        this.get('store').findAll('image').then(images => {});
       });
     else
       this.set('rental', this.get('store').createRecord('rental'));
@@ -41,7 +45,7 @@ export default Ember.Component.extend({
   actions: {
     save() {
       this.get('rental').save();
-      window.history.back();
+      //window.history.back();
     },
     cancel() {
       window.history.back();

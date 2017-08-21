@@ -25,22 +25,19 @@ export default EmberUploader.FileField.extend({
         // Handle success
       }, function(error) {
         // Handle failure
-        let maxDate = 0;
-        let maxLink;
+      let maxLink = 0;
         that.get('store').findAll('binary').then(a => {
           a.toArray().forEach(item => {
-            if (parseInt(item.get('uploadDate')) > maxDate) {
-              maxDate = parseInt(item.get('uploadDate'));
+            if (maxLink === 0)
               maxLink = item.get('link');
-            }
           });
           let rental = that.get('rental');
-          let image = that.get('store').createRecord('image', { link: maxLink, rental: rental });
-          image.save();
-          that.get('store').peekRecord('rental', rental.id).save();
+          if (!rental.get('images')) {
+            rental.set('images', []);
+          }
+          rental.get('images').push({ link: maxLink });
         });
         
-        //var lastUploaded = Math.max.apply(Math, a.toArray().map(img => { return parseInt(img.get('uploadDate')); }));
       });
     }
   }

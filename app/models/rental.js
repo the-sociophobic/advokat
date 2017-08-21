@@ -48,7 +48,7 @@ export default DS.Model.extend({
   
   special: DS.attr(),
 
-  images: DS.hasMany('image', { async: true }),
+  images: DS.attr(),
 
   creation_date: DS.attr(),
   last_update_date: DS.attr(),

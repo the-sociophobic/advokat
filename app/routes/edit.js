@@ -6,11 +6,11 @@ export default Ember.Route.extend(//AuthenticatedRouteMixin,
 {
   model() {
     return RSVP.hash({
-      callbacks: this.get('store').findAll('callback'),
-      rentals: this.get('store').findAll('rental'),
-      agents: this.get('store').findAll('agent'),
-      feedbacks: this.get('store').findAll('feedback'),
-      posts: this.get('store').findAll('post')
+      callbacks: this.get('store').findAll('callback', { reload: true }),
+      rentals: this.get('store').findAll('rental', { reload: true }),
+      agents: this.get('store').findAll('agent', { reload: true }),
+      feedbacks: this.get('store').findAll('feedback', { reload: true }),
+      posts: this.get('store').findAll('post', { reload: true })
     });
   }
 });
