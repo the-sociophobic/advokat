@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   isExpanded: false,
   anyFlag: true,
-
+  
   actions: {
     toggleExpand() {
       this.toggleProperty('isExpanded');

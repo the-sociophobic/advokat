@@ -1,31 +1,34 @@
+<div class='page'>
 <div class="container">
-  <div style="margin: 15px 0; overflow-y: auto">
+  <div style="margin: 0 0 15px 0; overflow-y: auto">
 
-    <div style="width: 50%; float: left; padding-right: 15px">
-      <p class="text-32 text-center">{{model.address}}</p>
+    <div style="width: 50%; float: left; padding-right: 12px">
+      <div style="height: 70px">
+        <p class="text-20 text-center" style='margin-bottom: 0'>{{{rental-category-rooms model.category model.rooms}}} {{#if (eq model.category 'квартира')}} квартира{{/if}}</p>
+        <p class="text-26 text-center" style='margin-bottom: 10px'>{{model.address}}</p>
+      </div>
       {{image-view images=model.images}}
     </div>
-    <div style="width: calc(50% - 15px); float: left; margin-left:15px">
-      <p class="text-32 text-center">{{{rental-category-rooms model.category model.rooms}}} {{#if (eq model.category 'квартира')}} квартира{{/if}}</p>
-    </div>
-    <div style="width: calc(50% - 15px); float: left; margin-left: 15px; padding: 0 0 10px 25px">
-      {{#link-to 'rentals' (query-params type=model.type category=model.property_type)}}Назад к списку объектов{{/link-to}}
+    <div style="width: calc(50% - 15px); float: left; margin-left: 15px; padding: 0 0 10px 10px">
+      <div style="height: 70px; padding: 25px 50px 0 30px">
+        {{#link-to 'rentals' (query-params type=model.type category=model.property_type)}}Назад к списку объектов{{/link-to}}
+        <a style='cursor: pointer; float: right' onClick="window.print()">Распечатать</a>
+      </div>
 
-      <a style='cursor: pointer; float: right; margin-right: 92px' onClick="window.print()">Распечатать</a><br><br>
-
-      <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'арендовать')}}/месяц{{/if}}</span>
-      {{#if (eq model.type 'купить')}}
-        <a style='cursor: pointer; float: right; margin-right: 92px' {{action 'toCalc'}}>{{number-spaces monthly}} руб./мес.</a><br>
-        <small>{{{price-per-meter model.price model.area}}} руб./м²</small>
-      {{/if}}
-      <br><br>
+      <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 50px 15px 30px'>
+        <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'арендовать')}}/месяц{{/if}}</span>
+        {{#if (eq model.type 'купить')}}
+          <a style='cursor: pointer; float: right' {{action 'toCalc'}}>{{number-spaces monthly}} руб./мес.</a><br>
+          <small class='text-grey'>{{{price-per-meter model.price model.area}}} руб./м²</small>
+        {{/if}}
+      </div>
+      <br>
 
       {{model.district}} район<br>
-      <span style='margin-left: 20px'class="{{metro-logo model.metro}}">{{model.metro}}</span><br>
-      {{model.address}}
+      <div style='padding-left: 20px'>{{{metro-logo model.metro}}}</div><br>
 
       <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
-        <div style='width: calc(50% - 10px); padding-left: 30px; float: left'>
+        <div class='text-grey' style='width: calc(55% - 10px); padding-left: 30px; float: left'>
           {{#unless  (eq model.property_type 'загородная')}}
             Общая площадь:<br>
             {{#unless (eq model.property_type 'коммерческая')}}
@@ -35,7 +38,7 @@
             {{/unless}}
             Этаж/Этажей:
             {{#if (eq model.type 'купить')}}
-              <br><br>Тип дома:
+              <br>Тип дома:
               <br>Вид сделки:
             {{/if}}
           {{else}}
@@ -43,7 +46,7 @@
             Площадь участка:<br>
           {{/unless}}
         </div>
-        <div style='width: calc(50% - 10px); float: left'>
+        <div style='width: calc(45% - 10px); float: left'>
           {{dot-to-comma model.area}} м²<br>
           {{#unless  (eq model.property_type 'загородная')}}
             {{#unless (eq model.property_type 'коммерческая')}}
@@ -56,7 +59,7 @@
             {{dot-to-comma model.lot_area}} м²
           {{/unless}}
           {{#if (eq model.type 'купить')}}
-            <br><br>{{model.building_type}}
+            <br>{{model.building_type}}
             {{#unless (eq model.property_type 'новостройки')}}
               <br>{{model.deal_status}}
             {{/unless}}
@@ -65,7 +68,7 @@
       </div>
 
       <div style='width: 100%; overflow-y: auto; margin: 20px 0'>
-        {{{model.description}}}
+        {{{text-formatting model.description}}}
       </div>
 
       <div style='width: 100%; overflow-y: auto; overflow-x: visible; margin-top: 20px; padding: 0 5px 20px 5px'>
@@ -100,3 +103,4 @@
 
 {{callback-form shown=showPopup1 title='Записаться на просмотр' description='оставьте заявку, мы обязательно с Вами свяжемся'}}
 {{callback-form shown=showPopup2 title='Задать вопрос' description='задайте вопрос, мы обязательно Вам ответим'}}
+</div>

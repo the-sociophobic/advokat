@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  title: 'Агентство Адвокат',
+  title: 'Политика Конфиденциальности',
   
   activate: function() {
     this._super(...arguments);

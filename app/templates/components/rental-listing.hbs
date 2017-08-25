@@ -3,6 +3,7 @@
     {{#each rental.images as |image index|}}
       <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
     {{/each}}
+    <span>{{addition slideIndex 1}}/{{rental.images.length}}</span>
     <div class="left-arrow"  {{action 'prevImage'}}></div>
     <div class="right-arrow" {{action 'nextImage'}}></div>
   </div>
@@ -10,7 +11,9 @@
   <div class="listing-row" style="height: 100%">
     <div class="listing-row">
       <div class="listing-column" style="margin-left: 25px; margin-right: 10px; width: 230px">
-        <div style='overflow: auto; padding-left: 20px; margin-left: -20px'><span class="{{metro-logo rental.metro}}">{{rental.metro}}</span></div>
+        {{#if rental.metro}}
+          <div style='overflow: auto; padding-left: 20px; margin-left: -20px'>{{{metro-logo rental.metro}}}</div>
+        {{/if}}
         {{#if rental.time_on_foot}}
           <div style='overflow: auto'><small><i>{{rental.time_on_foot}} мин пешком</i></small></div>
         {{else}}
@@ -37,7 +40,7 @@
       </div>
     </div>
     <div class="listing-description fade">
-      {{{rental.description}}}
+      {{{text-formatting rental.description}}}
     </div>
   </div>
   

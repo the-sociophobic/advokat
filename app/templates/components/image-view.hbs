@@ -15,17 +15,29 @@
   </div>
 </div>
 
-<div class='image-preview'>
-  {{#each images as |image index|}}
-    <div class='image-container' style='{{if (eq slideIndex index) 'opacity: 1'}}; {{image-view-offset index slideIndex}}'>
-      <img src="{{image.link}}" style='cursor: pointer' {{action 'setSlideIndex' index}}/>
-    </div>
-  {{/each}}
+<div class='image-preview-clipper {{if edit 'edit'}}'>
+  <div class='image-preview'>
+    {{#each images as |image index|}}
+      {{#draggable-item content=index}}
+        <div class='image-container {{if (eq slideIndex index) 'selected'}}' style='{{if (less index offset) 'margin-left: -150px'}}'>
+          <img src="{{image.link}}" style='cursor: pointer' {{action 'setSlideIndex' index}}/>
+        </div>
+      {{/draggable-item}}
+    {{/each}}
+  </div>
 </div>
+
+{{#if dragged}}
+  {{#each images as |image index|}}
+    {{#draggable-dropzone dropped="addUser"}}
+      <div class=''></div>
+    {{/draggable-dropzone}}
+  {{/each}}
+{{/if}}
 
 {{#if zoomed}}
   <div class='popup-background' {{action 'zoomOut'}}></div>
-  <div class="image-container full-screen">
+  <div class="image-container ">
     {{#each images as |image index|}}
       <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
     {{/each}}

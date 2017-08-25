@@ -1,253 +1,63 @@
 /*rentals-search */
 .rentals-search {
-    width: 1200px;
-    height: 185px;
-    padding: 0 10px;
-    margin: auto;
-    margin-bottom: 10px;
-    overflow: none;
+  width: 1200px;
+  height: 185px;
+  padding: 0 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  overflow: none;
 }
 
 .search-wide {
-    width: 100vw;
-    padding-left: calc(50vw - 512px);
-    position: fixed;
-    top: 0;
+  width: 100vw;
+  padding-left: calc(50vw - 512px);
+  position: fixed;
+  top: 0;
 }
 
 .rentals-sliders {
-  width: 100%;
-  height: 60px;
-  overflow: hidden;
+width: 100%;
+height: 60px;
+overflow: hidden;
 }
 /**
- * Individual Listings
- */
+* Individual Listings
+*/
 .listing-column {
-    padding: 10px;
-    float: left;
+  padding: 10px;
+  float: left;
 }
 
 .listing-row {
-  float: left;
+float: left;
 }
 
 .listing-agent {
-    width: 160px;
-    padding: 10px;
-    float: left;
+  width: 160px;
+  padding: 10px;
+  float: left;
 }
 
 .listing-description {
-    font-size: 14px;
-    width: 757px;
-    height: 4.5em;
-    display: block;
-    overflow: hidden;
-    margin: 15px 0;
-    padding: 0 35px;
-    position: absolute;
-    bottom: 0;
-}
-
-.preview {
-    margin-top: 15px;
-    background-color: #f6f6f6;
-    border-radius: 2px;
-    border: 1px linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-    padding: 15px 50px;
-    min-height: 145px;
-    position: relative;
-    width: 25%;
-}
-
-.listing {
-    height: 190px; 
-    margin-top: 0px;
-    position: relative;
-    overflow: hidden;
-}
-
-.image-container {
-    position: relative;
-    float: left;
-    overflow: hidden;
-}
-
-.listing .image-container {
-    width: 240px;
-    height: 100%;
-}
-
-.image-container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.listing .image-container img.landscape {
-    width: auto;
-    height: 188px;
-}
-.listing .image-container img.portrait {
-    width: 240px;
-    height: auto;
-}
-
-/* buttons */
-.left-arrow, .right-arrow, .delete-button {
-    width: 28px;
-    height: 48px;
-    z-index: 50;
-    margin: 70px 12px;
-    opacity: .3;
-    cursor: pointer;
-    transition: opacity 150ms;
-}
-
-.left-arrow:hover, .right-arrow:hover, .magnifier:hover {
-    opacity: .7;
-}
-
-.delete-button, .magnifier {
-  float: left;
-  opacity: .4;
-  width: 48px;
-  height: 48px;
-  margin: 163.5px 216.5px;
-  cursor: pointer;
-  transition: opacity 150ms;
-}
-
-.delete-button:hover {
-  opacity: .95;
-}
-
-.left-arrow {
-    background: url(/assets/images/left_arrow.png) no-repeat;
-    float: left;
-}
-
-.right-arrow {
-    background: url(/assets/images/right_arrow.png) no-repeat;
-    float: right;
-}
-
-.delete-button {
-  background: url(/assets/images/cross.png) no-repeat;
-  background-size: 48px 48px;
-}
-
-.magnifier {
-  background: url(/assets/images/magnifier.png) no-repeat;
-  background-size: 48px 48px;
-}
-
-
-.listing small {
-    color: grey;
-    float: left;
-    display: block;
-}
-
-.rental-listing-index {
-    width: 286px;
-    height: 320px;
-    margin: 9px;
-    float: left;
-}
-
-.rental-listing-index .image-container {
-    width: 284px; 
-    height: 240px;
-}
-
-.rental-listing-index .image-container img.landscape {
-    width: auto;
-    height: 240px;
-}
-.rental-listing-index .image-container img.portrait {
-    width: 284px;
-    height: auto;
-}
-
-.rental-listing-index .left-arrow, .rental-listing-index .right-arrow {
-    margin: 95px 12px;
-}
-
-/* rental page */
-.image-view {
-    background-color: white;
-    width: 100%; 
-    height: 375px;
-    position: relative;
-    float: left;
-}
-
-.image-view .image-container {
-    width: 585px; 
-    height: 100%;
-}
-
-.image-view .image-container img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-}
-
-.image-view .left-arrow, .image-view .right-arrow {
-    margin: 163px 12px;
-}
-
-.image-view .image-container img.landscape {
-    width: auto;
-    height: 375px;
-}
-.image-view .image-container img.portrait {
-    width: 585px;
-    height: auto;
-}
-
-.image-preview {
-  width: 592px;
-  height: 100px;
-  margin-top: 7px;
-  position: relative;
-  float: left;
+  font-size: 14px;
+  color: #505050;
+  width: 757px;
+  height: 4.5em;
+  display: block;
   overflow: hidden;
+  margin: 15px 0;
+  padding: 0 35px;
+  position: absolute;
+  bottom: 0;
 }
-
-.image-preview .image-container {
-  width: 141px;
-  height: 100px;
-  margin-right: 7px;
-  opacity: .7;
-}
-
-.image-preview .image-container img {
-  -webkit-user-select: none;  -khtml-user-select: none;   -moz-user-select: none; -o-user-select: none;    user-select: none;  
-}
-
-.image-preview .image-container img.landscape {
-    width: auto;
-    height: 100px;
-}
-.image-preview .image-container img.portrait {
-    width: 141px;
-    height: auto;
-}
-
-
 
 
 .map {
-    position: relative;
-    width: 1198px;
-    height: 400px;
-    background-size: cover;
-    border-radius: 5px;
+  position: relative;
+  width: 1198px;
+  height: 400px;
+  background-size: cover;
+  border-radius: 5px;
 }
 
 .footer .map {
@@ -256,28 +66,40 @@
 }
 
 .map-container {
-    margin: 20px 0 30px 0;
+  margin: 20px 0 30px 0;
 }
 
 .footer .map-container {
-    margin-top: 7px;
-    margin-bottom: 0;
+  margin-top: 7px;
+  margin-bottom: 0;
 }
 
 
 .rental-input {
-    padding: 35px;
+  padding: 5px 0 20px 0;
+  overflow: auto;
+}
+
+.rental-input span {
+  line-height: 28px;
 }
 
 .rental-input input {
-    font-size: 14px;
-    width: 250px;
-    height: 28px;
-    padding-left: 10px;
-  /*
-    border: 0;
-    border-bottom: solid 1px lightgray;
-  */
+  font-size: 16px;
+  width: 100%;
+  height: 28px;
+  padding-left: 10px;
+  margin: -.5px;
+/*
+  border: 0;
+  border-bottom: solid 1px lightgray;
+*/
+}
+
+.rental-input textarea {
+  font-size: 16px;
+  width: 100%;
+  height: 300px;
 }
 
 .rental-listing-edit {

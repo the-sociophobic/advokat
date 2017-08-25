@@ -1,73 +1,81 @@
 .light {
-    font-weight: 300;
+  font-weight: 300;
 }
 
 .left {
-    float: left;
+  float: left;
 }
 
 .right {
-    float: right;
+  float: right;
 }
 
 .bottom {
-    position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 .text-12 {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .text-14 {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .text-18 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .text-20 {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .text-22 {
-    font-size: 22px;
+  font-size: 22px;
 }
 
 .text-24 {
-    font-size: 24px;
+  font-size: 24px;
+}
+
+.text-26 {
+  font-size: 24px;
 }
 
 .text-28 {
-    font-size: 28px;
+  font-size: 28px;
 }
 
 .text-32 {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .text-40 {
-    font-size: 40px;
+  font-size: 40px;
+}
+
+.text-grey {
+  color: grey;
 }
 
 .w-180 {
-    width: 180px;
+  width: 180px;
 }
 
 .w-300 {
-    width: 300px;
+  width: 300px;
 }
 
 .h-0 {
@@ -75,22 +83,22 @@
 }
 
 .no-padding {
-    padding: 0px;
+  padding: 0px;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
 
 .absolute {
-    position: absolute;
-    bottom: 0;
+  position: absolute;
+  bottom: 0;
 }
 
 .invisible {
-    opacity: 0;
+  opacity: 0;
 }

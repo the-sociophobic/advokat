@@ -1,14 +1,14 @@
 <div class="block rental-listing-index">
   <div class="image-container">
-    {{rental.images.length}}
     {{#each rental.images as |image index|}}
       <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
     {{/each}}
+    <span>{{addition slideIndex 1}}/{{rental.images.length}}</span>
     <div class="left-arrow"  {{action 'prevImage'}}></div>
     <div class="right-arrow" {{action 'nextImage'}}></div>
   </div>
 
-  <div style='padding: 15px; margin-top: 200px'>
+  <div style='padding: 15px; margin-top: 166px'>
     {{rental.rooms}} комн. {{dot-to-comma  rental.area}} м²<br>
     <div style='width: 100%; height: 1.5em; overflow: hidden'>
       {{rental.address}}

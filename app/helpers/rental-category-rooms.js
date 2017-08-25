@@ -7,7 +7,7 @@ export function rentalCategoryRooms([category, rooms]) {
     if (rooms === 1)
       return 'комната';
     else
-      return rooms + ' комнатны';
+      return rooms + ' комнатная';
   }
   if (category === 'дом') {
     return 'дом';}

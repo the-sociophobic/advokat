@@ -1,8 +1,10 @@
-.block, .block5 {
+.block, .block5, .blockk {
     background-color: white;
     border: 1px solid #d2d2d2;
-    box-shadow: 0px 1px 3px rgba(194, 194, 194, .4);
-    transition: box-shadow 150ms;
+}
+.block, .block5 {
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, .1);
+    transition: box-shadow 75ms;
 }
 
 .block {
@@ -14,7 +16,7 @@
 }
 
 .block:hover, .block5:hover {
-    box-shadow: 0px 3px 8px rgba(194, 194, 194, .4);
+    box-shadow: 0px 1px 18px rgba(0, 0, 0, .25);
 }
 
 .block-no-top {

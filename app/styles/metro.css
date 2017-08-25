@@ -1,59 +1,58 @@
-/*
-https://ibb.co/k6c5y5
-https://ibb.co/h7OdJ5
-https://ibb.co/i3wyJ5
-https://ibb.co/cdu7BQ
-https://ibb.co/dSmXd5
-*/
-
 .metro-red {
-    color: #d32939;
+  color: #d32939;
 }
 .metro-red::before {
-    background: url(https://image.ibb.co/hPasd5/1.png);
+  background: url(/assets/images/1.png);
 }
 
 .metro-blue {
-    color: #2280bd;
+  color: #2280bd;
 }
 .metro-blue::before {
-    background: url(https://image.ibb.co/jRGyJ5/2.png);
+  background: url(/assets/images/2.png);
 }
 
 .metro-green {
-    color: #0b9a58;
+  color: #0b9a58;
 }
 .metro-green::before {
-    background: url(https://image.ibb.co/cGidJ5/3.png);
+  background: url(/assets/images/3.png);
 }
 
 .metro-orange {
-    color: #db7023;
+  color: #db7023;
 }
 .metro-orange::before {
-    background: url(https://image.ibb.co/gsXurQ/4.png);
+  background: url(/assets/images/4.png);
 }
 
 .metro-violet {
-    color: #6c2474;
+  color: #6c2474;
 }
 .metro-violet::before {
-    background: url(https://image.ibb.co/nw25y5/5.png);
+  background: url(/assets/images/5.png);
 }
 
-.metro-red, .metro-blue, .metro-green, .metro-orange, .metro-violet {
-    float: left;
+.railway {
+  color: #009688;
+}
+.railway::before {
+  background: url(/assets/images/railway_station_v3.png);
 }
 
-.metro-red::before, .metro-blue::before, .metro-green::before, .metro-orange::before, .metro-violet::before {
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 14px;
-    width: 17px;
-    content: "";
-    position: relative;
-    float: left;
-    right: 20px;
-    margin-right: -20px;
-    top: 5px;
+.metro-red, .metro-blue, .metro-green, .metro-orange, .metro-violet, .railway {
+  float: left;
+}
+
+.metro-red::before, .metro-blue::before, .metro-green::before, .metro-orange::before, .metro-violet::before, .railway::before {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 14px;
+  width: 17px;
+  content: "";
+  position: relative;
+  float: left;
+  right: 20px;
+  margin-right: -20px;
+  top: 5px;
 }

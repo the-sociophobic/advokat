@@ -25,6 +25,7 @@ module.exports = function(defaults) {
   app.import('app/styles/utilities.css');
   app.import('app/styles/special.css');
 
+  app.import('app/styles/image-view.css');
   app.import('app/styles/radio.css');
   app.import('app/styles/slider.css');
   app.import('app/styles/dropdown.css');

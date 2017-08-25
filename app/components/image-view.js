@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   slideIndex: 0,
+  offset: 0,
   zoomed: false,
+  dragged: true,
 
   arrayChanged: Ember.computed('images.@each.link', () => {
     alert('a');
@@ -10,21 +12,49 @@ export default Ember.Component.extend({
     return 0;
   }),
   
-  didInsertElement() {
-    var images = this.$('.image-preview .image-container img');
+  didRender() {
+    var images = this.$('.image-container img');
     for(var i = 0; i < images.length; i++) {
       images[i].addEventListener('load', function() {
-        this.className += (this.width / this.height > 141 / 100) ? ' landscape' : ' portrait';
+        this.className += (this.width / this.height > 92 / 60) ? ' landscape' : ' portrait';
       });
     }
   },
   
   actions: {
+    addUser(a) {
+      alert(a);
+    },
     nextImage() {
-      this.set('slideIndex', (this.get('slideIndex') + 1) % this.get('images.length'));
+      let index = this.get('slideIndex');
+      let offset = this.get('offset');
+      let length = this.get('images.length');
+      
+      index = (index + 1) % length;
+      if (!this.get('edit'))
+        if (index == 0)
+          offset = 0;
+        else if (index != length - 1)
+          while (index - offset > 4)
+            offset++;
+        
+      this.set('slideIndex', index);
+      this.set('offset', offset);
     },
     prevImage() {
-      this.set('slideIndex', (this.get('images.length') + this.get('slideIndex') - 1) % this.get('images.length'));
+      let index = this.get('slideIndex');
+      let offset = this.get('offset');
+      let length = this.get('images.length');
+      
+      index = (length + index - 1) % length;
+      if (!this.get('edit'))
+        if (index == length - 1)
+          offset = length - 6;
+        else while (index - offset < 1)
+          offset--;
+      
+      this.set('slideIndex', index);
+      this.set('offset', offset);
     },
     setSlideIndex(index) {
       this.set('slideIndex', index);

@@ -1,94 +1,141 @@
-<div class='rental-input' style='overflow: auto'>
-  {{input value=rental.price placeholder='Цена' type='number'}}<br><br>
-
-  {{agents-dropdown selected=rental.agent width="250px" any='агент' commit=(action 'commit_type')}}<br>
+<div class='rental-input'>
+  <div style="width: 50%; float: left; padding-right: 12px">
+    {{file-upload rental=rental}}
+    {{image-view images=rental.images edit=true}}
+  </div>
   
-  {{custom-dropdown options=typeOptions selected=rental.type width="250px" any='Тип сделки' commit=(action 'commit_type')}}
-
-  {{#if (eq rental.type 'купить')}}
-    {{custom-dropdown options=categoryBuyOptions  selected=rental.property_type width="250px" any='Тип недвижимости' commit=(action 'commit_property_type')}}
-  {{/if}}
-  {{#if (eq rental.type 'арендовать')}}
-    {{custom-dropdown options=categoryRentOptions selected=rental.property_type width="250px" any='Тип недвижимости' commit=(action 'commit_property_type')}}
-  {{/if}}
-
-  {{#if (eq rental.property_type 'жилая')}}
-    {{custom-dropdown options=livingOptions     selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
-  {{/if}}
-  {{#if (eq rental.property_type 'новостройки')}}
-    {{custom-dropdown options=newOptions        selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
-  {{/if}}
-  {{#if (eq rental.property_type 'коммерческая')}}
-    {{custom-dropdown options=commericalOptions selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
-  {{/if}}
-  {{#if (eq rental.property_type 'загородная')}}
-    {{custom-dropdown options=countryOptions    selected=rental.category width="250px" any='Тип' commit=(action 'commit')}}
-  {{/if}}
-
-  <br><br>
-  {{#unless (eq rental.property_type 'загородная')}}
-    {{custom-dropdown options=districtCity    selected=rental.district width='250px' options-width='802px' any='Район' commit=(action 'commit')}}
-  {{else}}
-    {{custom-dropdown options=districtCountry selected=rental.district width='250px' options-width='802px' any='Район' commit=(action 'commit')}}
-  {{/unless}}
-  
-  
-
-  {{#unless (eq rental.property_type 'загородная')}}
-    {{input value=rental.metro placeholder='метро' key-up=(action 'metro_filter')}}
-    <div class="multiple-dropdown-options {{if (eq metro_options.length 0) "hidden"}}" style="width: 350px">
-      {{#each metro_options as |metro_option|}}
-        <div class='no-check' style='max-width: 360px' {{action 'toggleMetro' metro_option}}>
-          <span style='margin-left: 20px' class="{{metro-logo metro_option}}">{{metro_option}}</span>
-        </div>
-      {{/each}}
+  <div style="width: calc(50% - 15px); float: left; margin-left: 15px; padding: 0 0 10px 25px">
+    <div style='width: 100%; float: left'>
+      {{custom-checkbox label='Показывать на главной' checked=(da-net rental.special) commit=(action 'commit_special')}}
     </div>
-  {{/unless}}
-  <br>
-  {{input value=rental.time_on_transport placeholder='Время на транспорте (в мин)' type='number'}}<br>
-  {{input value=rental.time_on_foot      placeholder='Время пешком (в мин)'        type='number'}}<br><br>
-  
-  {{input value=rental.address placeholder='Адрес (без квартиры)'}}<br>
-  {{input value=rental.apartment placeholder='квартира'}}<br><br>
-  
-  {{#unless (eq rental.property_type 'загородная')}}
-    {{input value=rental.area placeholder='Общая площадь' type='number'}}<br>
-    {{#unless (eq rental.property_type 'коммерческая')}}
-      {{input value=rental.rooms         placeholder='кол-во комнат'   type='number'}}<br>
-      {{input value=rental.living_space  placeholder='жилая площадь'   type='number'}}<br>
-      {{input value=rental.kitchen_space placeholder='площадь кухни'   type='number'}}<br>
-      {{input value=rental.room_space    placeholder='площади комнат'               }}<br>
-    {{/unless}}
-    {{input value=rental.floor           placeholder='этаж' type='number'}}<br>
-    {{input value=rental.floors_total    placeholder='всего этажей' type='number'}}<br>
-    {{#if (eq rental.type 'купить')}}
-      {{custom-dropdown options=buildingTypeOptions selected=rental.building_type width='250px' any='Тип дома'}}<br>
-    {{/if}}
-  {{else}}
-    {{input value=rental.area            placeholder='площадь дома'   type='number'}}<br>
-    {{input value=rental.lot_area        placeholder='площадь участка' type='number'}}<br>
-  {{/unless}}
-  {{#if (eq rental.type 'купить')}}
-    {{custom-dropdown options=dealStatusOptions selected=rental.deal_status width='250px' any='Тип продажи' commit=(action 'commit')}}<br>
-  {{/if}}
-  <br>
-  {{{textarea cols="80" rows="6" placeholder='Описание' value=rental.description}}}
-  <br>
-  Перед Сохранением рекомендуется "Оттипографить" текст описания тут: <a href="https://www.artlebedev.ru/typograf/" target="_blank">Типограф</a>
-  <br><br>
-  
-  {{custom-checkbox label='Показывать на главной' checked=(da-net rental.special) commit=(action 'commit_special')}}<br><br>
+    <div style='width: 35%; float: left; padding: 10px 0'>
+      <span>
+        Цена:<br><br>
+        Агент:<br><br>
+        Тип сделки:<br>
+        {{#if rental.type}}
+          Тип недвижимости:<br>
+        {{/if}}
+        {{#if rental.property_type}}
+          Тип:<br><br>
+          Район:<br>
+        {{/if}}
+        {{#if (eq rental.property_type 'загородная')}}
+          ЖД станция:<br>
+        {{else}}
+          Метро:<br>
+        {{/if}}
+        Время на транспорте:<br>
+        Время пешком:<br><br>
+        Адрес:<br>
+        Номер квартиры:<br><br>
+        {{#unless (eq rental.property_type 'загородная')}}
+          Общая площадь:<br>
+          {{#unless (eq rental.property_type 'коммерческая')}}
+            Количество комнат:<br>
+            Жилая площадь:<br>
+            Площадь кухни:<br>
+            Площади комнат:<br>
+          {{/unless}}
+          <br>Этаж:<br>
+          Всего этажей:<br>
+          {{#if (eq rental.type 'купить')}}
+            Тип дома:<br>
+          {{/if}}
+        {{else}}
+          Площадь дома:<br>
+          Площадь участка:<br>
+        {{/unless}}
+        {{#if (eq rental.type 'купить')}}
+          <br>Тип продажи:<br>
+        {{/if}}
+      </span>
+    </div>
+    <div style='width: 65%; float: left; padding: 10px 0'>
+      <span>
+        {{input value=rental.price type='number'}}<br><br>
 
-  изображения: {{file-upload rental=rental}}
-  
-  Количество изображений: {{rental.images.length}}
-  {{image-view images=rental.images edit=true}}
+        {{agents-dropdown selected=rental.agent width="100%" any='Любой' commit=(action 'commit_type')}}<br>
+
+        {{custom-dropdown options=typeOptions selected=rental.type width="100%" any='Любой' commit=(action 'commit_type')}}
+
+        {{#if (eq rental.type 'купить')}}
+          {{custom-dropdown options=categoryBuyOptions  selected=rental.property_type width="100%" any='Любой' commit=(action 'commit_property_type')}}
+        {{/if}}
+        {{#if (eq rental.type 'арендовать')}}
+          {{custom-dropdown options=categoryRentOptions selected=rental.property_type width="100%" any='Любой' commit=(action 'commit_property_type')}}
+        {{/if}}
+
+        {{#if (eq rental.property_type 'жилая')}}
+          {{custom-dropdown options=livingOptions     selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+        {{/if}}
+        {{#if (eq rental.property_type 'новостройки')}}
+          {{custom-dropdown options=newOptions        selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+        {{/if}}
+        {{#if (eq rental.property_type 'коммерческая')}}
+          {{custom-dropdown options=commericalOptions selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+        {{/if}}
+        {{#if (eq rental.property_type 'загородная')}}
+          {{custom-dropdown options=countryOptions    selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+        {{/if}}
+
+        <br>
+        {{#unless (eq rental.property_type 'загородная')}}
+          {{custom-dropdown options=districtCity    selected=rental.district width='100%' options-width='802px' any='Любой' commit=(action 'commit') label-width='33.33%'}}
+        {{else}}
+          {{custom-dropdown options=districtCountry selected=rental.district width='100%' options-width='802px' any='Любой' commit=(action 'commit') label-width='33.33%'}}
+        {{/unless}}
+
+
+
+        {{#if (eq rental.property_type 'загородная')}}
+          {{input value=rental.metro}}
+        {{else}}
+          {{input value=rental.metro key-up=(action 'metro_filter')}}
+          <div class="multiple-dropdown-options {{if (eq metro_options.length 0) "hidden"}}" style="width: 350px">
+            {{#each metro_options as |metro_option|}}
+              <div class='no-check' style='max-width: 360px' {{action 'toggleMetro' metro_option}}>
+                <div style='padding-left: 20px'>{{{metro-logo metro_option}}}</div>
+              </div>
+            {{/each}}
+          </div>
+        {{/if}}
+        <br>
+        {{input value=rental.time_on_transport placeholder='в минутах' type='number'}}<br>
+        {{input value=rental.time_on_foot      placeholder='в минутах' type='number'}}<br><br>
+
+        {{input value=rental.address}}<br>
+        {{input value=rental.apartment}}<br><br>
+
+        {{#unless (eq rental.property_type 'загородная')}}
+          {{input value=rental.area placeholder='Общая площадь' type='number'}}<br>
+          {{#unless (eq rental.property_type 'коммерческая')}}
+            {{input value=rental.rooms         type='number'}}<br>
+            {{input value=rental.living_space  type='number'}}<br>
+            {{input value=rental.kitchen_space type='number'}}<br>
+            {{input value=rental.room_space                 }}<br>
+          {{/unless}}
+          <br>
+          {{input value=rental.floor        type='number'}}<br>
+          {{input value=rental.floors_total type='number'}}<br>
+          {{#if (eq rental.type 'купить')}}
+            {{custom-dropdown options=buildingTypeOptions selected=rental.building_type width='100%' any='Тип дома'}}<br>
+          {{/if}}
+        {{else}}
+          {{input value=rental.area     type='number'}}<br>
+          {{input value=rental.lot_area type='number'}}<br>
+        {{/unless}}
+        {{#if (eq rental.type 'купить')}}
+          {{custom-dropdown options=dealStatusOptions selected=rental.deal_status width='100%' any='Тип продажи' commit=(action 'commit')}}<br>
+        {{/if}}
+      </span>
+    </div>
+  </div>
+  Перед Сохранением рекомендуется "Оттипографить" текст описания тут: <a href="https://www.artlebedev.ru/typograf/" target="_blank">Типограф</a><br>
+  {{{textarea cols="80" rows="6" placeholder='Описание' value=rental.description}}}
+  <br><br>
   
   <button class='cancel' {{action 'cancel'}}>Отмена</button>
   <button class='delete' {{action 'delete'}}>Удалить</button>
   <button class='save' {{action 'save'}}>Сохранить</button>
 </div>
-
-
-
-
