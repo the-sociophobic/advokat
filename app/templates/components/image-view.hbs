@@ -36,12 +36,13 @@
 {{/if}}
 
 {{#if zoomed}}
-  <div class='popup-background' {{action 'zoomOut'}}></div>
-  <div class="image-container ">
-    {{#each images as |image index|}}
-      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src="{{image.link}}"/>
-    {{/each}}
+  <div class='popup-background' {{action 'zoomOut'}}>
+  </div>
+  <div class='image-container zoomed'>
     <div class="left-arrow"  {{action 'prevImage'}}></div>
     <div class="right-arrow" {{action 'nextImage'}}></div>
+    {{#each images as |image index|}}
+      <img style='{{unless (eq slideIndex index) 'opacity: 0'}}' src='{{image.link}}' {{action 'nextImage'}}/>
+    {{/each}}
   </div>
 {{/if}}

@@ -3,8 +3,11 @@
     border: 1px solid #d2d2d2;
 }
 .block, .block5 {
+    opacity: .9;
+  /*
     box-shadow: 0px 0px 1px rgba(0, 0, 0, .1);
-    transition: box-shadow 75ms;
+  */
+    transition: box-shadow 75ms, opacity 125ms;
 }
 
 .block {
@@ -16,7 +19,10 @@
 }
 
 .block:hover, .block5:hover {
+    opacity: 1;
+  /*
     box-shadow: 0px 1px 18px rgba(0, 0, 0, .25);
+  */
 }
 
 .block-no-top {
@@ -114,4 +120,9 @@ hr {
     left: 0;
     z-index: 2147483647;
     cursor: pointer;
+}
+
+/* phone widget */
+.rc-trigger {
+  background-color: #01ba7e !important;
 }

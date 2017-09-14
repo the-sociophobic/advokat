@@ -1,50 +1,50 @@
 <div class="body">
+  <div class="page {{if noScroll 'no-scroll'}}">
 
-<div class="page">
+    {{upper-menu}}
 
-  {{upper-menu}}
-  
-  <section class="content">  
-    {{outlet popup=popup}}
-  </section>
+    <section class="content">  
+      {{outlet}}
+    </section>
 
-  <div class="footer">
-    <div class="container">
-      <div style='width: 25%; float: left'>
-        {{#link-to 'services'}}
-          Перечень услуг
-        {{/link-to}}
-      </div>
-      <div style='width: 25%; float: left'>
-        {{#link-to 'rentals'}}
-          Каталог
-        {{/link-to}}<br><br>
-        {{#link-to 'rentals' (query-params type='sell' category='living')}}Жилая недвижимость{{/link-to}}<br>
-        {{#link-to 'rentals' (query-params type='sell' category='new')}}Строящаяся недвижимость{{/link-to}}<br>
-        {{#link-to 'rentals' (query-params type='sell' category='commerical')}}Коммерческая недвижимость{{/link-to}}<br>
-        {{#link-to 'rentals' (query-params type='sell' category='country')}}Загородная недвижимость{{/link-to}}
-      </div>
-      <div style='width: 25%; float: left'>
-        {{#link-to 'contact'}}
-          Контакты
-        {{/link-to}}<br><br>
-        <p style='color: white'>
-        Телефон: +7 (812)309-28-91<br>
-        Санкт-Петербург, Малый пр. В.О. дом 24<br>
-        Email:</p>
+    <div class="footer">
+      <div class="container">
+        <div style='width: 25%; float: left'>
+          {{#link-to 'services'}}
+            Перечень услуг
+          {{/link-to}}
+        </div>
+        <div style='width: 25%; float: left'>
+          {{#link-to 'rentals'}}
+            Каталог
+          {{/link-to}}<br><br>
+          {{#link-to 'rentals' (query-params type='sell' category='living')}}Жилая недвижимость{{/link-to}}<br>
+          {{#link-to 'rentals' (query-params type='sell' category='new')}}Строящаяся недвижимость{{/link-to}}<br>
+          {{#link-to 'rentals' (query-params type='sell' category='commerical')}}Коммерческая недвижимость{{/link-to}}<br>
+          {{#link-to 'rentals' (query-params type='sell' category='country')}}Загородная недвижимость{{/link-to}}
+        </div>
+        <div style='width: 25%; float: left'>
+          {{#link-to 'contact'}}
+            Контакты
+          {{/link-to}}<br><br>
+          <p style='color: white'>
+          Телефон: +7 (812)309-28-91<br>
+          Санкт-Петербург, Малый пр. В.О. дом 24<br>
+          Email:</p>
+        </div>  
+        <div style='width: 286px; float: right; height: 100px; margin-right: 2px'>
+          {{location-map location='В.О. Малый проспект дом 24'}} 
+        </div>  
       </div>  
-      <div style='width: 286px; float: right; height: 100px; margin-right: 2px'>
-        {{location-map location='В.О. Малый проспект дом 24'}} 
-      </div>  
-    </div>  
+    </div>
   </div>
-</div>
 
-  <!-- RedConnect -->
-  <script id="rhlpscrtg" type="text/javascript" charset="utf-8" async="async"
-  src="https://web.redhelper.ru/service/main.js?c=thesociophobic"></script>
-  <div style="display: none"><a class="rc-copyright" 
-  href="http://redconnect.ru">Сервис звонка с сайта RedConnect</a></div>
-  <!--/RedConnect -->
-  
+  {{#if false}}
+    <!-- RedConnect -->
+    <script id="rhlpscrtg" type="text/javascript" charset="utf-8" async="async"
+    src="https://web.redhelper.ru/service/main.js?c=thesociophobic"></script>
+    <div style="display: none"><a class="rc-copyright" 
+    href="http://redconnect.ru">Сервис звонка с сайта RedConnect</a></div>
+    <!--/RedConnect -->
+  {{/if}}
 </div>

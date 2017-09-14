@@ -76,6 +76,11 @@ button:hover {
 .page .page {
     background: white;
 }
+.page.no-scroll {
+  overflow: hidden;
+  max-height: calc(100vh - 343px);
+  min-height: 0;
+}
 
 section.content {
   flex: 1;

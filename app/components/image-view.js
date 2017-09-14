@@ -13,7 +13,7 @@ export default Ember.Component.extend({
   }),
   
   didRender() {
-    var images = this.$('.image-container img');
+    var images = this.$('.image-preview .image-container img');
     for(var i = 0; i < images.length; i++) {
       images[i].addEventListener('load', function() {
         this.className += (this.width / this.height > 92 / 60) ? ' landscape' : ' portrait';
@@ -68,9 +68,11 @@ export default Ember.Component.extend({
     },
     zoomIn() {
       this.set('zoomed', true);
+      //this.get('noScrollToggle')();
     },
     zoomOut() {
       this.set('zoomed', false);
+      //this.get('noScrollToggle')();
     }
   },
 });

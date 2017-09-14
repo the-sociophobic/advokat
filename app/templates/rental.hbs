@@ -1,4 +1,4 @@
-<div class='page'>
+<div class='page {{if noScroll 'no-scroll'}}'>
 <div class="container">
   <div style="margin: 0 0 15px 0; overflow-y: auto">
 
@@ -7,7 +7,7 @@
         <p class="text-20 text-center" style='margin-bottom: 0'>{{{rental-category-rooms model.category model.rooms}}} {{#if (eq model.category 'квартира')}} квартира{{/if}}</p>
         <p class="text-26 text-center" style='margin-bottom: 10px'>{{model.address}}</p>
       </div>
-      {{image-view images=model.images}}
+      {{image-view images=model.images noScrollToggle=(action 'noScrollToggle')}}
     </div>
     <div style="width: calc(50% - 15px); float: left; margin-left: 15px; padding: 0 0 10px 10px">
       <div style="height: 70px; padding: 25px 50px 0 30px">
@@ -15,7 +15,7 @@
         <a style='cursor: pointer; float: right' onClick="window.print()">Распечатать</a>
       </div>
 
-      <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 50px 15px 30px'>
+      <div class='blockk' style='width: 100%; overflow-y: auto; padding: 15px 50px 15px 30px'>
         <span class='text-20'>{{number-spaces model.price}} рублей{{#if (eq model.type 'арендовать')}}/месяц{{/if}}</span>
         {{#if (eq model.type 'купить')}}
           <a style='cursor: pointer; float: right' {{action 'toCalc'}}>{{number-spaces monthly}} руб./мес.</a><br>
@@ -76,7 +76,7 @@
         <button class="left" style='width: calc(50% - 10px); height: 35px' {{action 'popup2'}}>Задать вопрос</button>
       </div>
 
-      <div class='block' style='width: 100%; overflow-y: auto; padding: 15px 15px 15px 100px'>
+      <div class='blockk' style='width: 100%; overflow-y: auto; padding: 15px 15px 15px 100px'>
         <div style='width: 20%;float: left'>
           агент:<br>
           телефон:<br>
