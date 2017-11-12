@@ -47,6 +47,7 @@ export default DS.Model.extend({
   description: DS.attr(),
   
   special: DS.attr(),
+  hidden: DS.attr(),
 
   images: DS.attr(),
 

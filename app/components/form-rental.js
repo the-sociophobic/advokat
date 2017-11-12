@@ -64,6 +64,13 @@ export default Ember.Component.extend({
       else
         this.set('rental.special', 'нет');
     },
+    commit_hidden() {
+      var a = this.get('rental.hidden');
+      if (a === false || a === 'нет' || a === 'false')
+        this.set('rental.hidden', 'да');
+      else
+        this.set('rental.hidden', 'нет');
+    },
     commit_type() {
       this.set('property_type', undefined);
       this.set('category',      undefined);
@@ -99,6 +106,12 @@ export default Ember.Component.extend({
     toggleMetro(label) {
       this.set('rental.metro', label);
       this.set('metro_options', []);
+    },
+    rerenderImages() {
+      this.set('showImages', false);
+      setTimeout(()=>{
+        this.set('showImages', true);
+      }, 2);
     },
   }
 });

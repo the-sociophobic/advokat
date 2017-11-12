@@ -1,5 +1,13 @@
 {{#if filtration}}
-  <div class="rentals-search block block-no-top">
+  <div class="rentals-search block block-no-top edit">
+
+    <div style='width: 100%; height: 60px'>
+      <div class="rentals-radio-panel w3">
+        {{radio-button classs='rentals-radio radio-left'   checkedClass='rentals-radio-checked' checked=allCheck       label='Все'     onCheck=(action 'all') }}
+        {{radio-button classs='rentals-radio radio-center' checkedClass='rentals-radio-checked' checked=catalogueCheck label='Каталог' onCheck=(action 'catalogue')}}
+        {{radio-button classs='rentals-radio radio-right'  checkedClass='rentals-radio-checked' checked=archiveCheck   label='Архив'   onCheck=(action 'archive')}}
+      </div>
+    </div>
 
     <div class="rentals-radio-panel w1">
       {{radio-button classs='rentals-radio radio-left'   checkedClass='rentals-radio-checked' checked=buyCheck        label='Купить'       onCheck=(action 'buy')       }}

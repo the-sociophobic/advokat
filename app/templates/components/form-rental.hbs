@@ -1,12 +1,17 @@
 <div class='rental-input'>
   <div style="width: 50%; float: left; padding-right: 12px">
-    {{file-upload rental=rental}}
-    {{image-view images=rental.images edit=true}}
+    {{file-upload rental=rental commit=(action 'rerenderImages')}}
+    {{#if showImages}}
+      {{image-view images=rental.images edit=true}}
+    {{/if}}
   </div>
   
   <div style="width: calc(50% - 15px); float: left; margin-left: 15px; padding: 0 0 10px 25px">
-    <div style='width: 100%; float: left'>
+    <div style='width: 50%; float: left'>
       {{custom-checkbox label='Показывать на главной' checked=(da-net rental.special) commit=(action 'commit_special')}}
+    </div>
+    <div style='width: 50%; float: left'>
+      {{custom-checkbox label='Скрыть из каталога' checked=(da-net rental.hidden) commit=(action 'commit_hidden')}}
     </div>
     <div style='width: 35%; float: left; padding: 10px 0'>
       <span>
@@ -20,13 +25,15 @@
           Тип:<br><br>
           Район:<br>
         {{/if}}
-        {{#if (eq rental.property_type 'загородная')}}
-          ЖД станция:<br>
-        {{else}}
-          Метро:<br>
+        {{#if rental.property_type}}
+          {{#if (eq rental.property_type 'загородная')}}
+            ЖД станция:<br>
+          {{else}}
+            Метро:<br>
+          {{/if}}
+          Время на транспорте:<br>
+          Время пешком:<br><br>
         {{/if}}
-        Время на транспорте:<br>
-        Время пешком:<br><br>
         Адрес:<br>
         Номер квартиры:<br><br>
         {{#unless (eq rental.property_type 'загородная')}}
@@ -67,42 +74,44 @@
         {{/if}}
 
         {{#if (eq rental.property_type 'жилая')}}
-          {{custom-dropdown options=livingOptions     selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+          {{custom-dropdown options=livingOptions     selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}<br>
         {{/if}}
         {{#if (eq rental.property_type 'новостройки')}}
-          {{custom-dropdown options=newOptions        selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+          {{custom-dropdown options=newOptions        selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}<br>
         {{/if}}
         {{#if (eq rental.property_type 'коммерческая')}}
-          {{custom-dropdown options=commericalOptions selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+          {{custom-dropdown options=commericalOptions selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}<br>
         {{/if}}
         {{#if (eq rental.property_type 'загородная')}}
-          {{custom-dropdown options=countryOptions    selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}
+          {{custom-dropdown options=countryOptions    selected=rental.category width="100%" any='Любой' commit=(action 'commit')}}<br>
         {{/if}}
 
-        <br>
-        {{#unless (eq rental.property_type 'загородная')}}
-          {{custom-dropdown options=districtCity    selected=rental.district width='100%' options-width='802px' any='Любой' commit=(action 'commit') label-width='33.33%'}}
-        {{else}}
-          {{custom-dropdown options=districtCountry selected=rental.district width='100%' options-width='802px' any='Любой' commit=(action 'commit') label-width='33.33%'}}
-        {{/unless}}
-
-
-
-        {{#if (eq rental.property_type 'загородная')}}
-          {{input value=rental.metro}}
-        {{else}}
-          {{input value=rental.metro key-up=(action 'metro_filter')}}
-          <div class="multiple-dropdown-options {{if (eq metro_options.length 0) "hidden"}}" style="width: 350px">
-            {{#each metro_options as |metro_option|}}
-              <div class='no-check' style='max-width: 360px' {{action 'toggleMetro' metro_option}}>
-                <div style='padding-left: 20px'>{{{metro-logo metro_option}}}</div>
-              </div>
-            {{/each}}
-          </div>
+        {{#if rental.property_type}}
+          {{#unless (eq rental.property_type 'загородная')}}
+            {{custom-dropdown options=districtCity    selected=rental.district width='100%' options-width='802px' any='Любой' commit=(action 'commit') label-width='33.33%'}}
+          {{else}}
+            {{custom-dropdown options=districtCountry selected=rental.district width='100%' options-width='802px' any='Любой' commit=(action 'commit') label-width='33.33%'}}
+          {{/unless}}
         {{/if}}
-        <br>
-        {{input value=rental.time_on_transport placeholder='в минутах' type='number'}}<br>
-        {{input value=rental.time_on_foot      placeholder='в минутах' type='number'}}<br><br>
+
+
+        {{#if rental.property_type}}
+          {{#if (eq rental.property_type 'загородная')}}
+            {{input value=rental.metro}}
+          {{else}}
+            {{input value=rental.metro key-up=(action 'metro_filter')}}
+            <div class="multiple-dropdown-options {{if (eq metro_options.length 0) "hidden"}}" style="width: 350px">
+              {{#each metro_options as |metro_option|}}
+                <div class='no-check' style='max-width: 360px' {{action 'toggleMetro' metro_option}}>
+                  <div style='padding-left: 40px; width: 100%; height: 30px;'>{{{metro-logo metro_option}}}</div>
+                </div>
+              {{/each}}
+            </div>
+          {{/if}}
+          <br>
+          {{input value=rental.time_on_transport placeholder='в минутах' type='number'}}<br>
+          {{input value=rental.time_on_foot      placeholder='в минутах' type='number'}}<br><br>
+        {{/if}}
 
         {{input value=rental.address}}<br>
         {{input value=rental.apartment}}<br><br>

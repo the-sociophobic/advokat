@@ -11,6 +11,10 @@ export default Ember.Route.extend({
   },
   
   model() {    
-    return this.get('store').findAll('rental', { reload: true });
+    return this.get('store').findAll('rental', { reload: true }).then(rentals => {
+      return rentals.filter(rental => {
+        return (rental.get('hidden') !== 'да');
+      });
+    });
   }
 });

@@ -24,6 +24,8 @@ export default Ember.Component.extend({
 
   category: undefined,
 
+  folder: undefined,
+
   /* radio buttons */
   buyCheck:        undefined,
   rentCheck:       undefined,
@@ -31,6 +33,9 @@ export default Ember.Component.extend({
   newCheck:        undefined,
   commericalCheck: undefined,
   countryCheck:    undefined,
+  allCheck:        undefined,
+  catalogueCheck:  undefined,
+  archiveCheck:    undefined,
   
   filtration: true,
 
@@ -41,6 +46,9 @@ export default Ember.Component.extend({
     this.set('newCheck',        this.get('property_type') === 'новостройки'  ? true : false);
     this.set('commericalCheck', this.get('property_type') === 'коммерческая' ? true : false);
     this.set('countryCheck',    this.get('property_type') === 'загородная'   ? true : false);
+    this.set('allCheck',        this.get('folder')        === 'all'          ? true : false);
+    this.set('catalogueCheck',  this.get('folder')        === 'catalogue'    ? true : false);
+    this.set('archiveCheck',    this.get('folder')        === 'archive'      ? true : false);
     
     this.send('filter');
   },
@@ -72,9 +80,17 @@ export default Ember.Component.extend({
       this.set('property_type', 'загородная');
       this.set('category', undefined);
     },
-    
+    all() {
+      this.set('folder', 'all');
+    },
+    catalogue() {
+      this.set('folder', 'catalogue');
+    },
+    archive() {
+      this.set('folder', 'archive');
+    },
     filter() {
-      var { type, property_type, category, rooms, area, lot, countryDistrict, cityDistrict, agent } = this.getProperties('type', 'property_type', 'category', 'rooms', 'area', 'lot', 'countryDistrict', 'cityDistrict', 'agent');
+      var { type, property_type, category, rooms, area, lot, countryDistrict, cityDistrict, agent, folder } = this.getProperties('type', 'property_type', 'category', 'rooms', 'area', 'lot', 'countryDistrict', 'cityDistrict', 'agent', 'folder');
       var price = (this.get('type') === 'купить' ? this.get('buy') : this.get('sell'));
       let results;
       
@@ -126,6 +142,15 @@ export default Ember.Component.extend({
             /* agent */
             if (agent) {
               if(rental.get('agent.id') !== agent.id)
+                return false;
+            }
+            /* folder */
+            if (folder === 'catalogue') {
+              if(rental.get('hidden') === 'да')
+                return false;
+            }
+            if (folder === 'archive') {
+              if(rental.get('hidden') !== 'да')
                 return false;
             }
             return true;

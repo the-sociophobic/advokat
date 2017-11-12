@@ -1,17 +1,18 @@
 <div class='container'>
   <br>
     <p class='text-28'>Новости</p>
-  <br>
     {{#each model as |post index|}}
-      <article>
+      <article class='block' style='margin-top: 15px; padding: 20px 40px'>
         <p class='text-left text-20'>{{post.title}}</p>
         <div>
           <small>{{date post.date}}</small>
-          <p class='text-left'>{{post.body}}</p>
+          <p class='text-left' style='line-height: 1.85em'><br>{{post.body}}</p>
         </div>
       </article>
       {{#if (less index (addition model.length -1))}}
         <div class='horizontal-line'></div><br>
+      {{else}}
+        <br>
       {{/if}}
     {{/each}}
 </div>

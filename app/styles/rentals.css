@@ -8,6 +8,9 @@
   overflow: none;
 }
 
+.edit.rentals-search {
+  height: 245px;
+}
 .search-wide {
   width: 100vw;
   padding-left: calc(50vw - 512px);

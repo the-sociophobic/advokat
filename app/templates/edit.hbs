@@ -1,53 +1,55 @@
-<div class='container'>  
-  {{#custom-accordion title='Просьбы перезвонить'}}
-    {{#each model.callbacks as |callback index|}}
-      {{callback-listing callback=callback}}
-      {{#if (less index (addition model.callbacks.length -1))}}
+<div style='background: white'>
+  <div class='container'>  
+    {{#custom-accordion title='Просьбы перезвонить'}}
+      {{#each model.callbacks as |callback index|}}
+        {{callback-listing callback=callback}}
+        {{#if (less index (addition model.callbacks.length -1))}}
+            <hr>
+        {{/if}}
+      {{/each}}
+    {{/custom-accordion}}
+
+    {{#custom-accordion title='Редактировать Объявления' minHeight='800px' expanded=true}}
+      {{rentals-search-edit rentals=model.rentals agents=model.agents type=type property_type=property_type folder=folder}}
+      <div style='height: 50px; padding-top: 12px'>
+        {{#link-to 'rental-new' class='save'}}Добавить{{/link-to}}
+      </div>
+    {{/custom-accordion}}
+
+    {{#custom-accordion title='Редактировать Агентов'}}
+      {{#each model.agents as |agent index|}}
+        {{agent-listing-edit agent=agent}}
+        {{#if (less index (addition model.agents.length -1))}}
           <hr>
-      {{/if}}
-    {{/each}}
-  {{/custom-accordion}}
+        {{/if}}
+      {{/each}}
+      <div style='height: 50px; padding-top: 12px'>
+        {{#link-to 'agent-new' class='save'}}Добавить{{/link-to}}
+      </div>
+    {{/custom-accordion}}
 
-  {{#custom-accordion title='Редактировать Объявления' minHeight='800px'}}
-    {{rentals-search-edit rentals=model.rentals agents=model.agents type=type property_type=property_type}}
-    <div style='height: 50px; padding-top: 12px'>
-      {{#link-to 'rental-new' class='save'}}Добавить{{/link-to}}
-    </div>
-  {{/custom-accordion}}
+    {{#custom-accordion title='Редактировать Отзывы'}}
+      {{#each model.feedbacks as |feedback index|}}
+        {{feedback-listing-edit feedback=feedback}}
+        {{#if (less index (addition model.feedbacks.length -1))}}
+          <hr>
+        {{/if}}
+      {{/each}}
+      <div style='height: 50px; padding-top: 12px'>
+        {{#link-to 'feedback-new' class='save'}}Добавить{{/link-to}}
+      </div>
+    {{/custom-accordion}}
 
-  {{#custom-accordion title='Редактировать Агентов'}}
-    {{#each model.agents as |agent index|}}
-      {{agent-listing-edit agent=agent}}
-      {{#if (less index (addition model.agents.length -1))}}
-        <hr>
-      {{/if}}
-    {{/each}}
-    <div style='height: 50px; padding-top: 12px'>
-      {{#link-to 'agent-new' class='save'}}Добавить{{/link-to}}
-    </div>
-  {{/custom-accordion}}
-
-  {{#custom-accordion title='Редактировать Отзывы'}}
-    {{#each model.feedbacks as |feedback index|}}
-      {{feedback-listing-edit feedback=feedback}}
-      {{#if (less index (addition model.feedbacks.length -1))}}
-        <hr>
-      {{/if}}
-    {{/each}}
-    <div style='height: 50px; padding-top: 12px'>
-      {{#link-to 'feedback-new' class='save'}}Добавить{{/link-to}}
-    </div>
-  {{/custom-accordion}}
-  
-  {{#custom-accordion title='Редактировать Новости'}}
-    {{#each model.posts as |post index|}}
-      {{post-listing-edit post=post}}
-      {{#if (less index (addition model.posts.length -1))}}
-        <hr>
-      {{/if}}
-    {{/each}}
-    <div style='height: 50px; padding-top: 12px'>
-      {{#link-to 'post-new' class='save'}}Добавить{{/link-to}}
-    </div>
-  {{/custom-accordion}}
+    {{#custom-accordion title='Редактировать Новости'}}
+      {{#each model.posts as |post index|}}
+        {{post-listing-edit post=post}}
+        {{#if (less index (addition model.posts.length -1))}}
+          <hr>
+        {{/if}}
+      {{/each}}
+      <div style='height: 50px; padding-top: 12px'>
+        {{#link-to 'post-new' class='save'}}Добавить{{/link-to}}
+      </div>
+    {{/custom-accordion}}
+  </div>
 </div>

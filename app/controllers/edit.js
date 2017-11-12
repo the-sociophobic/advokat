@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   
   type: 'купить',
   property_type: 'жилая',
+  folder: 'all',
   
   actions: {
     newRental() {

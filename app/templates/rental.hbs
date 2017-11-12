@@ -94,7 +94,7 @@
       </div>
     </div>
   </div>
-  {{location-map location=(spb-address model.address)}} 
+  {{location-map location=model.address}}
   {{#if (eq model.type 'купить')}}
     <p class='text-20 text-center'>калькулятор ипотеки</p>
     {{mortgage-calc total=model.price monthly=monthly}}

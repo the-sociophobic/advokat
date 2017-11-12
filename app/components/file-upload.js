@@ -25,7 +25,7 @@ export default EmberUploader.FileField.extend({
         // Handle success
       }, function(error) {
         // Handle failure
-      let maxLink = 0;
+        let maxLink = 0;
         that.get('store').findAll('binary').then(a => {
           a.toArray().forEach(item => {
             if (maxLink === 0)
@@ -38,6 +38,7 @@ export default EmberUploader.FileField.extend({
           rental.get('images').push({ link: maxLink });
         });
         
+        this.get('commit')();
       });
     }
   }
